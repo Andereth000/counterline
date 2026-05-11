@@ -1,13 +1,17 @@
 ---
-title: "Inflation Apparently Has Occurred"
-slug: "inflation-apparently-has-occurred"
-date: "2026-04-28"
-author: "Nadège Ngomsi"
-description: "The Price Hike Now Presented as Weather"
-desks: ["spectacle"]
-subdesk: "The Ongoing Surprise"
-original_headline: "Economy"
 draft: false
+original_headline: Economy
+title: Inflation Apparently Has Occurred
+date: 2026-04-28
+author: Nadège Ngomsi
+description: The Price Hike Now Presented as Weather
+featured_image: https://images.pexels.com/photos/19813730/pexels-photo-19813730.jpeg
+slug: inflation-apparently-has-occurred
+desks:
+  - spectacle
+sections:
+  - society-economy
+subdesk: The Ongoing Surprise
 ---
 
 Inflation we are often told has arrived like weather: atmospheric, regrettable, and faintly impolite. Prices rise, officials frown, anchors lower their voices, and an entire political class behaves as though the cost of living were a mysterious force drifting in from offshore. This is a convenient genre. It permits grave concern without requiring much memory. But inflation is not a storm front. It is not a mood. It is not one expensive grocery item promoted into a national allegory. It is a general rise in prices over time, and it usually has causes plain enough to name if one is willing to interrupt the ritual bewilderment.
