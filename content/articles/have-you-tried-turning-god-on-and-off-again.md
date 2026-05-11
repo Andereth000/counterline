@@ -1,13 +1,19 @@
 ---
-title: "Have You Tried Turning God On and Off Again?"
-slug: "have-you-tried-turning-god-on-and-off-again"
-date: "2026-04-28"
-author: "Nadège Ngomsi"
-description: "White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off."
-desks: ["spectacle"]
-subdesk: "Panic Bulletin"
-original_headline: "Politics"
 draft: false
+original_headline: Politics
+title: Have You Tried Turning God On and Off Again?
+date: 2026-04-28
+author: Nadège Ngomsi
+description: "White Christian nationalism has found an elegant solution to its
+  public-image problem: when it wants to sound righteous, God is on; when it
+  wants to sound persecuted, God is off."
+featured_image: https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original
+slug: have-you-tried-turning-god-on-and-off-again
+desks:
+  - spectacle
+sections:
+  - society-economy
+subdesk: Panic Bulletin
 ---
 
 A Minor Technical Issue
