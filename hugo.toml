@@ -1,0 +1,124 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-US'
+title = 'The Counterline'
+theme = 'hugo-news'
+
+[params]
+  description = "The Counterline"
+  author = "The Counterline"
+
+[taxonomies]
+  desk = "desks"
+  section = "sections"
+  author = "authors"
+  tag = "tags"
+
+[pagination]
+  pagerSize = 10
+
+[build]
+  writeStats = true
+  noJSConfigInAssets = false
+
+[build.cachebusters]
+  [build.cachebusters."(postcss|tailwind)\\.config\\.js"]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# Desks dropdown
+[[menus.main]]
+  name = "Desks"
+  identifier = "desks"
+  weight = 10
+
+[[menus.main]]
+  name = "Spectacle"
+  parent = "desks"
+  url = "/desks/spectacle/"
+  weight = 1
+
+[[menus.main]]
+  name = "Economic Assumption"
+  parent = "desks"
+  url = "/desks/economic-assumption/"
+  weight = 2
+
+[[menus.main]]
+  name = "Headline Analysis"
+  parent = "desks"
+  url = "/desks/headline-analysis/"
+  weight = 3
+
+[[menus.main]]
+  name = "Old News"
+  parent = "desks"
+  url = "/desks/old-news/"
+  weight = 4
+
+[[menus.main]]
+  name = "Press Check"
+  parent = "desks"
+  url = "/desks/press-check/"
+  weight = 5
+
+[[menus.main]]
+  name = "The Record"
+  parent = "desks"
+  url = "/desks/the-record/"
+  weight = 6
+
+# Top level sections
+[[menus.main]]
+  name = "Society & Economy"
+  url = "/sections/society-economy/"
+  weight = 20
+
+[[menus.main]]
+  name = "Culture & Media"
+  url = "/sections/culture-media/"
+  weight = 30
+
+[[menus.main]]
+  name = "Filmrem"
+  url = "/sections/filmrem/"
+  weight = 40
+
+[[menus.main]]
+  name = "The Counterline Standard"
+  url = "/sections/the-counterline-standard/"
+  weight = 50
+  
+# Utilities dropdown
+[[menus.main]]
+  name = "More"
+  identifier = "utilities"
+  weight = 60
+
+[[menus.main]]
+  name = "About"
+  parent = "utilities"
+  url = "/about/"
+  weight = 1
+
+[[menus.main]]
+  name = "Subscribe"
+  parent = "utilities"
+  url = "/subscribe/"
+  weight = 2
+
+[[menus.main]]
+  name = "Donate"
+  parent = "utilities"
+  url = "/donate/"
+  weight = 3
+
+[[menus.main]]
+  name = "Archive"
+  parent = "utilities"
+  url = "/archive/"
+  weight = 4
+
+  

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Economic-Assumption on The Counterline</title>
+    <link>http://localhost:1313/desks/economic-assumption/</link>
+    <description>Recent content in Economic-Assumption on The Counterline</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 10 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/desks/economic-assumption/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Article</title>
+      <link>http://localhost:1313/articles/test-article/</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/articles/test-article/</guid>
+      <description>&lt;p&gt;This is the body of the test article. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
