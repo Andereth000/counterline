@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://dancing-lily-98f91e.netlify.app/'
 languageCode = 'en-US'
 title = 'The Counterline'
 theme = 'hugo-news'
@@ -90,7 +90,7 @@ theme = 'hugo-news'
   name = "The Counterline Standard"
   url = "/sections/the-counterline-standard/"
   weight = 50
-  
+
 # Utilities dropdown
 [[menus.main]]
   name = "More"
