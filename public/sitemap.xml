@@ -86,49 +86,40 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/articles/axios-ceasefire-power-struggle/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-28T00:00:00&#43;00:00</news:publication_date>
+      <news:title>Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/desks/</loc>
     
-    <lastmod>2026-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     
     
     
   </url>
   
   <url>
-    <loc>http://localhost:1313/desks/economic-assumption/</loc>
+    <loc>http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/</loc>
     
-    <lastmod>2026-05-10T00:00:00+00:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/sections/</loc>
-    
-    <lastmod>2026-05-10T00:00:00+00:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/sections/society-economy/</loc>
-    
-    <lastmod>2026-05-10T00:00:00+00:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/articles/test-article/</loc>
-    
-    <lastmod>2026-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     
     
     <image:image>
-      <image:loc>http://localhost:1313/images/test.jpg</image:loc>
+      <image:loc>https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original</image:loc>
     </image:image>
     
     
@@ -137,8 +128,120 @@
         <news:name>The Counterline</news:name>
         <news:language>en-US</news:language>
       </news:publication>
-      <news:publication_date>2026-05-10T00:00:00&#43;00:00</news:publication_date>
-      <news:title>Test Article</news:title>
+      <news:publication_date>2026-04-28T00:00:00&#43;00:00</news:publication_date>
+      <news:title>Have You Tried Turning God On and Off Again?</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/headline-autopsy/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/articles/inflation-apparently-has-occurred/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/19813730/pexels-photo-19813730.jpeg</image:loc>
+    </image:image>
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-28T00:00:00&#43;00:00</news:publication_date>
+      <news:title>Inflation Apparently Has Occurred</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/articles/iran-war-live-updates-mixed-signals/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-28T00:00:00&#43;00:00</news:publication_date>
+      <news:title>Iran War Live Updates Tehran and Trump Send Mixed Signals</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/press-check/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/society-economy/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/spectacle-desk/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/the-record/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/articles/vote-haitian-tps-immigration-rule/</loc>
+    
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-28T00:00:00&#43;00:00</news:publication_date>
+      <news:title>The Vote on Haitian TPS Revealed How Immigration Rule Actually Works</news:title>
     </news:news>
     
   </url>
@@ -285,12 +388,54 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/sections/the-counterline-standard/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/culture-media/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/economic-synthesis/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/filmrem/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/authors/luna-rainbow/</loc>
     
     
     <image:image>
       <image:loc>http://localhost:1313/luna.png</image:loc>
     </image:image>
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/old-news/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/politics/</loc>
+    
     
     
   </url>

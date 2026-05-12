@@ -5,87 +5,487 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archive | The Counterline</title>
-    
-    
+
     <meta name="description" content="The Counterline">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="http://localhost:1313/archive/">
-    
-    
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="Archive | The Counterline">
     <meta property="og:description" content="The Counterline">
     <meta property="og:url" content="http://localhost:1313/archive/">
     
-    
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Archive | The Counterline">
     <meta name="twitter:description" content="The Counterline">
     
+
     
-    
-    
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/main.css">
         <script defer src="/js/alpine.js"></script>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <a href="/" class="text-2xl font-bold text-gray-800">The Counterline</a>
-                <div class="flex space-x-4">
-                    
-                    <a href="" class="text-gray-700 hover:text-gray-900">Desks</a>
-                    
-                    <a href="/sections/society-economy/" class="text-gray-700 hover:text-gray-900">Society &amp; Economy</a>
-                    
-                    <a href="/sections/culture-media/" class="text-gray-700 hover:text-gray-900">Culture &amp; Media</a>
-                    
-                    <a href="/sections/filmrem/" class="text-gray-700 hover:text-gray-900">Filmrem</a>
-                    
-                    <a href="/sections/the-counterline-standard/" class="text-gray-700 hover:text-gray-900">The Counterline Standard</a>
-                    
-                    <a href="" class="text-gray-700 hover:text-gray-900">More</a>
-                    
-                    <div x-data="{ open: false }" class="relative">
-                        <button @click="open = !open" class="text-gray-700 hover:text-gray-900">Search</button>
-                        <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg">
-                            <form action="/search" method="get" class="p-4">
-                                <input type="text" name="q" placeholder="Search..." class="w-full px-3 py-2 border rounded-md">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body class="bg-white">
+    <header class="w-full bg-white" x-data="{ mobileOpen: false }">
+  <div class="max-w-[1360px] mx-auto px-4 md:px-[50px] py-6 md:py-[50px] flex flex-col items-center gap-4 md:gap-5">
 
-    <main class="container mx-auto px-6 py-8">
-        
-<div class="max-w-4xl mx-auto">
-    <header class="mb-8">
-        <h1 class="text-4xl font-bold">
-            
-                Archive
-            
-        </h1>
-        
-    </header>
+    
+    <a href="/" class="flex items-center gap-0 no-underline text-black">
+      <div class="relative shrink-0 w-[75px] h-[39px] md:w-[122px] md:h-[63px]">
+        <img alt="" class="absolute inset-0 w-full h-full" src="https://www.figma.com/api/mcp/asset/3cbd2d72-8200-4489-8171-0a3025d5e221">
+        <img alt="" class="absolute" style="left:55.9%;top:2.9%;width:2.65%;height:97.1%;" src="https://www.figma.com/api/mcp/asset/563d6696-0c49-43ef-8abd-6cc458b32043">
+      </div>
+      <div class="flex flex-col items-center gap-[8px] md:gap-[15px]">
+        <span class="font-montserrat font-semibold text-[28px] md:text-[48px] leading-none text-black whitespace-nowrap">THE COUNTERLINE</span>
+        <div class="flex items-center gap-[6px] md:gap-[10px]">
+          <span class="block w-[12px] md:w-[20px] border-t border-black"></span>
+          <span class="font-montserrat font-bold text-[8px] md:text-[14px] leading-none text-black tracking-[2px] md:tracking-[4.2px] whitespace-nowrap">STRUCTURE WITHOUT SPECTACLE</span>
+          <span class="block w-[12px] md:w-[20px] border-t border-black"></span>
+        </div>
+      </div>
+    </a>
 
-    <div class="grid gap-8 md:grid-cols-2">
-        
+    
+    <nav class="hidden md:flex flex-wrap items-center justify-center gap-5 w-full">
+      <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">POLITICS</a>
+      <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">CULTURE &amp; MEDIA</a>
+      <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">SOCIETY &amp; ECONOMY</a>
+      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
+      <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">FILMREM</a>
+      <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">CL STANDARD</a>
+      <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">ARCHIVE</a>
+      <div class="relative" x-data="{ open: false }" x-on:click.outside="open = false">
+        <button
+          x-on:click="open = !open"
+          class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:opacity-70 whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center gap-1"
+        >ABOUT <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span></button>
+        <div
+          x-show="open"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="opacity-0 -translate-y-1"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-1"
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+        >
+          <a href="/about/#mission-values" x-on:click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] whitespace-nowrap">Mission &amp; Values</a>
+          <a href="/about/#how-we-report" x-on:click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] whitespace-nowrap">How We Report</a>
+        </div>
+      </div>
+      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
+      <a href="/subscribe/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">SUBSCRIBE</a>
+      <a href="/donate/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:opacity-70 whitespace-nowrap">DONATE</a>
+      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
+      <a href="/account/" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-3 py-1.5 border border-black text-black no-underline hover:bg-black hover:text-white transition-colors whitespace-nowrap">LOG IN / JOIN</a>
+    </nav>
+
+    
+    <div class="hidden md:flex justify-center w-full">
+      <form action="/search/" method="get" class="relative w-full max-w-[320px]">
+        <svg class="absolute left-[10px] top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          type="text"
+          name="q"
+          placeholder="SEARCH..."
+          class="w-full pl-8 pr-3 py-[6px] border border-[#d8d6d0] focus:border-[#822626] focus:outline-none text-[12px] font-lora text-black bg-white tracking-[0.04em]"
+          style="border-radius:0"
+        >
+      </form>
     </div>
 
     
+    <div class="flex md:hidden w-full items-center gap-3">
+      <form action="/search/" method="get" class="relative flex-1">
+        <svg class="absolute left-[10px] top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          type="text"
+          name="q"
+          placeholder="SEARCH..."
+          class="w-full pl-8 pr-3 py-[6px] border border-[#d8d6d0] focus:border-[#822626] focus:outline-none text-[12px] font-lora text-black bg-white tracking-[0.04em]"
+          style="border-radius:0"
+        >
+      </form>
+      <button
+        x-on:click="mobileOpen = !mobileOpen"
+        class="p-1 text-black hover:opacity-70 transition-opacity flex-shrink-0"
+        aria-label="Toggle menu"
+      >
+        <svg x-show="!mobileOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg x-show="mobileOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div
+      x-show="mobileOpen"
+      x-transition:enter="transition ease-out duration-150"
+      x-transition:enter-start="opacity-0 -translate-y-2"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100 translate-y-0"
+      x-transition:leave-end="opacity-0 -translate-y-2"
+      class="w-full md:hidden flex flex-col border-t border-[#d8d6d0] pt-2"
+    >
+      <a href="/sections/politics/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">POLITICS</a>
+      <a href="/sections/culture-media/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">CULTURE &amp; MEDIA</a>
+      <a href="/sections/society-economy/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">SOCIETY &amp; ECONOMY</a>
+      <a href="/sections/filmrem/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">FILMREM</a>
+      <a href="/sections/the-counterline-standard/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">CL STANDARD</a>
+      <a href="/archive/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">ARCHIVE</a>
+      <a href="/about/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">ABOUT</a>
+      <a href="/subscribe/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">SUBSCRIBE</a>
+      <a href="/donate/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:opacity-70">DONATE</a>
+      <a href="/account/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 hover:opacity-70">LOG IN / JOIN</a>
+    </div>
+
+  </div>
+</header>
+
+    
+
+
+
+
+
+
+<div class="w-full">
+
+  
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0]">
+    
+    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black">Archive</h1>
+    
+  </div>
+
+  
+  
+  <div class="max-w-[1360px] mx-auto px-[50px] py-20 text-center">
+    <p class="font-montserrat text-[#d8d6d0] text-[12px] tracking-[1.4px] uppercase">No articles yet</p>
+  </div>
+  
+
 </div>
 
-    </main>
 
-    <footer class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-4">
-            <p class="text-center">&copy; 2026 The Counterline. All rights reserved.</p>
-        </div>
-    </footer>
+
+    <style>
+  .footer { background: #000; color: #fff; font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
+  .footer a { color: inherit; text-decoration: none; }
+  .footer a:hover { color: #822626; }
+
+   
+  .member-banner {
+    border-bottom: 1px solid #2a2a2a;
+    padding: 32px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+  }
+  @media (max-width: 860px) { .member-banner { grid-template-columns: 1fr; } }
+  .member-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #822626;
+    margin-bottom: 8px;
+  }
+  .member-title {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .member-desc {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #888;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+  .member-tiers { display: flex; gap: 10px; flex-shrink: 0; }
+  .member-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+
+  .member-red { background: #822626; color: #fff; border: none; }
+  .member-red:hover { background: #5e1b1b; }
+
+   
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  @media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px)  { .footer-grid { grid-template-columns: 1fr; } }
+
+  .footer-col { padding: 32px; border-right: 1px solid #2a2a2a; }
+  .footer-col:last-child { border-right: none; }
+
+  .footer-brand-name {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .footer-brand-tag {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .footer-mission {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .social-links { display: flex; flex-direction: column; gap: 8px; }
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #888;
+    transition: color .15s;
+  }
+  .social-link:hover { color: #fff !important; }
+  .social-icon {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 900;
+    flex-shrink: 0;
+    transition: border-color .15s;
+    font-style: normal;
+  }
+  .social-link:hover .social-icon { border-color: #fff; }
+
+  .footer-col-head {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .footer-links { display: grid; gap: 0; }
+  .footer-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color .15s;
+    letter-spacing: .02em;
+  }
+  .footer-link:last-child { border-bottom: none; }
+  .footer-link:hover { color: #fff; }
+  .footer-link-arrow { font-size: 10px; opacity: 0; transition: opacity .15s; }
+  .footer-link:hover .footer-link-arrow { opacity: 1; }
+
+   
+  .crib-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    margin-top: 14px;
+  }
+  .crib-mini-item { background: #000; padding: 10px 8px; text-align: center; }
+  .crib-mini-l {
+    font-size: 16px;
+    font-weight: 900;
+    color: #822626;
+    line-height: 1;
+    display: block;
+  }
+  .crib-mini-word {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-top: 3px;
+  }
+
+   
+  .footer-bottom {
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom-left {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    color: #888;
+  }
+  .footer-bottom-right {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 11px;
+    font-style: italic;
+    color: #888;
+    letter-spacing: .02em;
+  }
+</style>
+
+<footer class="footer">
+
+  
+  <div class="member-banner">
+    <div class="member-left">
+      <div class="member-eyebrow">Become a CounterLine Member</div>
+      <div class="member-title">Join the Publication</div>
+      <p class="member-desc">Members can post comments and participate in the CounterLine community. Free for everyone.</p>
+    </div>
+    <div class="member-tiers">
+      <a href="/subscribe/" class="member-btn member-red">Become A Member →</a>
+    </div>
+  </div>
+
+  
+  <div class="footer-grid">
+
+    
+    <div class="footer-col">
+      <div class="footer-brand-name">The Counterline</div>
+      <div class="footer-brand-tag">Structure without spectacle.</div>
+      
+      <div class="social-links">
+        <a class="social-link" href="#">
+          <span class="social-icon">𝕏</span>Twitter / X
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">in</span>LinkedIn
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">f</span>Facebook
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">☁</span>Bluesky
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">IG</span>Instagram
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">▶</span>YouTube
+        </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-col">
+      <div class="footer-col-head">Navigation</div>
+      <div class="footer-links">
+        <a class="footer-link" href="/sections/politics/">Politics<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/culture-media/">Culture &amp; Media<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/society-economy/">Society &amp; Economy<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/filmrem/">FilmRem<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/the-counterline-standard/">CL Standard<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/archive/">Archive<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/about/">About<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/subscribe/">Subscribe<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/donate/">Donate<span class="footer-link-arrow">→</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-col">
+      <div class="footer-col-head">Editorial Desks</div>
+      <div class="footer-links">
+        <a class="footer-link" href="/desks/the-record/">The Record<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/press-check/">Press Check<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/spectacle-desk/">Spectacle Desk<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/headline-autopsy/">Headline Autopsy<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/economic-synthesis/">Economic Synthesis<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/old-news/">Old News<span class="footer-link-arrow">→</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-col">
+      <div class="footer-col-head">The CRIBSRAC Framework</div>
+      <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
+      <div class="crib-mini">
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Reflexivity</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">A</span><span class="crib-mini-word">Agency</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective</span></div>
+      </div>
+      <a href="/about/#cribsrac" style="display:block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#822626;">Learn the Framework →</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">&copy; 2026 The Counterline &middot; Independent Publication &middot; All rights reserved</div>
+    
+  </div>
+
+</footer>
+
 </body>
 </html>

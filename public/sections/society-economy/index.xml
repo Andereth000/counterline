@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Society-Economy on The Counterline</title>
+    <title>Society &amp; Economy on The Counterline</title>
     <link>http://localhost:1313/sections/society-economy/</link>
-    <description>Recent content in Society-Economy on The Counterline</description>
+    <description>Recent content in Society &amp; Economy on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 10 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/sections/society-economy/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test Article</title>
-      <link>http://localhost:1313/articles/test-article/</link>
-      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/test-article/</guid>
-      <description>&lt;p&gt;This is the body of the test article. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;</description>
+      <title>Have You Tried Turning God On and Off Again?</title>
+      <link>http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/</guid>
+      <description>&lt;p&gt;A Minor Technical Issue&lt;/p&gt;&#xA;&lt;p&gt;White Christian nationalism is having one of its recurring moral emergencies. You know the style: the tone is grave, the language is biblical, and the policy goals are suspiciously administrative. The public is informed that civilization itself will collapse unless women are subdued, voting is narrowed, and democracy becomes rather more selective about who qualifies as the people. The crisis, however, is not theological. It is technical. The God switch appears to be malfunctioning. When the movement wants to sound moral, God is on. When it wants to sound victimized, God is off. Once you notice the toggle, the rest of the performance becomes easier to read.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inflation Apparently Has Occurred</title>
+      <link>http://localhost:1313/articles/inflation-apparently-has-occurred/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/articles/inflation-apparently-has-occurred/</guid>
+      <description>&lt;p&gt;Inflation we are often told has arrived like weather: atmospheric, regrettable, and faintly impolite. Prices rise, officials frown, anchors lower their voices, and an entire political class behaves as though the cost of living were a mysterious force drifting in from offshore. This is a convenient genre. It permits grave concern without requiring much memory. But inflation is not a storm front. It is not a mood. It is not one expensive grocery item promoted into a national allegory. It is a general rise in prices over time, and it usually has causes plain enough to name if one is willing to interrupt the ritual bewilderment.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
