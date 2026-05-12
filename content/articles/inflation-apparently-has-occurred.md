@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 original_headline: Economy
 title: Inflation Apparently Has Occurred
 date: 2026-04-28
