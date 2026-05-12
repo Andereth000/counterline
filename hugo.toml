@@ -35,39 +35,39 @@ theme = 'hugo-news'
   weight = 10
 
 [[menus.main]]
-  name = "Spectacle"
+  name = "The Record"
   parent = "desks"
-  url = "/desks/spectacle/"
+  url = "/desks/the-record/"
   weight = 1
-
-[[menus.main]]
-  name = "Economic Assumption"
-  parent = "desks"
-  url = "/desks/economic-assumption/"
-  weight = 2
-
-[[menus.main]]
-  name = "Headline Analysis"
-  parent = "desks"
-  url = "/desks/headline-analysis/"
-  weight = 3
-
-[[menus.main]]
-  name = "Old News"
-  parent = "desks"
-  url = "/desks/old-news/"
-  weight = 4
 
 [[menus.main]]
   name = "Press Check"
   parent = "desks"
   url = "/desks/press-check/"
+  weight = 2
+
+[[menus.main]]
+  name = "Spectacle Desk"
+  parent = "desks"
+  url = "/desks/spectacle-desk/"
+  weight = 3
+
+[[menus.main]]
+  name = "Headline Autopsy"
+  parent = "desks"
+  url = "/desks/headline-autopsy/"
+  weight = 4
+
+[[menus.main]]
+  name = "Economic Synthesis"
+  parent = "desks"
+  url = "/desks/economic-synthesis/"
   weight = 5
 
 [[menus.main]]
-  name = "The Record"
+  name = "Old News"
   parent = "desks"
-  url = "/desks/the-record/"
+  url = "/desks/old-news/"
   weight = 6
 
 # Top level sections

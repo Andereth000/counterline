@@ -1,0 +1,100 @@
+{{ define "main" }}
+
+{{/* Section/page content (About, Subscribe, Donate, etc.) */}}
+{{ if and (not .Data.Singular) .Content }}
+<div class="max-w-[800px] mx-auto px-6 py-12 article-body">
+  {{ .Content }}
+</div>
+
+<style>
+.article-body p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #222221;
+  margin-bottom: 1.4em;
+}
+.article-body h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  color: #000;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid #000;
+}
+.article-body h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.article-body ul, .article-body ol {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #222221;
+  padding-left: 1.5em;
+  margin-bottom: 1.4em;
+}
+.article-body li { margin-bottom: 0.4em; }
+.article-body strong { font-weight: 700; }
+.article-body a { color: #822626; text-decoration: underline; }
+</style>
+{{ end }}
+
+{{/* Article list for taxonomy/section pages */}}
+{{ if or .Data.Singular (not .Content) }}
+<div class="w-full">
+
+  {{/* Page header */}}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0]">
+    {{ if .Data.Singular }}
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">{{ .Data.Plural | title }}</p>
+    {{ end }}
+    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  {{/* Article grid */}}
+  {{ if .Pages }}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" class="flex flex-col no-underline group">
+        <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+          {{ with .Params.featured_image }}
+          <img src="{{ . }}" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+          {{ end }}
+        </div>
+        <div class="pt-3 flex flex-col gap-2">
+          {{ with .Params.desks }}{{ range first 1 . }}<span class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#822626]">{{ . }}</span>{{ end }}{{ end }}
+          <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:opacity-70 transition-opacity">{{ .Title }}</p>
+          {{ with .Description }}
+          <p class="font-lora italic text-[#5a5a5a] text-[13px] leading-relaxed line-clamp-3">{{ . }}</p>
+          {{ end }}
+          <div class="flex items-center gap-2 mt-1">
+            <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">{{ .Date.Format "Jan 2, 2006" }}</p>
+            {{ with .Params.author }}<span class="text-[#d8d6d0] text-[10px]">·</span><p class="font-montserrat text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">{{ . }}</p>{{ end }}
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ else }}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-20 text-center">
+    <p class="font-montserrat text-[#d8d6d0] text-[12px] tracking-[1.4px] uppercase">No articles yet</p>
+  </div>
+  {{ end }}
+
+</div>
+{{ end }}
+
+{{ end }}

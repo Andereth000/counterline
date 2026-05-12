@@ -1,0 +1,299 @@
+<style>
+  .footer { background: #000; color: #fff; font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
+  .footer a { color: inherit; text-decoration: none; }
+  .footer a:hover { color: #822626; }
+
+  /* ── MEMBERSHIP BANNER ── */
+  .member-banner {
+    border-bottom: 1px solid #2a2a2a;
+    padding: 32px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+  }
+  @media (max-width: 860px) { .member-banner { grid-template-columns: 1fr; } }
+  .member-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #822626;
+    margin-bottom: 8px;
+  }
+  .member-title {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .member-desc {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #888;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+  .member-tiers { display: flex; gap: 10px; flex-shrink: 0; }
+  .member-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+
+  .member-red { background: #822626; color: #fff; border: none; }
+  .member-red:hover { background: #5e1b1b; }
+
+  /* ── MAIN FOOTER GRID ── */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  @media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px)  { .footer-grid { grid-template-columns: 1fr; } }
+
+  .footer-col { padding: 32px; border-right: 1px solid #2a2a2a; }
+  .footer-col:last-child { border-right: none; }
+
+  .footer-brand-name {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .footer-brand-tag {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .footer-mission {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .social-links { display: flex; flex-direction: column; gap: 8px; }
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #888;
+    transition: color .15s;
+  }
+  .social-link:hover { color: #fff !important; }
+  .social-icon {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 900;
+    flex-shrink: 0;
+    transition: border-color .15s;
+    font-style: normal;
+  }
+  .social-link:hover .social-icon { border-color: #fff; }
+
+  .footer-col-head {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .footer-links { display: grid; gap: 0; }
+  .footer-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color .15s;
+    letter-spacing: .02em;
+  }
+  .footer-link:last-child { border-bottom: none; }
+  .footer-link:hover { color: #fff; }
+  .footer-link-arrow { font-size: 10px; opacity: 0; transition: opacity .15s; }
+  .footer-link:hover .footer-link-arrow { opacity: 1; }
+
+  /* CRIBSRAC mini grid */
+  .crib-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    margin-top: 14px;
+  }
+  .crib-mini-item { background: #000; padding: 10px 8px; text-align: center; }
+  .crib-mini-l {
+    font-size: 16px;
+    font-weight: 900;
+    color: #822626;
+    line-height: 1;
+    display: block;
+  }
+  .crib-mini-word {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ── BOTTOM BAR ── */
+  .footer-bottom {
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom-left {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    color: #888;
+  }
+  .footer-bottom-right {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 11px;
+    font-style: italic;
+    color: #888;
+    letter-spacing: .02em;
+  }
+</style>
+
+<footer class="footer">
+
+  {{/* Membership banner */}}
+  <div class="member-banner">
+    <div class="member-left">
+      <div class="member-eyebrow">Become a CounterLine Member</div>
+      <div class="member-title">Join the Publication</div>
+      <p class="member-desc">Members can post comments and participate in the CounterLine community. Free for everyone.</p>
+    </div>
+    <div class="member-tiers">
+      <a href="/subscribe/" class="member-btn member-red">Become A Member →</a>
+    </div>
+  </div>
+
+  {{/* Main grid */}}
+  <div class="footer-grid">
+
+    {{/* Brand + social */}}
+    <div class="footer-col">
+      <div class="footer-brand-name">The Counterline</div>
+      <div class="footer-brand-tag">Structure without spectacle.</div>
+      {{/*<p class="footer-mission">We track dominant framing and publish the mechanism beneath it. No panic loops. No both-sides fog. Just structure.</p>*/}}
+      <div class="social-links">
+        <a class="social-link" href="#">
+          <span class="social-icon">𝕏</span>Twitter / X
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">in</span>LinkedIn
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">f</span>Facebook
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">☁</span>Bluesky
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">IG</span>Instagram
+        </a>
+        <a class="social-link" href="#">
+          <span class="social-icon">▶</span>YouTube
+        </a>
+      </div>
+    </div>
+
+    {{/* Navigation */}}
+    <div class="footer-col">
+      <div class="footer-col-head">Navigation</div>
+      <div class="footer-links">
+        <a class="footer-link" href="/sections/politics/">Politics<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/culture-media/">Culture &amp; Media<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/society-economy/">Society &amp; Economy<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/filmrem/">FilmRem<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/sections/the-counterline-standard/">CL Standard<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/archive/">Archive<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/about/">About<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/subscribe/">Subscribe<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/donate/">Donate<span class="footer-link-arrow">→</span></a>
+      </div>
+    </div>
+
+    {{/* Editorial Desks */}}
+    <div class="footer-col">
+      <div class="footer-col-head">Editorial Desks</div>
+      <div class="footer-links">
+        <a class="footer-link" href="/desks/the-record/">The Record<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/press-check/">Press Check<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/spectacle-desk/">Spectacle Desk<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/headline-autopsy/">Headline Autopsy<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/economic-synthesis/">Economic Synthesis<span class="footer-link-arrow">→</span></a>
+        <a class="footer-link" href="/desks/old-news/">Old News<span class="footer-link-arrow">→</span></a>
+      </div>
+    </div>
+
+    {{/* CRIBSRAC */}}
+    <div class="footer-col">
+      <div class="footer-col-head">The CRIBSRAC Framework</div>
+      <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
+      <div class="crib-mini">
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Reflexivity</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">A</span><span class="crib-mini-word">Agency</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective</span></div>
+      </div>
+      <a href="/about/#cribsrac" style="display:block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#822626;">Learn the Framework →</a>
+    </div>
+
+  </div>
+
+  {{/* Bottom bar */}}
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">&copy; {{ now.Format "2006" }} The Counterline &middot; Independent Publication &middot; All rights reserved</div>
+    {{/* <div class="footer-bottom-right">Format: Headline &middot; Mechanism &middot; CRIBSRAC &middot; Levers</div> */}}
+  </div>
+
+</footer>

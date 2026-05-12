@@ -4,7 +4,7 @@ slug: "iran-war-live-updates-mixed-signals"
 date: "2026-04-28"
 author: "Nadège Ngomsi"
 description: "War Live Updates turns an unfolding geopolitical crisis into a rolling content format first, and a structure of violence second."
-desks: ["headline-analysis"]
+desks: ["headline-autopsy"]
 omission: "State actors, military actions, diplomatic channels, who is escalating what, and how U.S. power is actually being exercised all drop out behind the language of ambiguity."
 correction: "U.S. and Iranian Officials Signal Possible Talks as Military Conflict Continues"
 rewrite: "Iran War Live Updates: Tehran and Trump Send Mixed Signals Ahead of Potential Talks"

@@ -8,7 +8,7 @@ description: "White Christian nationalism has found an elegant solution to its
   wants to sound persecuted, God is off."
 featured_image: https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original
 desks:
-  - spectacle
+  - spectacle-desk
 subdesk: Panic Bulletin
 sections:
   - society-economy

@@ -1,14 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./themes/hugo-news/layouts/**/*.html",
-    "./themes/hugo-news/content/**/*.md",
-    "./content/**/*.md",
-    "./layouts/**/*.html",
-  ],
+  content: {
+    files: [
+      './hugo_stats.json',
+      './themes/hugo-news/layouts/**/*.html',
+      './layouts/**/*.html',
+      './content/**/*.md',
+    ],
+    transform: {
+      json: (content) => {
+        const data = JSON.parse(content);
+        return (data.htmlElements?.classes ?? []).join(' ');
+      },
+    },
+  },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        lora: ['Lora', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
-}
-
+};

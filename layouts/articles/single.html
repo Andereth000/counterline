@@ -1,0 +1,120 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-4 py-12">
+
+  <header class="mb-8">
+
+    {{/* Desk + Subdesk Pills */}}
+    <div class="flex flex-wrap gap-2 mb-5">
+      {{ with .Params.desks }}
+        {{ range first 1 . }}
+        <span class="bg-black px-4 py-2 font-montserrat font-bold text-[11px] text-white tracking-[1.98px] uppercase">{{ . }}</span>
+        {{ end }}
+      {{ end }}
+      {{ with .Params.subdesk }}
+      <span class="bg-[#822626] px-4 py-2 font-montserrat font-bold text-[11px] text-white tracking-[1.98px] uppercase">{{ . }}</span>
+      {{ end }}
+    </div>
+
+    {{/* Title */}}
+    <h1 class="font-inter font-bold text-[40px] md:text-[52px] tracking-[-1.2px] leading-[1.1] text-black mb-4">{{ .Title }}</h1>
+
+    {{/* Description */}}
+    {{ with .Description }}
+    <p class="font-lora italic text-[18px] text-black/50 leading-[1.5] mb-5">{{ . }}</p>
+    {{ end }}
+
+    {{/* Meta */}}
+    <div class="flex flex-wrap items-center gap-[6px] font-montserrat text-[10px] tracking-[1.54px] uppercase mb-6">
+      {{ with .Params.author }}
+      <span class="font-bold text-black">{{ . }}</span>
+      <span class="text-[#d8d6d0]">·</span>
+      {{ end }}
+      <span class="text-[#5a5a5a]">{{ .Date.Format "January 2, 2006" }}</span>
+      {{ with .Params.read_time }}
+      <span class="text-[#d8d6d0]">·</span>
+      <span class="font-bold text-black">~{{ . }} min read</span>
+      {{ end }}
+    </div>
+
+    {{/* Hero Image */}}
+    {{ with .Params.featured_image }}
+    <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-96 object-cover rounded-lg mb-6">
+    {{ end }}
+
+  </header>
+
+  {{/* Article Body */}}
+  <div class="markdown-content bg-white rounded-lg shadow-md p-8 mb-8">
+    {{ .Content }}
+  </div>
+
+  {{/* CounterLine Analysis — only shown when optional fields are present */}}
+  {{ $hasAnalysis := or .Params.counterline_1 .Params.counterline_2 .Params.counterline_3 .Params.assumption .Params.record .Params.omission .Params.counterline_correction .Params.counterline_rewrite .Params.original_headline }}
+  {{ if $hasAnalysis }}
+  <div class="border border-[#d8d6d0] bg-[#f2f0eb] rounded-lg p-8 mb-8">
+
+    <div class="flex items-center gap-3 mb-6">
+      <span class="flex-1 border-t border-black"></span>
+      <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-black whitespace-nowrap">CounterLine Analysis</p>
+      <span class="flex-1 border-t border-black"></span>
+    </div>
+
+    <div class="flex flex-col gap-6">
+
+      {{ with .Params.original_headline }}
+      <div class="flex flex-col gap-2">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#822626]">Original Headline</p>
+        <p class="font-lora italic text-[15px] text-[#5a5a5a] leading-relaxed pl-4 border-l-2 border-[#822626]">{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{ with .Params.omission }}
+      <div class="flex flex-col gap-2">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">The Omission</p>
+        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{ with .Params.assumption }}
+      <div class="flex flex-col gap-2">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">The Assumption</p>
+        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{ with .Params.record }}
+      <div class="flex flex-col gap-2">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">The Record</p>
+        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{ if or .Params.counterline_1 .Params.counterline_2 .Params.counterline_3 }}
+      <div class="flex flex-col gap-3">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">The CounterLine</p>
+        {{ with .Params.counterline_1 }}<p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>{{ end }}
+        {{ with .Params.counterline_2 }}<p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>{{ end }}
+        {{ with .Params.counterline_3 }}<p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>{{ end }}
+      </div>
+      {{ end }}
+
+      {{ with .Params.counterline_correction }}
+      <div class="flex flex-col gap-2">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">Correction</p>
+        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{ with .Params.counterline_rewrite }}
+      <div class="flex flex-col gap-2">
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">Rewrite</p>
+        <p class="font-lora italic text-[16px] text-[#222221] leading-relaxed pl-4 border-l-2 border-black">{{ . }}</p>
+      </div>
+      {{ end }}
+
+    </div>
+  </div>
+  {{ end }}
+
+</article>
+{{ end }}

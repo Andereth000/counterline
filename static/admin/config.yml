@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: Andereth000/counterline
+  name: git-gateway
   branch: main
 
 media_folder: static/images
@@ -14,11 +13,80 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime }
+      - { label: Slug, name: slug, widget: string, required: false, hint: "Leave blank to auto-generate from title" }
+      - { label: Publish Date, name: date, widget: datetime }
       - { label: Author, name: author, widget: string }
-      - { label: Description, name: description, widget: string }
+      - { label: Tagline / Description, name: description, widget: string, required: false }
+      - { label: Read Time (minutes), name: read_time, widget: number, required: false, hint: "Approximate read time in minutes" }
       - { label: Featured Image, name: featured_image, widget: image, required: false }
-      - { label: Desk, name: desks, widget: select, multiple: true, options: [spectacle, economic-assumption, headline-analysis, old-news, press-check, the-record] }
-      - { label: Section, name: sections, widget: select, multiple: true, options: [society-economy, culture-media, filmrem, the-counterline-standard] }
+      - label: Desk
+        name: desks
+        widget: select
+        multiple: true
+        options:
+          - { label: "The Record", value: "the-record" }
+          - { label: "Press Check", value: "press-check" }
+          - { label: "Spectacle Desk", value: "spectacle-desk" }
+          - { label: "Headline Autopsy", value: "headline-autopsy" }
+          - { label: "Economic Synthesis", value: "economic-synthesis" }
+          - { label: "Old News", value: "old-news" }
+      - { label: Sub-Desk, name: subdesk, widget: string, required: false, hint: "Optional sub-category label (e.g. Panic Bulletin)" }
+      - label: Nav Section
+        name: sections
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: "Politics", value: "politics" }
+          - { label: "Society & Economy", value: "society-economy" }
+          - { label: "Culture & Media", value: "culture-media" }
+          - { label: "FilmRem", value: "filmrem" }
+          - { label: "The Counterline Standard", value: "the-counterline-standard" }
       - { label: Draft, name: draft, widget: boolean, default: true }
+      - { label: Featured (ticker), name: featured, widget: boolean, default: false, required: false, hint: "Show this article in the homepage ticker" }
       - { label: Body, name: body, widget: markdown }
+      - label: "--- CounterLine Analysis (Optional) ---"
+        name: counterline_divider
+        widget: hidden
+        required: false
+      - { label: "Original Headline", name: original_headline, widget: string, required: false, hint: "The headline being analyzed (Headline Analysis desk only)" }
+      - { label: "The Omission", name: omission, widget: text, required: false, hint: "What the original coverage left out" }
+      - { label: "The Assumption", name: assumption, widget: text, required: false, hint: "Embedded assumptions in the original coverage" }
+      - { label: "The Record", name: record, widget: text, required: false, hint: "Factual corrections or context" }
+      - { label: "CounterLine 1", name: counterline_1, widget: text, required: false }
+      - { label: "CounterLine 2", name: counterline_2, widget: text, required: false }
+      - { label: "CounterLine 3", name: counterline_3, widget: text, required: false }
+      - { label: "CounterLine Correction", name: counterline_correction, widget: text, required: false }
+      - { label: "CounterLine Rewrite", name: counterline_rewrite, widget: text, required: false, hint: "The rewritten headline or lede" }
+
+  - name: pages
+    label: Pages
+    files:
+      - name: about
+        label: About
+        file: content/about/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Draft, name: draft, widget: boolean, default: false }
+          - { label: Body, name: body, widget: markdown }
+      - name: subscribe
+        label: Subscribe
+        file: content/subscribe/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Draft, name: draft, widget: boolean, default: false }
+          - { label: Body, name: body, widget: markdown }
+      - name: donate
+        label: Donate
+        file: content/donate/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Draft, name: draft, widget: boolean, default: false }
+          - { label: Body, name: body, widget: markdown }
+      - name: archive
+        label: Archive
+        file: content/archive/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Draft, name: draft, widget: boolean, default: false }
+          - { label: Body, name: body, widget: markdown }

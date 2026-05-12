@@ -8,7 +8,7 @@ description: The Price Hike Now Presented as Weather
 featured_image: https://images.pexels.com/photos/19813730/pexels-photo-19813730.jpeg
 slug: inflation-apparently-has-occurred
 desks:
-  - spectacle
+  - spectacle-desk
 sections:
   - society-economy
 subdesk: The Ongoing Surprise
