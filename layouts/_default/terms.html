@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="w-full">
+  {{/* Page header */}}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0] text-center">
+    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black uppercase">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2 max-w-[800px] mx-auto">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range .Data.Terms.ByCount }}
+      <a href="{{ .Page.RelPermalink }}" class="bg-[#f2f0eb] p-8 border border-[#d8d6d0] hover:bg-white transition-colors group flex flex-col items-center text-center">
+        <h2 class="font-montserrat font-bold text-[18px] text-black uppercase mb-2 group-hover:text-[#822626]">{{ .Page.Title }}</h2>
+        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[11px] tracking-[1.4px] uppercase">{{ .Count }} {{ if eq .Count 1 }}article{{ else }}articles{{ end }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

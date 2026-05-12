@@ -1,0 +1,43 @@
+<a href="{{ .Permalink }}" class="flex flex-col no-underline group">
+  {{/* Card Image with CL Standard Fallback */}}
+  <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+    {{ $image := .Params.featured_image }}
+    {{ if not $image }}
+      {{ if in .Params.sections "the-counterline-standard" }}
+        {{ $image = "/images/CL_standard.jpg" }}
+      {{ end }}
+    {{ end }}
+
+    {{ with $image }}
+    <img src="{{ . }}" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+    {{ else }}
+    <div class="w-full h-full flex items-center justify-center">
+      <span class="font-montserrat font-bold text-[#d8d6d0] text-[14px] uppercase tracking-widest">The Counterline</span>
+    </div>
+    {{ end }}
+  </div>
+
+  {{/* Card Content */}}
+  <div class="pt-4 flex flex-col gap-2">
+    {{/* Standardized Category Eyebrow */}}
+    {{ with .Params.sections }}
+      {{ range first 1 . }}
+      <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">{{ . | replaceRE "-" " " }}</p>
+      {{ end }}
+    {{ end }}
+
+    {{/* Title */}}
+    <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+      {{ if in .Params.sections "the-counterline-standard" }}
+        <span class="text-[#822626]">{{ printf "%02d" .Params.weight }}.</span>
+      {{ end }}
+      {{ .Title }}
+    </p>
+    
+    {{ with .Params.description }}
+    <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">{{ . }}</p>
+    {{ end }}
+    
+    <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">{{ .Date.Format "January 2, 2006" }}</p>
+  </div>
+</a>

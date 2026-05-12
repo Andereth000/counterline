@@ -1,0 +1,156 @@
+{{ define "main" }}
+<div class="bg-white text-black font-montserrat antialiased">
+  
+  {{/* Standard Page Header */}}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0] text-center">
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">More</p>
+    <h1 class="font-inter font-bold text-[28px] md:text-[36px] tracking-[-0.6px] leading-[1.1] text-black">About The Counterline</h1>
+    {{ with .Description }}
+    <p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2 max-w-[800px] mx-auto">{{ . }}</p>
+    {{ end }}
+  </div>
+  
+  <div class="max-w-[1360px] mx-auto px-12 pt-10 pb-20 border-x border-[#d8d6d0]">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 items-start">
+      
+      <!-- Main column -->
+      <div>
+        <h2 id="what-we-do" class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5 first:mt-0">What We Do</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] space-y-4">
+          <p>The Counterline publishes mechanism-first analysis of dominant news narratives. Every brief takes a headline that's currently shaping public understanding and asks: what is this story actually doing? Who benefits from this framing? What does it leave out?</p>
+          <p>We're not a fact-check operation. We're not interested in "the other side" for its own sake. We're interested in the structural forces that produce narratives—the incentives, the institutional designs, the cognitive shortcuts—and in publishing what those forces obscure.</p>
+          <p><b class="font-montserrat font-bold">Output:</b> short, text-first briefs built for clarity, not dopamine. You leave with a cleaner model of reality.</p>
+        </div>
+
+        <h2 class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">How We Report</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] space-y-4">
+          <p>Every CounterLine brief follows the same repeatable format. We name the frame, identify the mechanism beneath it, scan the belief-pipeline using CRIBSRAC, and list interventions that actually exist in the real world.</p>
+          <p><b class="font-montserrat font-bold">What we refuse:</b> panic-as-content, scapegoats-as-explanations, false balance, and fantasy solutions that exist only to make the brief feel less bleak.</p>
+        </div>
+
+        <h2 id="cribsrac" class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">The CRIBSRAC Framework</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] mb-3.5">
+          <p>CRIBSRAC is our analytical lens for tracing how a headline becomes a public reality. It's a systematic way of asking: what cognitive, rhetorical, ideological, and social machinery is this story running on?</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3.5 items-start">
+          {{ $cribsrac := slice 
+            (dict "l" "C" "label" "Cognitive Bias" "desc" "What mental shortcut is the headline exploiting? Availability, nostalgia, in-group signaling, moral panic?")
+            (dict "l" "R" "label" "Rhetoric" "desc" "What language choices frame the issue? What's implied by the word selection, syntax, and emphasis?")
+            (dict "l" "I" "label" "Ideology" "desc" "What worldview does this narrative assume? What does it treat as natural that is actually contested?")
+            (dict "l" "B" "label" "Belief" "desc" "What prior beliefs does this story activate or reinforce? What must you already believe for it to land?")
+            (dict "l" "S" "label" "Social Reproduction" "desc" "How does this story maintain existing hierarchies? Who gets to stay in position when this narrative wins?")
+            (dict "l" "R" "label" "Reflexivity" "desc" "How does this narrative loop back on the people it describes? What behaviors does it produce in its subjects?")
+            (dict "l" "A" "label" "Agency" "desc" "Who has actual power to change the mechanism? Where is real leverage, vs. where agency is falsely located?")
+            (dict "l" "C" "label" "Collective Action" "desc" "What interventions actually exist? What can institutions, policymakers, and communities do differently?")
+          }}
+          
+          {{ range $cribsrac }}
+          <div x-data="{ open: false }" @click="open = !open" class="border border-brand-hair bg-white p-4 cursor-pointer hover:border-brand-red transition-colors group h-full">
+            <div class="flex items-center justify-between">
+              <div class="flex-1">
+                <div class="font-montserrat text-[26px] font-black text-brand-red leading-none mb-1">{{ .l }}</div>
+                <div class="font-montserrat text-[11px] font-bold tracking-[0.12em] uppercase text-black mb-0">{{ .label }}</div>
+              </div>
+              <div class="text-brand-red font-montserrat text-[14px] font-bold transition-transform duration-200" :class="{ 'rotate-180': open }">▼</div>
+            </div>
+            <div x-show="open" x-collapse>
+              <p class="font-lora text-[13px] text-brand-muted leading-[1.6] mt-3">{{ .desc }}</p>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+
+        <h2 class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">Editorial Values</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3.5">
+          {{ $values := slice
+            (dict "title" "Mechanism over moralism" "desc" "We explain what's structurally producing a result instead of assigning blame or virtue.")
+            (dict "title" "Clarity over virality" "desc" "We optimize for a cleaner model of reality, not for engagement or outrage loops.")
+            (dict "title" "Structure over both-sidesism" "desc" "We don't pretend all framings are equally evidence-based. We show the work.")
+            (dict "title" "Levers over despair" "desc" "Every brief ends with real interventions. We don't leave readers in the panic loop.")
+          }}
+          {{ range $values }}
+          <div class="border-l-[3px] border-brand-red bg-brand-paper-alt px-4 py-3.5">
+            <p class="font-montserrat text-[11px] font-bold tracking-[0.1em] uppercase text-black mb-1.5">{{ .title }}</p>
+            <p class="font-lora text-[13px] text-[#1a1a1a] leading-[1.65]">{{ .desc }}</p>
+          </div>
+          {{ end }}
+        </div>
+
+        <h2 class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">Coverage Areas</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] space-y-4">
+          <p><b class="font-montserrat font-bold">Education & Work:</b> credentialing systems, training loops, labor discipline, and the political economy of "professionalism" and workplace culture.</p>
+          <p><b class="font-montserrat font-bold">Media & Politics:</b> algorithmic selection, attention extraction, policy narratives, and the institutional offloading that turns structural problems into individual failures.</p>
+          <p><b class="font-montserrat font-bold">Economy & Health:</b> how aggregate statistics get translated into personal moral stories, and who benefits from that translation.</p>
+        </div>
+
+        <h2 class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">The CounterLine Standard</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] space-y-4">
+          <p>Every piece must do three things: (1) name the framing, (2) expose the mechanism beneath it, and (3) show levers that exist in the real world. A brief that only names the problem without identifying the structural cause or the real interventions does not meet the standard.</p>
+          <p>We publish when we have something that adds structure. We don't publish to fill a content calendar.</p>
+        </div>
+
+        <!-- Detailed Subsections at the Bottom -->
+        <h2 id="mission-values" class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">Mission & Values</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] space-y-4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.</p>
+        </div>
+
+        <h2 id="how-we-report" class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-t-2 border-black pt-3.5 mt-8 mb-3.5">How We Report</h2>
+        <div class="font-lora text-[15px] leading-[1.82] text-[#1a1a1a] space-y-4">
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+          <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-b-2 border-black pb-2 mb-1">The Format</div>
+        <div class="grid gap-0 mb-7">
+          {{ $steps := slice
+            (dict "label" "Headline" "desc" "The dominant frame we're countering")
+            (dict "label" "The Mechanism" "desc" "What's actually happening beneath the story")
+            (dict "label" "CRIBSRAC" "desc" "Eight-lens belief-pipeline analysis")
+            (dict "label" "The Levers" "desc" "Real interventions, no fantasy solutions")
+          }}
+          {{ range $steps }}
+          <div class="flex items-start gap-2.5 py-2.5 border-b border-brand-hair-light last:border-none font-montserrat text-[13px]">
+            <span class="text-brand-red font-black flex-shrink-0">→</span>
+            <div>
+              <span class="font-semibold text-black block">{{ .label }}</span>
+              <span class="font-lora text-[12px] text-brand-muted block mt-0.5 italic">{{ .desc }}</span>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+
+        <div class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-b-2 border-black pb-2 mb-1">By the Numbers</div>
+        <div class="grid gap-0 mb-7">
+          <div class="py-3.5 border-b border-brand-hair-light">
+            <div class="font-montserrat text-[32px] font-black text-black leading-none">8</div>
+            <div class="font-montserrat text-[10px] font-semibold tracking-[0.08em] uppercase text-brand-muted mt-1">CRIBSRAC lenses per brief</div>
+          </div>
+          <div class="py-3.5 border-b border-brand-hair-light">
+            <div class="font-montserrat text-[32px] font-black text-black leading-none">5<span class="text-[18px]">min</span></div>
+            <div class="font-montserrat text-[10px] font-semibold tracking-[0.08em] uppercase text-brand-muted mt-1">Average read time</div>
+          </div>
+          <div class="py-3.5 border-b border-brand-hair-light last:border-none">
+            <div class="font-montserrat text-[32px] font-black text-black leading-none">0</div>
+            <div class="font-montserrat text-[10px] font-semibold tracking-[0.08em] uppercase text-brand-muted mt-1">Panic loops per brief</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Existing content -->
+  {{ if .Content }}
+  <div class="max-w-[800px] mx-auto px-6 py-12 article-body">
+    {{ .Content }}
+  </div>
+  {{ end }}
+
+</div>
+{{ end }}

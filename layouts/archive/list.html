@@ -1,0 +1,95 @@
+{{ define "main" }}
+{{ $articles := where .Site.RegularPages "Section" "articles" }}
+{{ $articleData := slice }}
+{{ range $articles }}
+  {{ $section := index .Params.sections 0 | default "Uncategorized" }}
+  {{ $articleData = $articleData | append (dict "title" .Title "url" .RelPermalink "section" ($section | title | replaceRE "-" " ") "date" (.Date.Format "January 2, 2006") "description" .Description "readTime" (.Params.read_time | default 5)) }}
+{{ end }}
+
+<div class="bg-white text-black font-montserrat antialiased" x-data="{ 
+  activeCategory: 'All', 
+  articles: {{ $articleData | jsonify }}, 
+  get filteredArticles() { 
+    return this.activeCategory === 'All' ? this.articles : this.articles.filter(a => a.section === this.activeCategory) 
+  } 
+}">
+  
+  {{/* Standard Page Header */}}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0] text-center">
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">More</p>
+    <h1 class="font-inter font-bold text-[28px] md:text-[36px] tracking-[-0.6px] leading-[1.1] text-black">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2 max-w-[800px] mx-auto">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  <!-- Filter bar - Standardized Buttons -->
+  <div class="flex gap-2 flex-wrap justify-center px-12 py-8 max-w-[1360px] mx-auto">
+    <button
+      class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black transition-all"
+      :class="activeCategory === 'All' ? 'bg-black text-white' : 'bg-transparent text-black hover:bg-black hover:text-white'"
+      @click="activeCategory = 'All'"
+    >All</button>
+    {{ $cats := slice }}
+    {{ range $articleData }}
+      {{ $cats = $cats | append .section }}
+    {{ end }}
+    {{ range ($cats | uniq | sort) }}
+    <button
+      class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black transition-all"
+      :class="activeCategory === '{{ . }}' ? 'bg-black text-white' : 'bg-transparent text-black hover:bg-black hover:text-white'"
+      @click="activeCategory = '{{ . }}'"
+    >{{ . }}</button>
+    {{ end }}
+  </div>
+
+  <!-- Main grid -->
+  <div class="max-w-[1360px] mx-auto px-12 pb-20 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 items-start">
+
+    <!-- Post list -->
+    <div>
+      <div class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-b-2 border-black pb-2 mb-0 flex items-center justify-between">
+        <span x-text="activeCategory === 'All' ? 'All Briefs' : activeCategory"></span>
+        <span class="font-normal text-brand-muted tracking-[0.06em]" x-text="filteredArticles.length + ' brief' + (filteredArticles.length !== 1 ? 's' : '')"></span>
+      </div>
+      
+      <div class="grid gap-0">
+        <template x-for="(article, i) in filteredArticles" :key="i">
+          <div class="py-6 border-b border-brand-hair-light last:border-none grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 items-start">
+            <div>
+              <div class="flex items-center gap-1.5 mb-2 font-montserrat text-[9px] font-bold tracking-[1.5px] uppercase text-[#822626]">
+                <span x-text="article.section"></span>
+                <span class="text-[#d8d6d0]">•</span>
+                <span class="text-[#5a5a5a]" x-text="article.readTime + ' MIN BRIEF'"></span>
+              </div>
+              <a :href="article.url" class="font-montserrat font-bold text-[18px] block leading-tight mb-2 text-black hover:text-brand-red transition-colors" x-text="article.title"></a>
+              <p class="font-lora text-[14px] italic text-[#5a5a5a] leading-[1.6] line-clamp-2" x-text="article.description"></p>
+            </div>
+            <div class="font-montserrat text-[10px] font-semibold tracking-[0.06em] uppercase text-[#999] pt-1 whitespace-nowrap" x-text="article.date"></div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="font-montserrat text-[11px] font-bold tracking-[0.18em] uppercase text-black border-b-2 border-black pb-2 mb-1">Browse by Topic</div>
+      <div class="grid gap-0 mb-6">
+        {{ $topics := slice
+          (dict "name" "The Counterline Standard" "desc" "Our foundational principles and methodology")
+          (dict "name" "Politics" "desc" "Governance • policy narratives • institutional power")
+          (dict "name" "Society & Economy" "desc" "Structural forces • markets • social reproduction")
+          (dict "name" "Culture & Media" "desc" "Narrative frames • attention • representation")
+        }}
+        {{ range $topics }}
+        <div class="py-4 border-b border-brand-hair-light last:border-none cursor-pointer group" @click="activeCategory = '{{ .name }}'">
+          <p class="font-montserrat text-[14px] font-bold leading-tight text-black group-hover:text-brand-red transition-colors">{{ .name }}</p>
+          <p class="mt-1 font-lora text-[12px] italic text-[#5a5a5a]">{{ .desc }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </aside>
+
+  </div>
+</div>
+{{ end }}

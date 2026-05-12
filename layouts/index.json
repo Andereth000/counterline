@@ -1,0 +1,13 @@
+{{- $pages := where .Site.RegularPages "Section" "articles" -}}
+{{- $pages = where $pages ".Params.draft" "ne" true -}}
+[{{ range $i, $p := $pages }}{{ if $i }},{{ end }}
+  {
+    "title": {{ $p.Title | jsonify }},
+    "url": {{ $p.Permalink | jsonify }},
+    "description": {{ $p.Description | default "" | jsonify }},
+    "author": {{ $p.Params.author | default "" | jsonify }},
+    "date": {{ $p.Date.Format "Jan 2, 2006" | jsonify }},
+    "desks": {{ $p.Params.desks | jsonify }},
+    "content": {{ $p.Plain | truncate 400 | jsonify }}
+  }{{ end }}
+]

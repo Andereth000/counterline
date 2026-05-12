@@ -1,0 +1,344 @@
+import { useState } from "react";
+
+const S = `
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --red: #822626;
+    --red-light: #9e2e2e;
+    --muted: #5a5a5a;
+    --hair: #d8d6d0;
+    --hair2: #ebebeb;
+    --paper: #fafaf8;
+    --paper2: #f2f0eb;
+    --sans: 'Montserrat', sans-serif;
+    --body: 'Lora', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .archive { background: var(--white); color: var(--black); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  .archive a { color: inherit; text-decoration: none; }
+  .archive a:hover { color: var(--red); }
+
+  /* Page header */
+  .archive-header {
+    padding: 40px 48px 0;
+    text-align: center;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  .archive-title {
+    font-family: var(--sans);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--black);
+  }
+  .archive-desc {
+    margin: 12px auto 0;
+    font-family: var(--body);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--muted);
+    max-width: 64ch;
+    line-height: 1.6;
+  }
+  .rule {
+    border: none;
+    border-top: 1px solid var(--hair);
+    margin: 28px 48px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 48px 24px;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  .filter-btn {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border: 1px solid var(--hair);
+    background: var(--white);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .filter-btn:hover {
+    border-color: var(--black);
+    color: var(--black);
+  }
+  .filter-btn.active {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+
+  /* Main grid */
+  .archive-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 48px;
+    align-items: start;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+  @media (max-width: 1100px) {
+    .archive-grid { grid-template-columns: 1fr; gap: 28px; padding: 0 24px 60px; }
+  }
+
+  /* List label */
+  .list-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .list-count {
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: .06em;
+  }
+
+  /* Post items */
+  .post-list { display: grid; gap: 0; }
+  .post-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hair2);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .post-item:last-child { border-bottom: none; }
+  @media (max-width: 600px) { .post-item { grid-template-columns: 1fr; } }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    flex-wrap: nowrap;
+  }
+  .post-cat { color: var(--red); white-space: nowrap; flex-shrink: 0; }
+  .post-title {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: var(--black);
+    display: block;
+    transition: color .15s;
+  }
+  .post-title:hover { color: var(--red); }
+  .post-dek {
+    font-family: var(--body);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .post-date {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 4px;
+  }
+
+  /* Sidebar */
+  .sidebar-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  .topic-list { display: grid; gap: 0; margin-bottom: 24px; }
+  .topic-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hair2);
+    cursor: pointer;
+  }
+  .topic-item:last-child { border-bottom: none; }
+  .topic-name {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--black);
+    transition: color .15s;
+  }
+  .topic-item:hover .topic-name { color: var(--red); }
+  .topic-desc {
+    margin-top: 3px;
+    font-family: var(--body);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  /* Ad slot */
+  .ad-slot {
+    border: 1px solid var(--hair);
+    background: var(--paper2);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .ad-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Subscribe */
+  .subscribe { border: 1px solid var(--hair); padding: 16px; background: var(--white); }
+  .subscribe p { font-family: var(--body); font-size: 14px; line-height: 1.6; color: #1a1a1a; margin-bottom: 12px; }
+  .sub-row { display: flex; gap: 0; }
+  .sub-input { flex: 1; padding: 10px 12px; border: 1px solid var(--hair); border-right: none; font-family: var(--sans); font-size: 13px; outline: none; background: var(--white); }
+  .sub-input:focus { border-color: var(--red); }
+  .sub-btn { background: var(--black); color: var(--white); border: 1px solid var(--black); font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 10px 14px; cursor: pointer; white-space: nowrap; transition: background .15s; }
+  .sub-btn:hover { background: var(--red); border-color: var(--red); }
+  .sub-hint { font-family: var(--sans); font-size: 11px; color: var(--muted); font-style: italic; margin-top: 10px; }
+`;
+
+const allPosts = [
+  { cat: "Education & Work", title: "AI isn't \"robbing\" Gen Z of hard tasks—it's redistributing difficulty and hiding the bill.", dek: "The story is that institutions redesign work so practice becomes invisible and hardness gets reframed as moral failure.", date: "Feb 2, 2026" },
+  { cat: "Politics", title: "When a \"crime wave\" is really a governance deficit", dek: "Aggregate statistics laundered through anecdote become policy justification. The mechanism is older than the headline.", date: "Feb 1, 2026" },
+  { cat: "Economy", title: "Inflation headlines vs household reality", dek: "CPI is a basket. Your basket isn't the basket. The gap between measurement and experience is where narrative lives.", date: "Jan 31, 2026" },
+  { cat: "Health", title: "Public health narratives that individualize structural harm", dek: "When a population-level problem gets reframed as personal choice, look for who funds the reframe.", date: "Jan 30, 2026" },
+  { cat: "Media Systems", title: "\"Gen Z is broken\" stories are an industry", dek: "Generational panic is a content genre with reliable traffic. The mechanism is demographic abstraction as moral complaint.", date: "Jan 29, 2026" },
+  { cat: "Workplace", title: "What a \"return to office\" headline is really enforcing", dek: "Office mandates are rarely about collaboration. They're about visibility, surveillance, and renegotiating power after remote work exposed the gap.", date: "Jan 28, 2026" },
+  { cat: "Culture", title: "The hidden labor inside \"professionalism\"", dek: "Professionalism is a set of class-coded behaviors that function as gatekeeping dressed as standards.", date: "Jan 27, 2026" },
+  { cat: "Education & Work", title: "AI bans in schools aren't pedagogy—they're legitimacy management", dek: "Banning tools signals institutional authority. It doesn't produce the learning outcomes the ban is nominally designed to protect.", date: "Jan 26, 2026" },
+];
+
+const categories = ["All", "Education & Work", "Politics", "Economy", "Health", "Media Systems", "Workplace", "Culture"];
+
+const topics = [
+  { name: "Education & Work", desc: "Credentialing • training loops • labor discipline" },
+  { name: "Media Systems", desc: "Algorithms • attention • hyperreality" },
+  { name: "Culture & Governance", desc: "Stories → rules • symbols → policy" },
+  { name: "Economy", desc: "Inflation • wages • cost shifting" },
+  { name: "Health", desc: "Individual blame • structural causes" },
+  { name: "Workplace", desc: "Power • surveillance • professionalism" },
+];
+
+export default function ArchivePage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All"
+    ? allPosts
+    : allPosts.filter(p => p.cat === activeCategory);
+
+  return (
+    <div className="archive">
+      <style>{S}</style>
+
+      {/* Filter bar */}
+      <div className="filter-bar">
+        {categories.map(cat => (
+          <button
+            key={cat}
+            className={`filter-btn${activeCategory === cat ? " active" : ""}`}
+            onClick={() => setActiveCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Main grid */}
+      <div className="archive-grid">
+
+        {/* Post list */}
+        <div>
+          <div className="list-label">
+            <span>{activeCategory === "All" ? "All Briefs" : activeCategory}</span>
+            <span className="list-count">{filtered.length} brief{filtered.length !== 1 ? "s" : ""}</span>
+          </div>
+          <div className="post-list">
+            {filtered.map((p, i) => (
+              <div className="post-item" key={i}>
+                <div>
+                  <div className="post-meta">
+                    <span className="post-cat">{p.cat}</span>
+                    <span>•</span>
+                    <span>5-min brief</span>
+                  </div>
+                  <a className="post-title" href="/article">{p.title}</a>
+                  <p className="post-dek">{p.dek}</p>
+                </div>
+                <div className="post-date">{p.date}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <aside>
+          <div className="sidebar-label">Browse by Topic</div>
+          <div className="topic-list">
+            {topics.map((t, i) => (
+              <div
+                className="topic-item"
+                key={i}
+                onClick={() => setActiveCategory(t.name.includes("Culture") ? "Culture" : t.name)}
+              >
+                <p className="topic-name">{t.name}</p>
+                <p className="topic-desc">{t.desc}</p>
+              </div>
+            ))}
+          </div>
+          
+        </aside>
+
+      </div>
+    </div>
+  );
+}

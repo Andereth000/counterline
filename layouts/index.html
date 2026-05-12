@@ -20,47 +20,97 @@
 </div>
 
 {{/* Hero Feature */}}
-<div class="flex flex-col md:flex-row w-full md:h-[450px]">
-  <div class="w-full md:w-1/2 h-[250px] md:h-full bg-[#f2f0eb] border border-[#d8d6d0]"></div>
-  <div class="w-full md:w-1/2 flex flex-col gap-3 items-start justify-center px-8 py-6 border-r border-b border-[#d8d6d0]">
-    <div class="h-3 w-24 bg-[#e8e6e1] rounded"></div>
-    <div class="h-8 w-full bg-[#e8e6e1] rounded"></div>
-    <div class="h-4 w-4/5 bg-[#f2f0eb] rounded"></div>
-    <div class="h-4 w-3/5 bg-[#f2f0eb] rounded"></div>
-    <div class="flex gap-4 items-center">
-      <div class="h-3 w-16 bg-[#e8e6e1] rounded"></div>
-      <div class="h-3 w-20 bg-[#f2f0eb] rounded"></div>
+{{ if $featured }}
+<section class="w-full bg-white border-b border-[#d8d6d0]">
+  <div class="max-w-[1360px] mx-auto">
+    <div class="flex flex-col md:flex-row w-full min-h-[500px]">
+      
+      {{/* Left: Content */}}
+      <div class="w-full md:w-[45%] flex flex-col justify-center p-8 md:p-12 lg:p-16 border-b md:border-b-0 border-[#d8d6d0]">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="font-montserrat font-bold text-[10px] tracking-[2px] uppercase text-[#822626]">Featured Article</span>
+          <span class="w-1 h-1 bg-[#d8d6d0]"></span>
+          {{ $section := index $featured.Params.sections 0 | default "Uncategorized" }}
+          <span class="font-montserrat font-semibold text-[10px] tracking-[1.5px] uppercase text-[#5a5a5a]">{{ $section | replaceRE "-" " " }}</span>
+        </div>
+        
+        <a href="{{ $featured.Permalink }}" class="no-underline group mb-6">
+          <h2 class="font-inter font-bold text-[28px] md:text-[38px] lg:text-[46px] leading-[1.05] text-black uppercase tracking-tight group-hover:text-[#822626] transition-colors">
+            {{ $featured.Title }}
+          </h2>
+        </a>
+        
+        <p class="font-lora text-[18px] md:text-[20px] leading-[1.6] text-[#444] italic mb-8 max-w-[40ch]">
+          {{ $featured.Description }}
+        </p>
+        
+        <div class="grid grid-cols-2 gap-6 mb-8 pt-6 border-t border-[#ebebeb]">
+          <div class="flex flex-col">
+            <span class="font-montserrat font-bold text-[9px] tracking-widest text-[#999] uppercase mb-1">Written By</span>
+            <span class="font-montserrat font-bold text-[13px] text-black uppercase">{{ $featured.Params.author | default "The Counterline" }}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-montserrat font-bold text-[9px] tracking-widest text-[#999] uppercase mb-1">Read Time</span>
+            <span class="font-montserrat font-bold text-[13px] text-black uppercase">{{ $featured.Params.read_time | default 5 }} MIN</span>
+          </div>
+        </div>
+
+        <a href="{{ $featured.Permalink }}" class="inline-flex items-center justify-center bg-black text-white font-montserrat font-bold text-[12px] tracking-[2px] uppercase px-8 py-4 hover:bg-[#822626] transition-all shadow-md">
+          Read the Full Brief →
+        </a>
+      </div>
+
+      {{/* Right: Image with CL Standard Fallback */}}
+      <div class="w-full md:w-[55%] p-8 md:p-12 lg:p-16 flex items-center justify-center">
+        <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-[#d8d6d0]">
+          {{ $image := $featured.Params.featured_image }}
+          {{ if not $image }}
+            {{ if in $featured.Params.sections "the-counterline-standard" }}
+              {{ $image = "/images/CL_standard.jpg" }}
+            {{ end }}
+          {{ end }}
+
+          {{ if $image }}
+          <img src="{{ $image }}" alt="{{ $featured.Title }}" class="absolute inset-0 w-full h-full object-cover">
+          {{ else }}
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="font-montserrat font-black text-[#d8d6d0] text-[40px] tracking-widest opacity-20 uppercase">The Counterline</span>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
     </div>
-    <div class="border border-[#d8d6d0] flex items-stretch w-full">
-      <div class="border-r border-[#d8d6d0] flex flex-1 flex-col gap-2 items-center justify-center px-3 py-3">
-        <div class="h-2 w-16 bg-[#e8e6e1] rounded"></div>
-        <div class="h-3 w-12 bg-[#f2f0eb] rounded"></div>
-      </div>
-      <div class="border-r border-[#d8d6d0] flex flex-1 flex-col gap-2 items-center justify-center px-3 py-3">
-        <div class="h-2 w-16 bg-[#e8e6e1] rounded"></div>
-        <div class="h-3 w-12 bg-[#f2f0eb] rounded"></div>
-      </div>
-      <div class="flex flex-1 flex-col gap-2 items-center justify-center px-3 py-3">
-        <div class="h-2 w-16 bg-[#e8e6e1] rounded"></div>
-        <div class="h-3 w-12 bg-[#f2f0eb] rounded"></div>
-      </div>
-    </div>
-    <div class="h-9 w-full bg-[#e8e6e1] rounded"></div>
+  </div>
+</section>
+{{ else }}
+<div class="max-w-[1360px] mx-auto border-x border-[#d8d6d0]">
+  <div class="w-full h-[400px] flex items-center justify-center bg-[#f2f0eb] border-b border-[#d8d6d0]">
+    <p class="font-montserrat font-bold text-[#d8d6d0] uppercase tracking-widest">Select a featured article in Decap CMS to populate the hero section</p>
   </div>
 </div>
+{{ end }}
 
 {{/* Body: sidebar + main + sidebar */}}
-<div class="flex w-full items-start bg-white">
+<section class="w-full bg-white border-t border-[#d8d6d0]">
+  <div class="flex w-full items-start">
 
-  {{/* Left Rail: Our Latest */}}
-  <div class="hidden lg:flex bg-white border-r border-[#d8d6d0] flex-col gap-1 p-5 shrink-0 w-64">
-    <div class="border-b border-black pb-1 mb-1 w-full">
-      <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase">OUR LATEST</p>
-    </div>
+    {{/* Left Rail: Our Latest */}}
+    <div class="hidden lg:flex bg-white border-r border-[#d8d6d0] flex-col gap-1 p-5 shrink-0 w-64">
+      <div class="border-b border-black pb-1 mb-1 w-full text-center">
+        <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase">OUR LATEST</p>
+      </div>
     {{ range first 6 $articles }}
     <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
       <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
-        {{ with .Params.featured_image }}
+        {{ $image := .Params.featured_image }}
+        {{ if not $image }}
+          {{ if in .Params.sections "the-counterline-standard" }}
+            {{ $image = "/images/CL_standard.jpg" }}
+          {{ end }}
+        {{ end }}
+        
+        {{ with $image }}
         <img src="{{ . }}" alt="" class="w-full h-full object-cover">
         {{ else }}
         <span class="font-montserrat font-bold text-[#d8d6d0] text-[10px] uppercase">IMG</span>
@@ -85,27 +135,16 @@
     {{ $label := index $labels $slug }}
     {{ with $.Site.GetPage (printf "/desks/%s" $slug) }}
     <div class="mb-8 w-full">
-      <div class="flex gap-3 items-center py-3 w-full">
-        <span class="flex-1 border-t border-[#d8d6d0]"></span>
-        <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase whitespace-nowrap">{{ $label }}</p>
-        <span class="flex-1 border-t border-[#d8d6d0]"></span>
-      </div>
+      <a href="{{ .Permalink }}" class="group no-underline">
+        <div class="flex gap-3 items-center py-3 w-full">
+          <span class="flex-1 border-t border-[#d8d6d0] group-hover:border-black transition-colors"></span>
+          <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase whitespace-nowrap group-hover:text-[#822626] transition-colors">{{ $label }}</p>
+          <span class="flex-1 border-t border-[#d8d6d0] group-hover:border-black transition-colors"></span>
+        </div>
+      </a>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {{ range first 3 .Pages }}
-        <a href="{{ .Permalink }}" class="flex flex-col no-underline group">
-          <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
-            {{ with .Params.featured_image }}
-            <img src="{{ . }}" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
-            {{ end }}
-          </div>
-          <div class="pt-3 flex flex-col gap-1">
-            <p class="font-montserrat font-bold text-[14px] text-black leading-snug">{{ .Title }}</p>
-            {{ with .Params.description }}
-            <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed">{{ . | truncate 80 }}</p>
-            {{ end }}
-            <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase mt-1">{{ .Date.Format "Jan 2, 2006" }}</p>
-          </div>
-        </a>
+        {{ partial "article-card.html" . }}
         {{ else }}
         <p class="font-montserrat text-[#d8d6d0] text-[11px] tracking-[1.4px] uppercase col-span-full py-4 text-center">No articles yet</p>
         {{ end }}
@@ -117,16 +156,29 @@
   </div>
 
   {{/* Right Rail: Popular + CRIBSRAC */}}
-  <div class="hidden lg:flex bg-white flex-col gap-2 p-5 shrink-0 w-64">
-    <div class="border-b border-black pb-1 w-full text-center">
+  <div class="hidden lg:flex bg-white border-l border-[#d8d6d0] flex-col gap-2 p-5 shrink-0 w-64">
+    <div class="border-b border-black pb-1 mb-1 w-full text-center">
       <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase">POPULAR</p>
     </div>
     {{ range $i, $p := first 5 $articles }}
-    <div class="border-b border-[#ebebeb] flex gap-3 items-start pb-2 pt-2 w-full">
-      <span class="font-montserrat font-black text-[#d8d6d0] text-[20px] leading-none w-5 shrink-0">{{ add $i 1 }}</span>
+    <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
+      <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
+        {{ $image := $p.Params.featured_image }}
+        {{ if not $image }}
+          {{ if in $p.Params.sections "the-counterline-standard" }}
+            {{ $image = "/images/CL_standard.jpg" }}
+          {{ end }}
+        {{ end }}
+
+        {{ with $image }}
+        <img src="{{ . }}" alt="" class="w-full h-full object-cover">
+        {{ else }}
+        <span class="font-montserrat font-bold text-[#d8d6d0] text-[10px] uppercase">IMG</span>
+        {{ end }}
+      </div>
       <div class="flex flex-col gap-1 flex-1 min-w-0">
-        <a href="{{ $p.Permalink }}" class="no-underline">
-          <p class="font-montserrat font-bold text-[12px] text-black leading-snug">{{ $p.Title }}</p>
+        <a href="{{ $p.Permalink }}" class="no-underline group">
+          <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors">{{ $p.Title }}</p>
         </a>
         <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">{{ $p.Date.Format "Jan 2, 2006" }}</p>
       </div>
@@ -149,4 +201,5 @@
   </div>
 
 </div>
+</section>
 {{ end }}

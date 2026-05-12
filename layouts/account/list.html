@@ -1,0 +1,80 @@
+{{ define "main" }}
+<div class="max-w-[900px] mx-auto px-4 md:px-6 py-12">
+
+  {{/* Not logged in */}}
+  <div data-ms-content="!members" class="text-center py-24">
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-3">Member Area</p>
+    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] text-black mb-4">Sign in to your account</h1>
+    <p class="font-lora italic text-[#5a5a5a] text-[16px] mb-8 max-w-md mx-auto">Access your saved articles, reading history, and comment activity.</p>
+    <button data-ms-modal="login" class="font-montserrat font-bold text-[12px] tracking-[1.4px] uppercase px-6 py-3 bg-black text-white hover:bg-[#822626] transition-colors cursor-pointer border-0">SIGN IN / JOIN</button>
+  </div>
+
+  {{/* Logged in */}}
+  <div data-ms-content="members">
+
+    {{/* Header */}}
+    <div class="flex items-start justify-between mb-10 pb-6 border-b border-[#d8d6d0]">
+      <div>
+        <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">Member Account</p>
+        <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] text-black mb-1">Welcome back</h1>
+        <p class="font-montserrat text-[#5a5a5a] text-[12px] tracking-[0.5px]" id="ms-member-email"></p>
+      </div>
+      <button data-ms-action="logout" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-3 py-1.5 border border-[#d8d6d0] text-[#5a5a5a] hover:border-black hover:text-black transition-colors cursor-pointer bg-transparent mt-2">SIGN OUT</button>
+    </div>
+
+    {{/* Saved Articles */}}
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="flex-1 border-t border-[#d8d6d0]"></span>
+        <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-black whitespace-nowrap">Saved Articles</p>
+        <span class="flex-1 border-t border-[#d8d6d0]"></span>
+      </div>
+      <div id="saved-articles-list"></div>
+    </section>
+
+    {{/* Reading History */}}
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="flex-1 border-t border-[#d8d6d0]"></span>
+        <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-black whitespace-nowrap">Reading History</p>
+        <span class="flex-1 border-t border-[#d8d6d0]"></span>
+      </div>
+      <div id="reading-history-list"></div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+function getList(key, memberId) {
+  return JSON.parse(localStorage.getItem(key + '_' + memberId) || '[]');
+}
+
+function renderList(containerId, items, emptyMsg) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  if (!items.length) {
+    el.innerHTML = '<p class="font-lora italic text-[#5a5a5a] text-[15px] py-4">' + emptyMsg + '</p>';
+    return;
+  }
+  const reversed = [...items].reverse();
+  el.innerHTML = '<div class="flex flex-col">' + reversed.map(a => `
+    <a href="${a.url}" class="flex items-center justify-between py-3 border-b border-[#ebebeb] no-underline group">
+      <div>
+        <p class="font-montserrat font-bold text-[13px] text-black group-hover:opacity-70 transition-opacity leading-snug">${a.title}</p>
+        <p class="font-montserrat text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase mt-1">${a.date}</p>
+      </div>
+      <span class="font-montserrat text-[#d8d6d0] text-[12px] group-hover:text-[#822626] transition-colors ml-4">→</span>
+    </a>
+  `).join('') + '</div>';
+}
+
+window.$memberstackDom.getCurrentMember().then(({ data: member }) => {
+  if (!member) return;
+  const id = member.id;
+  document.getElementById('ms-member-email').textContent = member.auth.email;
+  renderList('saved-articles-list', getList('cl_saved', id), 'No saved articles yet. Click the bookmark icon on any article to save it.');
+  renderList('reading-history-list', getList('cl_history', id), 'No reading history yet. Articles you read will appear here.');
+});
+</script>
+{{ end }}

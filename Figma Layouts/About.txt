@@ -1,0 +1,317 @@
+import { defineProperties } from "figma:react";
+import { useState } from "react";
+
+const S = `
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --red: #822626;
+    --red-light: #9e2e2e;
+    --muted: #5a5a5a;
+    --hair: #d8d6d0;
+    --hair2: #ebebeb;
+    --paper: #fafaf8;
+    --paper2: #f2f0eb;
+    --sans: 'Montserrat', sans-serif;
+    --body: 'Lora', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .about { background: var(--white); color: var(--black); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  .about a { color: inherit; text-decoration: none; }
+  .about a:hover { color: var(--red); }
+
+  .about-header {
+    padding: 40px 48px 0;
+    text-align: center;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  .about-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 14px;
+  }
+  .about-title {
+    font-family: var(--sans);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--black);
+  }
+  .about-subhead {
+    margin: 16px auto 0;
+    font-family: var(--body);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--muted);
+    max-width: 66ch;
+    line-height: 1.7;
+  }
+  .rule {
+    border: none;
+    border-top: 1px solid var(--hair);
+    margin: 28px 48px;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 48px;
+    align-items: start;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+  @media (max-width: 1100px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; padding: 0 24px 60px; }
+  }
+
+  .section-head {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--black);
+    border-top: 2px solid var(--black);
+    padding-top: 14px;
+    margin: 32px 0 14px;
+  }
+  .section-head:first-child { margin-top: 0; }
+
+  .prose p {
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.82;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose b { font-family: var(--sans); font-weight: 700; font-style: normal; }
+
+  .crib-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  @media (max-width: 700px) { .crib-grid { grid-template-columns: 1fr; } }
+  .crib-card { 
+    border: 1px solid var(--hair); 
+    background: var(--white); 
+    padding: 16px; 
+    cursor: pointer;
+    transition: border-color .15s;
+  }
+  .crib-card:hover { border-color: var(--red); }
+  .crib-header { display: flex; align-items: center; justify-content: space-between; }
+  .crib-header-content { flex: 1; }
+  .crib-toggle { 
+    color: var(--red); 
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform .2s;
+    user-select: none;
+  }
+  .crib-toggle.open { transform: rotate(180deg); }
+  .crib-letter { font-family: var(--sans); font-size: 26px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 4px; }
+  .crib-label { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--black); margin-bottom: 0; }
+  .crib-desc { 
+    font-family: var(--body); 
+    font-size: 13px; 
+    color: var(--muted); 
+    line-height: 1.6; 
+    margin-top: 12px;
+    overflow: hidden;
+    transition: max-height .3s ease, opacity .3s ease;
+  }
+  .crib-desc.collapsed { max-height: 0; opacity: 0; margin-top: 0; }
+  .crib-desc.expanded { max-height: 200px; opacity: 1; }
+
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  @media (max-width: 700px) { .values-grid { grid-template-columns: 1fr; } }
+  .value-card { border-left: 3px solid var(--red); background: var(--paper2); padding: 14px 16px; }
+  .value-title { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--black); margin-bottom: 6px; }
+  .value-desc { font-family: var(--body); font-size: 13px; color: #1a1a1a; line-height: 1.65; }
+
+  .sidebar-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+  .format-steps { display: grid; gap: 0; margin-bottom: 28px; }
+  .format-step { display: flex; align-items: flex-start; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--hair2); font-family: var(--sans); font-size: 13px; }
+  .format-step:last-child { border-bottom: none; }
+  .step-arrow { color: var(--red); font-weight: 900; flex-shrink: 0; }
+  .step-label { font-weight: 600; color: var(--black); display: block; }
+  .step-desc { font-family: var(--body); font-size: 12px; color: var(--muted); display: block; margin-top: 2px; font-style: italic; }
+
+  .stat-list { display: grid; gap: 0; margin-bottom: 28px; }
+  .stat-item { padding: 14px 0; border-bottom: 1px solid var(--hair2); }
+  .stat-item:last-child { border-bottom: none; }
+  .stat-num { font-family: var(--sans); font-size: 32px; font-weight: 900; color: var(--black); line-height: 1; }
+  .stat-num span { font-size: 18px; }
+  .stat-label { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+  .subscribe { border: 1px solid var(--hair); padding: 16px; background: var(--white); }
+  .subscribe p { font-family: var(--body); font-size: 14px; line-height: 1.6; color: #1a1a1a; margin-bottom: 12px; }
+  .sub-row { display: flex; gap: 0; }
+  .sub-input { flex: 1; padding: 10px 12px; border: 1px solid var(--hair); border-right: none; font-family: var(--sans); font-size: 13px; outline: none; background: var(--white); }
+  .sub-input:focus { border-color: var(--red); }
+  .sub-btn { background: var(--black); color: var(--white); border: 1px solid var(--black); font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 10px 14px; cursor: pointer; white-space: nowrap; transition: background .15s; }
+  .sub-btn:hover { background: var(--red); border-color: var(--red); }
+  .sub-hint { font-family: var(--sans); font-size: 11px; color: var(--muted); font-style: italic; margin-top: 10px; }
+`;
+
+const cribsrac = [
+  { l: "C", label: "Cognitive Bias", desc: "What mental shortcut is the headline exploiting? Availability, nostalgia, in-group signaling, moral panic?" },
+  { l: "R", label: "Rhetoric", desc: "What language choices frame the issue? What's implied by the word selection, syntax, and emphasis?" },
+  { l: "I", label: "Ideology", desc: "What worldview does this narrative assume? What does it treat as natural that is actually contested?" },
+  { l: "B", label: "Belief", desc: "What prior beliefs does this story activate or reinforce? What must you already believe for it to land?" },
+  { l: "R", label: "Reflexivity", desc: "How does this narrative loop back on the people it describes? What behaviors does it produce in its subjects?" },
+  { l: "S", label: "Social Reproduction", desc: "How does this story maintain existing hierarchies? Who gets to stay in position when this narrative wins?" },
+  { l: "A", label: "Agency", desc: "Who has actual power to change the mechanism? Where is real leverage, vs. where agency is falsely located?" },
+  { l: "C", label: "Collective Action", desc: "What interventions actually exist? What can institutions, policymakers, and communities do differently?" },
+];
+
+const formatSteps = [
+  { arrow: "→", label: "Headline", desc: "The dominant frame we're countering" },
+  { arrow: "→", label: "The Mechanism", desc: "What's actually happening beneath the story" },
+  { arrow: "→", label: "CRIBSRAC", desc: "Eight-lens belief-pipeline analysis" },
+  { arrow: "→", label: "The Levers", desc: "Real interventions, no fantasy solutions" },
+];
+
+const values = [
+  { title: "Mechanism over moralism", desc: "We explain what's structurally producing a result instead of assigning blame or virtue." },
+  { title: "Clarity over virality", desc: "We optimize for a cleaner model of reality, not for engagement or outrage loops." },
+  { title: "Structure over both-sidesism", desc: "We don't pretend all framings are equally evidence-based. We show the work." },
+  { title: "Levers over despair", desc: "Every brief ends with real interventions. We don't leave readers in the panic loop." },
+];
+
+function CribCard({ item, index }: { item: typeof cribsrac[0], index: number }) {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="crib-card" onClick={() => setIsOpen(!isOpen)}>
+      <div className="crib-header">
+        <div className="crib-header-content">
+          <div className="crib-letter">{item.l}</div>
+          <div className="crib-label">{item.label}</div>
+        </div>
+        <div className={`crib-toggle ${isOpen ? 'open' : ''}`}>▼</div>
+      </div>
+      <p className={`crib-desc ${isOpen ? 'expanded' : 'collapsed'}`}>{item.desc}</p>
+    </div>
+  );
+}
+
+export default function AboutPage() {
+  return (
+    <div className="about">
+      <style>{S}</style>
+
+      <div className="about-grid">
+
+        {/* Main column */}
+        <div>
+          <h2 className="section-head">What We Do</h2>
+          <div className="prose">
+            <p>The Counterline publishes mechanism-first analysis of dominant news narratives. Every brief takes a headline that's currently shaping public understanding and asks: what is this story actually doing? Who benefits from this framing? What does it leave out?</p>
+            <p>We're not a fact-check operation. We're not interested in "the other side" for its own sake. We're interested in the structural forces that produce narratives—the incentives, the institutional designs, the cognitive shortcuts—and in publishing what those forces obscure.</p>
+            <p><b>Output:</b> short, text-first briefs built for clarity, not dopamine. You leave with a cleaner model of reality.</p>
+          </div>
+
+          <h2 className="section-head">How We Report</h2>
+          <div className="prose">
+            <p>Every CounterLine brief follows the same repeatable format. We name the frame, identify the mechanism beneath it, scan the belief-pipeline using CRIBSRAC, and list interventions that actually exist in the real world.</p>
+            <p><b>What we refuse:</b> panic-as-content, scapegoats-as-explanations, false balance, and fantasy solutions that exist only to make the brief feel less bleak.</p>
+          </div>
+
+          <h2 className="section-head">The CRIBSRAC Framework</h2>
+          <div className="prose">
+            <p>CRIBSRAC is our analytical lens for tracing how a headline becomes a public reality. It's a systematic way of asking: what cognitive, rhetorical, ideological, and social machinery is this story running on?</p>
+          </div>
+          <div className="crib-grid">
+            {cribsrac.map((c, i) => (
+              <CribCard item={c} index={i} key={i} />
+            ))}
+          </div>
+
+          <h2 className="section-head">Editorial Values</h2>
+          <div className="values-grid">
+            {values.map((v, i) => (
+              <div className="value-card" key={i}>
+                <p className="value-title">{v.title}</p>
+                <p className="value-desc">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="section-head">Coverage Areas</h2>
+          <div className="prose">
+            <p><b>Education &amp; Work:</b> credentialing systems, training loops, labor discipline, and the political economy of "professionalism" and workplace culture.</p>
+            <p><b>Media &amp; Politics:</b> algorithmic selection, attention extraction, policy narratives, and the institutional offloading that turns structural problems into individual failures.</p>
+            <p><b>Economy &amp; Health:</b> how aggregate statistics get translated into personal moral stories, and who benefits from that translation.</p>
+          </div>
+
+          <h2 className="section-head">The CounterLine Standard</h2>
+          <div className="prose">
+            <p>Every piece must do three things: (1) name the framing, (2) expose the mechanism beneath it, and (3) show levers that exist in the real world. A brief that only names the problem without identifying the structural cause or the real interventions does not meet the standard.</p>
+            <p>We publish when we have something that adds structure. We don't publish to fill a content calendar.</p>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <aside>
+          <div className="sidebar-label">The Format</div>
+          <div className="format-steps">
+            {formatSteps.map((s, i) => (
+              <div className="format-step" key={i}>
+                <span className="step-arrow">{s.arrow}</span>
+                <div>
+                  <span className="step-label">{s.label}</span>
+                  <span className="step-desc">{s.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="sidebar-label">By the Numbers</div>
+          <div className="stat-list">
+            <div className="stat-item">
+              <div className="stat-num">8</div>
+              <div className="stat-label">CRIBSRAC lenses per brief</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-num">5<span>min</span></div>
+              <div className="stat-label">Average read time</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-num">0</div>
+              <div className="stat-label">Panic loops per brief</div>
+            </div>
+          </div>
+
+          
+        </aside>
+
+      </div>
+    </div>
+  );
+}

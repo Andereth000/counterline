@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+{{/* Page header */}}
+<div class="w-full">
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0] text-center">
+    {{ if .Data.Singular }}
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">{{ .Data.Plural | title }}</p>
+    {{ end }}
+    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black uppercase">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2 max-w-[800px] mx-auto">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  {{/* Article grid */}}
+  {{ $paginator := .Paginate .Pages }}
+  {{ if $paginator.Pages }}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range $paginator.Pages }}
+      {{ partial "article-card.html" . }}
+      {{ end }}
+    </div>
+
+    {{/* Pagination Links */}}
+    {{ if gt $paginator.TotalPages 1 }}
+    <div class="flex justify-center mt-12 pb-10">
+      <nav class="flex items-center gap-2">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 border border-[#d8d6d0] font-montserrat font-bold text-[11px] uppercase tracking-wider text-black hover:bg-[#f2f0eb] transition-colors">Previous</a>
+        {{ end }}
+        
+        <div class="flex items-center gap-1">
+          {{ range $paginator.Pagers }}
+          <a href="{{ .URL }}" class="px-3 py-2 border {{ if eq . $paginator }}border-black bg-black text-white{{ else }}border-[#d8d6d0] text-black hover:bg-[#f2f0eb]{{ end }} font-montserrat font-bold text-[11px] transition-colors">
+            {{ .PageNumber }}
+          </a>
+          {{ end }}
+        </div>
+
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 border border-[#d8d6d0] font-montserrat font-bold text-[11px] uppercase tracking-wider text-black hover:bg-[#f2f0eb] transition-colors">Next</a>
+        {{ end }}
+      </nav>
+    </div>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="max-w-[1360px] mx-auto px-[50px] py-20 text-center">
+    <p class="font-montserrat text-[#d8d6d0] text-[12px] tracking-[1.4px] uppercase">No articles yet</p>
+  </div>
+  {{ end }}
+</div>
+
+{{ end }}

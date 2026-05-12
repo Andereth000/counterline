@@ -1,0 +1,85 @@
+{{ define "main" }}
+<div class="max-w-[1360px] mx-auto px-4 md:px-[50px] py-10">
+
+  <div class="border-b border-[#d8d6d0] pb-8 mb-8">
+    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black mb-5">Search</h1>
+    <form action="/search/" method="get" class="relative w-full max-w-[560px]">
+      <svg class="absolute left-[12px] top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input
+        type="text"
+        name="q"
+        id="search-input"
+        placeholder="SEARCH..."
+        class="w-full pl-10 pr-4 py-3 border border-[#d8d6d0] focus:border-[#822626] focus:outline-none text-[13px] font-lora text-black bg-white tracking-[0.04em]"
+        style="border-radius:0"
+      >
+    </form>
+  </div>
+
+  <div id="search-status" class="font-montserrat text-[#5a5a5a] text-[11px] tracking-[1.2px] uppercase mb-6 hidden"></div>
+  <div id="search-results"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+<script>
+(function() {
+  const query = new URLSearchParams(window.location.search).get('q') || '';
+  const input = document.getElementById('search-input');
+  const status = document.getElementById('search-status');
+  const results = document.getElementById('search-results');
+
+  if (input) input.value = query;
+
+  if (!query) {
+    results.innerHTML = '<p class="font-lora italic text-[#5a5a5a] text-[15px] py-12 text-center">Enter a term above to search all articles.</p>';
+    return;
+  }
+
+  fetch('/index.json')
+    .then(r => r.json())
+    .then(data => {
+      const fuse = new Fuse(data, {
+        keys: [
+          { name: 'title', weight: 0.5 },
+          { name: 'description', weight: 0.3 },
+          { name: 'content', weight: 0.2 }
+        ],
+        threshold: 0.4,
+        includeScore: true
+      });
+
+      const hits = fuse.search(query).map(r => r.item);
+
+      status.textContent = hits.length + ' result' + (hits.length !== 1 ? 's' : '') + ' for “' + query + '”';
+      status.classList.remove('hidden');
+
+      if (!hits.length) {
+        results.innerHTML = '<p class="font-lora italic text-[#5a5a5a] text-[15px] py-12 text-center">No results found. Try different keywords.</p>';
+        return;
+      }
+
+      results.innerHTML = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">' +
+        hits.map(a => `
+          <a href="${a.url}" class="flex flex-col no-underline group border-b border-[#d8d6d0] pb-5">
+            <div class="flex flex-col gap-2">
+              ${a.desks && a.desks.length ? `<span class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#822626]">${a.desks[0]}</span>` : ''}
+              <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:opacity-70 transition-opacity">${a.title}</p>
+              ${a.description ? `<p class="font-lora italic text-[#5a5a5a] text-[13px] leading-relaxed line-clamp-3">${a.description}</p>` : ''}
+              <div class="flex items-center gap-2 mt-1">
+                <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">${a.date}</p>
+                ${a.author ? `<span class="text-[#d8d6d0] text-[10px]">·</span><p class="font-montserrat text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">${a.author}</p>` : ''}
+              </div>
+            </div>
+          </a>
+        `).join('') +
+      '</div>';
+    })
+    .catch(() => {
+      results.innerHTML = '<p class="font-lora italic text-[#5a5a5a] text-[15px] py-12 text-center">Search unavailable. Please try again.</p>';
+    });
+})();
+</script>
+{{ end }}
