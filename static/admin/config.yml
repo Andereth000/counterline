@@ -58,6 +58,28 @@ collections:
       - { label: "CounterLine 3", name: counterline_3, widget: text, required: false }
       - { label: "CounterLine Correction", name: counterline_correction, widget: text, required: false }
       - { label: "CounterLine Rewrite", name: counterline_rewrite, widget: text, required: false, hint: "The rewritten headline or lede" }
+      - label: "CRIBSRAC Scan"
+        name: cribsrac_scan
+        widget: list
+        required: false
+        fields:
+          - label: "Lens"
+            name: lens
+            widget: select
+            options:
+              - { label: "Cognitive Bias", value: "Cognitive Bias" }
+              - { label: "Rhetoric", value: "Rhetoric" }
+              - { label: "Ideology", value: "Ideology" }
+              - { label: "Belief", value: "Belief" }
+              - { label: "Social Reproduction", value: "Social Reproduction" }
+              - { label: "Reflexivity", value: "Reflexivity" }
+              - { label: "Agency", value: "Agency" }
+              - { label: "Collective Action", value: "Collective Action" }
+          - label: "Letter (Icon)"
+            name: letter
+            widget: select
+            options: ["C", "R", "I", "B", "S", "A"]
+          - { label: "Description", name: description, widget: text }
 
   - name: pages
     label: Pages
