@@ -1,25 +1,36 @@
 ---
-title: "Have You Tried Turning God On and Off Again?"
-slug: "have-you-tried-turning-god-on-and-off-again"
-date: "2026-04-28"
-author: "Nadège Ngomsi"
-description: "White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off."
-featured_image: "https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original"
+title: Have You Tried Turning God On and Off Again?
+slug: have-you-tried-turning-god-on-and-off-again
+date: 2026-04-28
+author: Nadège Ngomsi
+description: "White Christian nationalism has found an elegant solution to its
+  public-image problem: when it wants to sound righteous, God is on; when it
+  wants to sound persecuted, God is off."
+read_time: 8
+featured_image: https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original
 desks:
   - spectacle-desk
-subdesk: "Panic Bulletin"
+subdesk: Panic Bulletin
 sections:
   - society-economy
-read_time: 8
 draft: false
 featured: true
+original_headline: Hello World
+omission: Hello World
+assumption: Hello World
+record: Hello World
+counterline_1: Hello World
+counterline_2: Hello World
+counterline_3: Hello World
+counterline_correction: Hello World
 cribsrac_scan:
-  - letter: "B"
-    lens: "Belief"
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  - letter: "I"
-    lens: "Ideology"
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: B
+    lens: Belief
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  - letter: I
+    lens: Ideology
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+counterline_rewrite: Hello World
 ---
 
 ## A Minor Technical Issue
