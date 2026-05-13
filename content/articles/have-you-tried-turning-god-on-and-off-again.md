@@ -15,22 +15,16 @@ sections:
   - society-economy
 draft: false
 featured: true
-original_headline: Hello World
-omission: Hello World
-assumption: Hello World
-record: Hello World
-counterline_1: Hello World
-counterline_2: Hello World
-counterline_3: Hello World
-counterline_correction: Hello World
-cribsrac_scan:
-  - letter: B
-    lens: Belief
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  - letter: I
-    lens: Ideology
-    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-counterline_rewrite: Hello World
+original_headline: ""
+omission: ""
+assumption: ""
+record: ""
+counterline_1: ""
+counterline_2: ""
+counterline_3: ""
+counterline_correction: ""
+counterline_rewrite: ""
+cribsrac_scan: []
 ---
 
 ## A Minor Technical Issue
