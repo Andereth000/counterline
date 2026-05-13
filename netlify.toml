@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && cd themes/hugo-news && npm install && cd ../.. && hugo"
+  command = "npm ci && hugo --gc --minify"
   publish = "public"
 
 [build.environment]
