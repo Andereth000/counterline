@@ -9,7 +9,7 @@ desks:
   - economic-synthesis
 subdesk: Lorem Ipsum
 sections:
-  - society-economy
+  - culture-media
 draft: false
 featured: true
 original_headline: Lorem Ipsum
