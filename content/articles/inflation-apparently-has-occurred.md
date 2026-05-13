@@ -12,6 +12,13 @@ sections:
   - society-economy
 read_time: 10
 draft: false
+cribsrac_scan:
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "S"
+    lens: "Social Reproduction"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 Inflation, we are often told, has arrived like weather: atmospheric, regrettable, and faintly impolite. Prices rise, officials frown, anchors lower their voices, and an entire political class behaves as though the cost of living were a mysterious force drifting in from offshore. This is a convenient genre. It permits grave concern without requiring much memory.

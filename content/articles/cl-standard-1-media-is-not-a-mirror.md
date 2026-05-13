@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 15
 draft: false
+cribsrac_scan:
+  - letter: "I"
+    lens: "Ideology"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 There is a metaphor that has done more damage to public understanding than almost any other single idea, and it is the metaphor of the mirror. Press coverage, we are told, holds a mirror up to the world. Journalism reflects events. Cameras capture what happened. Reporters bring the news. The grammar is innocent and the implication is total: the world is out there, and media is the surface on which it is shown.

@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 15
 draft: false
+cribsrac_scan:
+  - letter: "A"
+    lens: "Agency"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "S"
+    lens: "Social Reproduction"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 Pick up almost any major news outlet on almost any day and read the headlines without paying attention to what the stories are about. Pay attention only to the verbs.

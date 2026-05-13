@@ -123,13 +123,31 @@
       {{ end }}
 
       {{ with .Params.counterline_rewrite }}
-      <div class="flex flex-col gap-2">
-        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-black">Rewrite</p>
-        <p class="font-lora italic text-[16px] text-[#222221] leading-relaxed pl-4 border-l-2 border-black">{{ . }}</p>
+      <div class="pt-6 border-t border-brand-hair">
+        <p class="font-montserrat font-bold text-[10px] tracking-[1.54px] uppercase text-black mb-3">Rewrite</p>
+        <p class="font-lora italic text-[19px] text-black leading-relaxed pl-4 border-l-2 border-black">{{ . }}</p>
       </div>
       {{ end }}
 
-    </div>
+      {{/* CRIBSRAC Scan */}}
+      {{ with .Params.cribsrac_scan }}
+      <div class="pt-10 mt-10 border-t border-black/5">
+        <p class="font-montserrat font-bold text-[10px] tracking-[2px] uppercase text-black mb-6">CRIBSRAC Scan</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {{ range . }}
+          <div class="flex gap-4">
+            <div class="shrink-0 w-8 h-8 bg-brand-red flex items-center justify-center font-montserrat font-black text-white text-[14px] leading-none">{{ .letter }}</div>
+            <div>
+              <p class="font-montserrat font-bold text-[10px] tracking-[1px] uppercase text-black mb-1">{{ .lens }}</p>
+              <p class="font-lora text-[14px] text-[#5a5a5a] leading-relaxed italic">{{ .description }}</p>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      </div>
+      </div>
   </div>
   {{ end }}
 

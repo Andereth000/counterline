@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 14
 draft: false
+cribsrac_scan:
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "C"
+    lens: "Collective Action"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 Media criticism, as a public genre, has a recurring failure mode. It exposes without replacing. It identifies what is wrong with a particular framing, sometimes brilliantly, and then leaves the reader standing in the rubble. The exposed framing is gone, or at least damaged. Nothing has been put in its place. The reader, who came to the criticism hoping to understand the world more clearly, walks away knowing only that the world is harder to understand than they thought.

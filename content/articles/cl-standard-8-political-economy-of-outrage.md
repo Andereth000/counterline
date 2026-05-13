@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 15
 draft: false
+cribsrac_scan:
+  - letter: "B"
+    lens: "Belief"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "R"
+    lens: "Reflexivity"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 The first question worth asking about the modern outrage environment is not why people are so angry. They have plenty to be angry about. The first question is why the anger recycles so predictably — why the same kind of story produces the same kind of reaction at the same kind of volume, week after week, and why after years of this pattern, almost nothing changes about the conditions that produced the anger in the first place.

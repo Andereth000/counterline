@@ -13,6 +13,13 @@ read_time: 7
 counterline_1: "What disappears first is hierarchy. Axios notes that Trump's phrasing implied an order Israel had no choice but to obey, and it lays out the ceasefire language distinguishing offensive action from claimed self-defense. But it treats the deeper structure mainly as dramatic context. The United States is not merely commenting on Israeli force here; it is helping define its operational boundaries. The word 'prohibited' matters because it briefly made that relationship visible. What disappears next is Lebanon as a political subject. Lebanon appears largely as the place where strikes may or may not continue, not as a sovereign arena with its own public, its own political stakes, and its own civilian exposure. What disappears most quietly is consequence. The article is detailed on contradiction, process, and clarification. It is thinner on what bombing means beyond procedural compliance."
 counterline_2: "This is not mainly a story about Trump surprising Netanyahu. It is a story about how one word — 'prohibited' — briefly exposed the command structure inside a ceasefire dispute, and how Axios converted that exposure into an insider shock story. The important fact is not simply that Israeli officials were startled. The important fact is that public language momentarily made the hierarchy legible, and the coverage re-centered elite reaction instead of that hierarchy."
 draft: false
+cribsrac_scan:
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "A"
+    lens: "Agency"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 Axios wants the reader to register the shock before noticing the structure. Its headline makes the event legible as a personal rupture: Trump "shocked" Netanyahu by declaring Lebanon strikes "prohibited." The photo beneath it reinforces the same frame, staging the story as a two-man drama between allied principals. Then the lede moves straight to Israeli requests for White House clarification. The sequence matters. It makes elite surprise the event before it makes ceasefire power the event.

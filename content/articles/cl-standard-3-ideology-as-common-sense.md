@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 13
 draft: false
+cribsrac_scan:
+  - letter: "I"
+    lens: "Ideology"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "S"
+    lens: "Social Reproduction"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 Ideology is one of those words the culture has taught itself to use carelessly. In ordinary conversation, it now means something like extremism, or rigidity, or unwelcome conviction. An ideologue is someone whose politics one does not share. Ideology is what other people have. The speaker, who has only common sense, stands outside the term.

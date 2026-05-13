@@ -13,6 +13,13 @@ sections:
 read_time: 8
 draft: false
 featured: true
+cribsrac_scan:
+  - letter: "B"
+    lens: "Belief"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "I"
+    lens: "Ideology"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 ## A Minor Technical Issue

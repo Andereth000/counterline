@@ -14,6 +14,13 @@ counterline_1: "Not by denying that the rebuke was real, but by correcting the s
 counterline_2: "What looked like a story about conscience was in fact a story about contradiction. Haitian immigrants were kept in a legally precarious category while becoming embedded in the ordinary functioning of workplaces, health systems, and local economies. Once removal threatened those institutions, part of the same political order that had tolerated the targeting moved to preserve them."
 counterline_3: "This vote was not simply about Haitian TPS, and it was not simply about one break with Trump. It exposed a larger governing logic. The United States continues to manage immigration through conditionality, discretion, and spectacle, then produces selective exceptions when expulsion collides with the actual requirements of social life. Those exceptions should not be mistaken for structural change. They are better understood as brief moments when the structure becomes visible."
 draft: false
+cribsrac_scan:
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "S"
+    lens: "Social Reproduction"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 ## A Rebuke, and Something More

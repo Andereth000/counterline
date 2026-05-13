@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 14
 draft: false
+cribsrac_scan:
+  - letter: "C"
+    lens: "Cognitive Bias"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "B"
+    lens: "Belief"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 There was a story the late twentieth century told itself with great confidence. The story was that information would liberate us. More data, faster delivery, broader access, lower friction — these were going to produce a public capable of governing itself with unprecedented clarity. An informed public was a free public. The arc of history bent toward access.

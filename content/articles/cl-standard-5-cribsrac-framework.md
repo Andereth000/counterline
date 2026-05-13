@@ -9,6 +9,16 @@ sections:
   - the-counterline-standard
 read_time: 13
 draft: false
+cribsrac_scan:
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "I"
+    lens: "Ideology"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "B"
+    lens: "Belief"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 It is one thing to argue that media is a mechanism, that information is not understanding, that ideology operates as common sense, and that agency is unevenly distributed in the grammar of public life. Each of those claims is useful on its own. But they are also pieces of something larger. Together they describe a single process — the process by which a society generates the meanings it then lives inside, and by which those meanings either reproduce the existing arrangement or open the door to changing it.

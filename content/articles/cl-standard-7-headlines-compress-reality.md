@@ -9,6 +9,13 @@ sections:
   - the-counterline-standard
 read_time: 13
 draft: false
+cribsrac_scan:
+  - letter: "R"
+    lens: "Rhetoric"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  - letter: "C"
+    lens: "Cognitive Bias"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 The most powerful sentence in modern public life is not delivered by a president, a judge, or a central banker. It is written by a person whose name most readers never learn, in a small number of words, in the last few minutes before a piece of content goes out. It is the headline. And because it is the sentence most people read — often the only sentence they read — it is the sentence that most shapes how a day's events are understood.
