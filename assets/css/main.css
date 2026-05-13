@@ -77,3 +77,8 @@
   border-top: 1px solid #e5e7eb;
   margin: 2rem 0;
 }
+
+/* Hide Memberstack Test Mode Badge */
+#ms-test-mode-badge, .ms-test-mode-badge {
+  display: none !important;
+}
