@@ -62,6 +62,20 @@
 
     <!-- Memberstack webflow package -->
     <script data-memberstack-app="app_cmp39e3b200010twu79tf3pzg" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
+
+    <!-- Netlify Identity widget (needed to handle recovery/invite tokens site-wide for CMS access) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </head>
 <body class="bg-white">
     {{ partial "header.html" . }}
