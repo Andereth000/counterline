@@ -12,4 +12,4 @@ featured: false
 ---
 jhgjg
 
-<http://localhost:1313/pages/the-hello-world/>
+[https://dancing-lily-98f91e.netlify.app/pages/the-hello-world/](http://localhost:1313/pages/the-hello-world/)
