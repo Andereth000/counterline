@@ -1,0 +1,20 @@
+{{/*
+  MID-ARTICLE AD SLOT 2 — data-driven via data/ads/mid-2.yml
+  To update: edit data/ads/mid-2.yml in Decap CMS (Ads collection)
+  Toggle active: true/false to show/hide the slot.
+*/}}
+{{ $ad := index $.Site.Data.ads "mid-2" }}
+{{ if and $ad $ad.active }}
+<div class="my-8 flex flex-col items-center">
+  <p class="font-montserrat text-[8px] tracking-[1.54px] uppercase text-[#b0aea8] mb-2">Advertisement</p>
+  <a href="{{ $ad.url }}" target="_blank" rel="noopener sponsored" class="block">
+    <img
+      src="{{ $ad.image }}"
+      alt="{{ $ad.alt }}"
+      width="300"
+      height="250"
+      class="w-[300px] h-[250px] object-cover"
+    >
+  </a>
+</div>
+{{ end }}

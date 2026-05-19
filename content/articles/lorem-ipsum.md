@@ -10,6 +10,9 @@ desks:
 subdesk: Lorem Ipsum
 sections:
   - culture-media
+tags:
+  - lorem
+  - ipsum
 draft: false
 featured: true
 original_headline: Lorem Ipsum
@@ -27,3 +30,5 @@ cribsrac_scan:
     description: Lorem Ipsum
 ---
 Lorem Ipsum
+
+<http://localhost:1313/pages/the-hello-world/>

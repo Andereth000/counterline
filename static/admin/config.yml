@@ -2,10 +2,15 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend:
+  url: http://127.0.0.1:8081/api/v1
+
 media_folder: static/images
 public_folder: /images
 
 collections:
+
+  # ── ARTICLES ──────────────────────────────────────────────────────────────
   - name: articles
     label: Articles
     folder: content/articles
@@ -17,7 +22,7 @@ collections:
       - { label: Publish Date, name: date, widget: datetime }
       - { label: Author, name: author, widget: string }
       - { label: Tagline / Description, name: description, widget: string, required: false }
-      - { label: Read Time (minutes), name: read_time, widget: number, required: false, hint: "Approximate read time in minutes" }
+      - { label: Read Time (minutes), name: read_time, widget: number, required: false, hint: "Set to 0 to hide. Leave blank to default to 5." }
       - { label: Featured Image, name: featured_image, widget: image, required: false }
       - label: Desk
         name: desks
@@ -42,17 +47,25 @@ collections:
           - { label: "Culture & Media", value: "culture-media" }
           - { label: "FilmRem", value: "filmrem" }
           - { label: "The Counterline Standard", value: "the-counterline-standard" }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        hint: "Comma-separated, e.g: politics, media, economy — auto-creates tag pages at /tags/tag-name/"
       - { label: Draft, name: draft, widget: boolean, default: true }
-      - { label: Featured (ticker), name: featured, widget: boolean, default: false, required: false, hint: "Show this article in the homepage ticker" }
-      - { label: Body, name: body, widget: markdown }
+      - { label: "Featured (ticker)", name: featured, widget: boolean, default: false, required: false, hint: "Show this article in the homepage ticker" }
+      - label: Body
+        name: body
+        widget: markdown
+        hint: "Links: [text](/articles/slug/) | [Glossary](/glossary/term/) | [Tag page](/tags/name/) | [Mechanism](/media-mechanisms/slug/)"
       - label: "--- CounterLine Analysis (Optional) ---"
         name: counterline_divider
         widget: hidden
         required: false
       - { label: "Original Headline", name: original_headline, widget: string, required: false, hint: "The headline being analyzed (Headline Analysis desk only)" }
-      - { label: "The Omission", name: omission, widget: text, required: false, hint: "What the original coverage left out" }
-      - { label: "The Assumption", name: assumption, widget: text, required: false, hint: "Embedded assumptions in the original coverage" }
-      - { label: "The Record", name: record, widget: text, required: false, hint: "Factual corrections or context" }
+      - { label: "The Omission", name: omission, widget: text, required: false }
+      - { label: "The Assumption", name: assumption, widget: text, required: false }
+      - { label: "The Record", name: record, widget: text, required: false }
       - { label: "CounterLine 1", name: counterline_1, widget: text, required: false }
       - { label: "CounterLine 2", name: counterline_2, widget: text, required: false }
       - { label: "CounterLine 3", name: counterline_3, widget: text, required: false }
@@ -81,34 +94,217 @@ collections:
             options: ["C", "R", "I", "B", "S", "A"]
           - { label: "Description", name: description, widget: text }
 
+  # ── MEDIA MECHANISMS ──────────────────────────────────────────────────────
+  - name: media-mechanisms
+    label: Media Mechanisms
+    folder: content/media-mechanisms
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string, hint: "The mechanism name, e.g. 'False Balance'" }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Author, name: author, widget: string, required: false }
+      - { label: Description, name: description, widget: string, required: false, hint: "Short summary for SEO and cards" }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+      - { label: "Definition", name: definition, widget: text, hint: "One or two sentences shown prominently at the top of the page" }
+      - label: "Mechanism Type"
+        name: mechanism_type
+        widget: select
+        options:
+          - Framing
+          - Omission
+          - False Balance
+          - False Equivalence
+          - Spectacle
+          - Emotional Manipulation
+          - Appeal to Authority
+          - Other
+      - label: "Also Known As"
+        name: also_known_as
+        widget: list
+        required: false
+        hint: "Comma-separated, e.g: False Balance, Both-Sidesing"
+      - label: "Examples"
+        name: examples
+        widget: list
+        required: false
+        hint: "Comma-separated — one brief example per entry works best"
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        hint: "Comma-separated, e.g: framing, media, bias"
+      - { label: Featured Image, name: featured_image, widget: image, required: false }
+      - label: Body
+        name: body
+        widget: markdown
+        required: false
+        hint: "Full analysis. Links: [text](/articles/slug/) | [Glossary](/glossary/term/)"
+
+  # ── GLOSSARY ──────────────────────────────────────────────────────────────
+  - name: glossary
+    label: Glossary
+    folder: content/glossary
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Term, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - label: Definition
+        name: definition
+        widget: markdown
+        hint: "The term's definition. Shown prominently on the term page."
+      - label: "Related Terms"
+        name: related_terms
+        widget: list
+        required: false
+        hint: "Comma-separated term titles, exactly as they appear (e.g: False Balance, Framing)"
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        hint: "Comma-separated, e.g: language, framing, ideology"
+      - label: "Extended Explanation (optional)"
+        name: body
+        widget: markdown
+        required: false
+        hint: "Longer explanation shown below the definition. Links: [text](/articles/slug/) | [Mechanism](/media-mechanisms/slug/)"
+
+  # ── PAGES (general static) ────────────────────────────────────────────────
   - name: pages
     label: Pages
+    folder: content/pages
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Description, name: description, widget: string, required: false }
+      - label: Body
+        name: body
+        widget: markdown
+        hint: "Standard markdown. Links: [text](/articles/slug/) | [Glossary](/glossary/term/) | [Tag page](/tags/name/) | [Mechanism](/media-mechanisms/slug/)"
+
+  # ── STATIC PAGES (fixed site pages) ──────────────────────────────────────
+  - name: static-pages
+    label: Static Pages
     files:
+
       - name: about
         label: About
         file: content/about/_index.md
         fields:
           - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
           - { label: Draft, name: draft, widget: boolean, default: false }
-          - { label: Body, name: body, widget: markdown }
+          - { label: "What We Do", name: what_we_do, widget: markdown, hint: "The opening section explaining the publication's purpose" }
+          - { label: "How We Report (intro)", name: how_we_report, widget: markdown, hint: "Short intro to the reporting method, shown near the top" }
+          - { label: "CRIBSRAC™ Intro", name: cribsrac_intro, widget: text, hint: "The single paragraph introducing the CRIBSRAC framework" }
+          - label: "CRIBSRAC™ Lenses"
+            name: cribsrac_lenses
+            widget: list
+            fields:
+              - { label: "Letter", name: l, widget: string, hint: "Single capital letter (C, R, I, B, S, A)" }
+              - { label: "Lens Name", name: label, widget: string }
+              - { label: "Description", name: desc, widget: text }
+          - label: "Editorial Values"
+            name: editorial_values
+            widget: list
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Description", name: desc, widget: text }
+          - { label: "Coverage Areas", name: coverage_areas, widget: markdown, hint: "The coverage areas section — use **Bold:** for area labels" }
+          - { label: "The CounterLine Standard", name: the_standard, widget: markdown }
+          - { label: "Mission & Values (full)", name: mission_values, widget: markdown, hint: "Appears at the bottom under the Mission & Values heading" }
+          - { label: "How We Report (full)", name: how_we_report_detail, widget: markdown, hint: "Appears at the bottom under the How We Report heading" }
+          - label: "The Format (sidebar steps)"
+            name: format_steps
+            widget: list
+            fields:
+              - { label: "Step Label", name: label, widget: string }
+              - { label: "Description", name: desc, widget: string }
+          - label: "By the Numbers (sidebar stats)"
+            name: stats
+            widget: list
+            fields:
+              - { label: "Number", name: number, widget: string, hint: "e.g. '8' or '5min'" }
+              - { label: "Label", name: label, widget: string }
+
       - name: subscribe
         label: Subscribe
         file: content/subscribe/_index.md
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Draft, name: draft, widget: boolean, default: false }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Tagline, name: description, widget: string, hint: "The italic text shown below the page title" }
+          - { label: "What You Get", name: body, widget: markdown, hint: "Content shown below the membership cards" }
+
       - name: donate
         label: Donate
         file: content/donate/_index.md
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Draft, name: draft, widget: boolean, default: false }
-          - { label: Body, name: body, widget: markdown }
-      - name: archive
-        label: Archive
-        file: content/archive/_index.md
+          - { label: Subheading, name: description, widget: string, hint: "The bold heading above the payment section" }
+          - { label: Body, name: body, widget: markdown, hint: "Description and bullet points shown below the payment section" }
+
+  # ── ADS ───────────────────────────────────────────────────────────────────
+  - name: ads
+    label: Ads
+    folder: data/ads
+    create: true
+    format: yml
+    slug: "{{slug}}"
+    fields:
+      - { label: Name, name: name, widget: string, hint: "Internal label, e.g. 'May Sponsor — Mid 1'" }
+      - label: Placement
+        name: placement
+        widget: select
+        hint: "Which ad slot this fills"
+        options:
+          - { label: "Mid-Article 1 (after hero image)", value: "mid-1" }
+          - { label: "Mid-Article 2 (after article body)", value: "mid-2" }
+          - { label: "Right Rail (desktop sidebar)", value: "right-rail" }
+      - { label: Ad Image, name: image, widget: image, hint: "Recommended: 300×250px" }
+      - { label: Link URL, name: url, widget: string, hint: "Where the ad clicks through to" }
+      - { label: Alt Text, name: alt, widget: string, hint: "Describe the ad for screen readers" }
+      - { label: Active, name: active, widget: boolean, default: false, hint: "Turn this on to show the ad. Only one ad per placement should be active at a time." }
+
+  # ── SITE SETTINGS ─────────────────────────────────────────────────────────
+  - name: site-settings
+    label: Site Settings
+    files:
+      - name: site
+        label: Site Settings
+        file: data/site.yml
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Draft, name: draft, widget: boolean, default: false }
-          - { label: Body, name: body, widget: markdown }
+          - { label: "Ticker Quote", name: ticker_quote, widget: string, hint: "The italicized quote shown in the homepage ticker bar" }
+
+  # ── NAVIGATION ────────────────────────────────────────────────────────────
+  - name: navigation
+    label: Navigation
+    files:
+      - name: main-nav
+        label: Main Navigation
+        file: data/navigation.yml
+        fields:
+          - label: Nav Items
+            name: items
+            widget: list
+            hint: "Reorder, add, or remove main navigation links. Subscribe/Donate/Sign In buttons are separate and not managed here."
+            fields:
+              - { label: Label, name: label, widget: string, hint: "Display text, e.g. 'Politics'" }
+              - { label: URL, name: url, widget: string, hint: "e.g. /sections/politics/ or /about/" }
+              - label: "Dropdown Items (optional)"
+                name: children
+                widget: list
+                required: false
+                hint: "Add sub-links that appear in a dropdown under this item"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }

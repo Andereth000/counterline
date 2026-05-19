@@ -189,13 +189,19 @@
     letter-spacing: .08em;
     color: #888;
   }
-  .footer-bottom-right {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 11px;
-    font-style: italic;
-    color: #888;
-    letter-spacing: .02em;
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #555;
   }
+  .footer-legal a { color: #888; transition: color .15s; }
+  .footer-legal a:hover { color: #fff; }
+  .footer-legal-sep { color: #333; }
 </style>
 
 <footer class="footer">
@@ -204,7 +210,7 @@
   <div class="member-banner">
     <div class="member-left">
       <div class="member-eyebrow">Become a CounterLine Member</div>
-      <div class="member-title">Join the Publication</div>
+      <div class="member-title">Join Our Publication</div>
       <p class="member-desc">Members can post comments and participate in the CounterLine community. Free for everyone.</p>
     </div>
     <div class="member-tiers">
@@ -273,17 +279,17 @@
 
     {{/* CRIBSRAC */}}
     <div class="footer-col">
-      <div class="footer-col-head">The CRIBSRAC Framework</div>
+      <div class="footer-col-head">The CRIBSRAC&trade; Framework</div>
       <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
       <div class="crib-mini">
         <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social Reproduction</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Reflexivity</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">A</span><span class="crib-mini-word">Agency</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective Action</span></div>
       </div>
       <a href="/about/#cribsrac" style="display:block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#822626;">Learn the Framework →</a>
     </div>
@@ -293,7 +299,11 @@
   {{/* Bottom bar */}}
   <div class="footer-bottom">
     <div class="footer-bottom-left">&copy; {{ now.Format "2006" }} The Counterline &middot; Independent Publication &middot; All rights reserved</div>
-    {{/* <div class="footer-bottom-right">Format: Headline &middot; Mechanism &middot; CRIBSRAC &middot; Levers</div> */}}
+    <div class="footer-legal">
+      <a href="/pages/privacy-policy/">Privacy Policy</a>
+      <span class="footer-legal-sep">&middot;</span>
+      <a href="/pages/terms-of-service/">Terms of Service</a>
+    </div>
   </div>
 
 </footer>

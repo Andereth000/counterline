@@ -17,47 +17,48 @@
       </div>
     </a>
 
-    {{/* Desktop Nav — hidden on mobile */}}
+    {{/* Desktop Nav */}}
     <nav class="hidden md:flex flex-wrap items-center justify-center gap-5 w-full">
-      <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
-      <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
-      <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
-      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
-      <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
-      <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
-      <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
-      
-      <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-        <div class="flex items-center gap-1">
-          <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
-          <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
-            <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
-          </button>
+      {{ range site.Data.navigation.items }}
+        {{ if .children }}
+        {{/* Item with dropdown */}}
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="{{ .url }}" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">{{ .label }}</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            {{ range .children }}
+            <a href="{{ .url }}" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">{{ .label }}</a>
+            {{ end }}
+          </div>
         </div>
-        <div
-          x-show="open"
-          x-transition:enter="transition ease-out duration-100"
-          x-transition:enter-start="opacity-0 -translate-y-1"
-          x-transition:enter-end="opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-75"
-          x-transition:leave-start="opacity-100 translate-y-0"
-          x-transition:leave-end="opacity-0 -translate-y-1"
-          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
-        >
-          <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
-          <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
-        </div>
-      </div>
+        {{ else }}
+        {{/* Plain link */}}
+        <a href="{{ .url }}" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">{{ .label }}</a>
+        {{ end }}
+      {{ end }}
 
       <span class="block w-px h-[17.5px] bg-[#222221]"></span>
 
-      <!-- Button Group -->
+      <!-- Utility buttons -->
       <div class="flex items-stretch gap-3">
         <a href="/subscribe/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-black text-white border border-black hover:bg-brand-red transition-all whitespace-nowrap h-[38px]">Subscribe</a>
         <a href="/donate/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-[#822626] text-white border border-[#822626] hover:bg-black transition-all whitespace-nowrap h-[38px]">Donate</a>
-        
+
         <span class="flex items-center"><span class="block w-px h-[17.5px] bg-[#222221] mx-1"></span></span>
-        
+
         <span data-ms-content="!members" class="flex">
           <a href="#/ms/signup" data-ms-modal="signup" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black text-black bg-transparent hover:bg-black hover:text-white transition-all whitespace-nowrap no-underline h-[38px]">Sign In / Join</a>
         </span>
@@ -67,7 +68,7 @@
       </div>
     </nav>
 
-    {{/* Desktop Search Bar — hidden on mobile */}}
+    {{/* Desktop Search Bar */}}
     <div class="hidden md:flex justify-center w-full">
       <form action="/search/" method="get" class="relative w-full max-w-[320px]">
         <svg class="absolute left-[10px] top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -84,7 +85,7 @@
       </form>
     </div>
 
-    {{/* Mobile Row: Search + Hamburger — hidden on desktop */}}
+    {{/* Mobile Row: Search + Hamburger */}}
     <div class="flex md:hidden w-full items-center gap-3">
       <form action="/search/" method="get" class="relative flex-1">
         <svg class="absolute left-[10px] top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -127,17 +128,18 @@
       x-transition:leave-end="opacity-0 -translate-y-2"
       class="w-full md:hidden flex flex-col border-t border-[#d8d6d0] pt-2"
     >
-      <a href="/sections/politics/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">POLITICS</a>
-      <a href="/sections/culture-media/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CULTURE &amp; MEDIA</a>
-      <a href="/sections/society-economy/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">SOCIETY &amp; ECONOMY</a>
-      <a href="/sections/filmrem/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">FILMREM</a>
-      <a href="/sections/the-counterline-standard/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CL STANDARD</a>
-      <a href="/archive/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ARCHIVE</a>
-      <a href="/about/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ABOUT</a>
+      {{ range site.Data.navigation.items }}
+      <a href="{{ .url }}" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">{{ .label | upper }}</a>
+      {{ if .children }}
+        {{ range .children }}
+        <a href="{{ .url }}" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">{{ .label | upper }}</a>
+        {{ end }}
+      {{ end }}
+      {{ end }}
       <div class="flex flex-col gap-2 py-3 border-b border-[#d8d6d0]">
         <a href="/subscribe/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-black text-white px-4 py-3 text-center transition-colors">SUBSCRIBE</a>
         <a href="/donate/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-[#822626] text-white px-4 py-3 text-center transition-colors">DONATE</a>
-        
+
         <span data-ms-content="!members" class="w-full">
           <a href="#/ms/signup" data-ms-modal="signup" x-on:click="mobileOpen = false" class="w-full font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase border border-black text-black bg-transparent px-4 py-3 text-center transition-all block no-underline">SIGN IN / JOIN</a>
         </span>

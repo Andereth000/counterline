@@ -4,19 +4,19 @@
 {{ $featured := index $featuredList 0 }}
 
 {{/* Ticker */}}
-<div class="bg-black border-t-2 border-b border-[#333] flex flex-wrap items-center justify-between gap-y-1 px-5 py-[10px] w-full">
-  <div class="flex flex-wrap gap-x-4 gap-y-1 items-center">
+<div class="relative bg-black border-t-2 border-b border-[#333] flex items-center justify-between px-5 py-[10px] w-full">
+  <div class="flex gap-x-4 items-center min-w-0 shrink mr-4">
     <div class="bg-[#822626] px-[9px] py-[3px] shrink-0">
       <span class="font-montserrat font-bold text-[10px] text-white tracking-[1.4px] uppercase whitespace-nowrap">EMERGING NEWS</span>
     </div>
     {{ if $featured }}
-    <a href="{{ $featured.Permalink }}" class="font-montserrat font-medium text-[13px] text-white hover:text-white/75 transition-colors no-underline">{{ $featured.Title }}</a>
+    <a href="{{ $featured.Permalink }}" class="font-montserrat font-medium text-[13px] text-white hover:text-white/75 transition-colors no-underline truncate">{{ $featured.Title }}</a>
     {{ else }}
-    <span class="font-montserrat font-medium text-[13px] text-white/50 italic">No featured article</span>
+    <span class="font-montserrat font-medium text-[13px] text-white/50 italic truncate">No featured article</span>
     {{ end }}
   </div>
-  <span class="font-lora italic text-[13px] text-white/75">"Exposing the frame.. Publishing the record"</span>
-  <span class="font-montserrat text-[12px] text-white/75">{{ now.Format "Monday, January 2, 2006" }}</span>
+  <span class="absolute left-1/2 -translate-x-1/2 font-lora italic text-[13px] text-white/75 whitespace-nowrap hidden lg:block pointer-events-none">"{{ site.Data.site.ticker_quote }}"</span>
+  <time id="ticker-date" class="font-montserrat text-[12px] text-white/75 shrink-0 ml-4" datetime="{{ now.Format "2006-01-02" }}">{{ now.Format "Monday, January 2, 2006" }}</time>
 </div>
 
 {{/* Hero Feature */}}
@@ -49,10 +49,13 @@
             <span class="font-montserrat font-bold text-[9px] tracking-widest text-[#999] uppercase mb-1">Written By</span>
             <span class="font-montserrat font-bold text-[13px] text-black uppercase">{{ $featured.Params.author | default "The Counterline" }}</span>
           </div>
+          {{ $rt := cond (not (isset $featured.Params "read_time")) 5 $featured.Params.read_time }}
+          {{ if $rt }}
           <div class="flex flex-col">
             <span class="font-montserrat font-bold text-[9px] tracking-widest text-[#999] uppercase mb-1">Read Time</span>
-            <span class="font-montserrat font-bold text-[13px] text-black uppercase">{{ $featured.Params.read_time | default 5 }} MIN</span>
+            <span class="font-montserrat font-bold text-[13px] text-black uppercase">~{{ $rt }} MIN</span>
           </div>
+          {{ end }}
         </div>
 
         <a href="{{ $featured.Permalink }}" class="inline-flex items-center justify-center bg-black text-white font-montserrat font-bold text-[12px] tracking-[2px] uppercase px-8 py-4 hover:bg-[#822626] transition-all shadow-md">
@@ -120,7 +123,7 @@
         <a href="{{ .Permalink }}" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">{{ .Title }}</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">{{ .Date.Format "Jan 2, 2006" }}</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
       </div>
     </div>
     {{ end }}
@@ -129,9 +132,10 @@
   {{/* Center: Desk Sections */}}
   <div class="flex-1 min-w-0 bg-white border-r border-[#d8d6d0] p-5">
 
-    {{ range slice "the-record" "press-check" "spectacle-desk" "headline-autopsy" "economic-synthesis" "old-news" }}
-    {{ $slug := . }}
     {{ $labels := dict "the-record" "The Record" "press-check" "Press Check" "spectacle-desk" "Spectacle Desk" "headline-autopsy" "Headline Autopsy" "economic-synthesis" "Economic Synthesis" "old-news" "Old News" }}
+
+    {{ range slice "the-record" "press-check" "spectacle-desk" }}
+    {{ $slug := . }}
     {{ $label := index $labels $slug }}
     {{ with $.Site.GetPage (printf "/desks/%s" $slug) }}
     <div class="mb-8 w-full">
@@ -153,22 +157,50 @@
     {{ end }}
     {{ end }}
 
+    {{ partial "ads/mid-article-1.html" . }}
+
+    {{ range slice "headline-autopsy" "economic-synthesis" "old-news" }}
+    {{ $slug := . }}
+    {{ $label := index $labels $slug }}
+    {{ with $.Site.GetPage (printf "/desks/%s" $slug) }}
+    <div class="mb-8 w-full">
+      <a href="{{ .Permalink }}" class="group no-underline">
+        <div class="flex gap-3 items-center py-3 w-full">
+          <span class="flex-1 border-t border-[#d8d6d0] group-hover:border-black transition-colors"></span>
+          <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase whitespace-nowrap group-hover:text-[#822626] transition-colors">{{ $label }}</p>
+          <span class="flex-1 border-t border-[#d8d6d0] group-hover:border-black transition-colors"></span>
+        </div>
+      </a>
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+        {{ range first 3 .Pages }}
+        {{ partial "article-card.html" . }}
+        {{ else }}
+        <p class="font-montserrat text-[#d8d6d0] text-[11px] tracking-[1.4px] uppercase col-span-full py-4 text-center">No articles yet</p>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+    {{ end }}
+
+    {{ partial "ads/mid-article-2.html" . }}
+
   </div>
 
   {{/* Right Rail: Popular + CRIBSRAC */}}
   {{ $popArticles := slice }}
   {{ range $articles }}
     {{ $section := index .Params.sections 0 | default "Uncategorized" }}
-    {{ $popArticles = $popArticles | append (dict "title" .Title "url" .Permalink "date" (.Date.Format "Jan 2, 2006") "image" (.Params.featured_image | default "/images/CL_standard.jpg" )) }}
+    {{ $popArticles = $popArticles | append (dict "title" .Title "url" .Permalink "isoDate" (.Date.Format "2006-01-02") "image" (.Params.featured_image | default "/images/CL_standard.jpg" )) }}
   {{ end }}
 
-  <div class="hidden lg:flex bg-white border-l border-[#d8d6d0] flex-col gap-2 p-5 shrink-0 w-64" x-data="{ 
+  <div class="hidden lg:flex bg-white border-l border-[#d8d6d0] flex-col gap-2 p-5 shrink-0 w-64" x-data="{
     popular: {{ $popArticles | jsonify }},
     init() {
       // Logic to shuffle or re-sort popular items so they look different from Latest
       this.popular = this.popular.sort(() => Math.random() - 0.5).slice(0, 5);
     }
   }">
+    {{ partial "ads/right-rail.html" . }}
     <div class="border-b border-black pb-1 mb-1 w-full text-center">
       <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase">POPULAR</p>
     </div>
@@ -182,14 +214,14 @@
           <a :href="p.url" class="no-underline group">
             <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors" x-text="p.title"></p>
           </a>
-          <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" x-text="p.date"></p>
+          <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" x-text="new Intl.DateTimeFormat(navigator.language,{year:'numeric',month:'short',day:'numeric'}).format(new Date(p.isoDate+'T12:00:00'))"></p>
         </div>
       </div>
     </template>
 
     <div class="flex flex-col gap-2 items-center pt-4 w-full">
       <p class="font-montserrat font-bold text-[#5a5a5a] text-[10px] tracking-[1.8px] uppercase">Mechanism First</p>
-      <p class="font-lora text-[13px] text-black text-center">The <span class="font-bold text-[#822626]">CRIBSRAC</span> Framework</p>
+      <p class="font-lora text-[13px] text-black text-center">The <span class="font-bold text-[#822626]">CRIBSRAC&trade;</span> Framework</p>
       <div class="flex flex-col items-center">
         {{ $steps := slice "Cognitive Bias" "Rhetoric" "Ideology" "Belief" "Social Reproduction" "Reflexivity" "Agency" "Collective Action" }}
         {{ range $i, $step := $steps }}
@@ -204,4 +236,21 @@
 
 </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var ticker = document.getElementById('ticker-date');
+  if (ticker) {
+    ticker.textContent = new Intl.DateTimeFormat(navigator.language, {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    }).format(new Date());
+  }
+  document.querySelectorAll('[data-locale-date]').forEach(function(el) {
+    var d = new Date(el.getAttribute('data-locale-date') + 'T12:00:00');
+    el.textContent = new Intl.DateTimeFormat(navigator.language, {
+      year: 'numeric', month: 'short', day: 'numeric'
+    }).format(d);
+  });
+});
+</script>
 {{ end }}

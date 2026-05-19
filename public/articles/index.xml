@@ -6,7 +6,7 @@
     <description>Recent content in Articles on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 22:45:00 -0700</lastBuildDate>
     <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Media Is Not a Mirror. It Is a Mechanism.</title>
@@ -65,6 +65,13 @@
       <description>&lt;p&gt;The first question worth asking about the modern outrage environment is not why people are so angry. They have plenty to be angry about. The first question is why the anger recycles so predictably — why the same kind of story produces the same kind of reaction at the same kind of volume, week after week, and why after years of this pattern, almost nothing changes about the conditions that produced the anger in the first place.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Lorem Ipsum</title>
+      <link>http://localhost:1313/articles/lorem-ipsum/</link>
+      <pubDate>Tue, 12 May 2026 22:45:00 -0700</pubDate>
+      <guid>http://localhost:1313/articles/lorem-ipsum/</guid>
+      <description>&lt;p&gt;Lorem Ipsum&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/pages/the-hello-world/&#34;&gt;http://localhost:1313/pages/the-hello-world/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story</title>
       <link>http://localhost:1313/articles/axios-ceasefire-power-struggle/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
@@ -98,20 +105,6 @@
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/articles/vote-haitian-tps-immigration-rule/</guid>
       <description>&lt;h2 id=&#34;a-rebuke-and-something-more&#34;&gt;A Rebuke, and Something More&lt;/h2&gt;&#xA;&lt;p&gt;The easiest way to describe the House vote is also the least sufficient one. A Republican-led House broke with Donald Trump and voted to protect Haitian immigrants. That is true. The House passed a bipartisan bill, 224–204, to restore Temporary Protected Status for Haitians for three years, with 11 Republicans joining Democrats after the Trump administration moved to strip those protections. The bill now moves into an uncertain Senate and toward the possibility of a veto.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/articles/climate-justice-now/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/climate-justice-now/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/articles/globalist-agenda-exposed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/globalist-agenda-exposed/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

@@ -2,20 +2,13 @@
 <html lang="en-US">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVNBBQSD1K"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-KVNBBQSD1K');
-        }
-      </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVNBBQSD1K"></script>
+    <script>
+      window.dataLayer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? [] : window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KVNBBQSD1K');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archive | The Counterline</title>
@@ -28,12 +21,12 @@
     <meta property="og:title" content="Archive | The Counterline">
     <meta property="og:description" content="The Counterline">
     <meta property="og:url" content="http://localhost:1313/archive/">
-    
+    <meta property="og:image" content="http://localhost:1313/images/og-default.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Archive | The Counterline">
     <meta name="twitter:description" content="The Counterline">
-    
+    <meta name="twitter:image" content="http://localhost:1313/images/og-default.jpg">
 
     
 
@@ -45,6 +38,20 @@
 
     
     <script data-memberstack-app="app_cmp39e3b200010twu79tf3pzg" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
+
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </head>
 <body class="bg-white">
     <header class="w-full bg-white" x-data="{ mobileOpen: false }">
@@ -68,35 +75,86 @@
 
     
     <nav class="hidden md:flex flex-wrap items-center justify-center gap-5 w-full">
-      <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
-      <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
-      <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
-      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
-      <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
-      <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
-      <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
       
-      <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-        <div class="flex items-center gap-1">
-          <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
-          <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
-            <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
-          </button>
+        
+        
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            
+            <a href="/pages/the-hello-world" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">The Hello World</a>
+            
+          </div>
         </div>
-        <div
-          x-show="open"
-          x-transition:enter="transition ease-out duration-100"
-          x-transition:enter-start="opacity-0 -translate-y-1"
-          x-transition:enter-end="opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-75"
-          x-transition:leave-start="opacity-100 translate-y-0"
-          x-transition:leave-end="opacity-0 -translate-y-1"
-          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
-        >
-          <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
-          <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
+        
+      
+        
+        
+        <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
+        
+      
+        
+        
+        <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
+        
+      
+        
+        
+        <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
+        
+      
+        
+        
+        <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
+        
+      
+        
+        
+        <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
+        
+      
+        
+        
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            
+            <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
+            
+            <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
+            
+          </div>
         </div>
-      </div>
+        
+      
 
       <span class="block w-px h-[17.5px] bg-[#222221]"></span>
 
@@ -104,9 +162,9 @@
       <div class="flex items-stretch gap-3">
         <a href="/subscribe/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-black text-white border border-black hover:bg-brand-red transition-all whitespace-nowrap h-[38px]">Subscribe</a>
         <a href="/donate/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-[#822626] text-white border border-[#822626] hover:bg-black transition-all whitespace-nowrap h-[38px]">Donate</a>
-        
+
         <span class="flex items-center"><span class="block w-px h-[17.5px] bg-[#222221] mx-1"></span></span>
-        
+
         <span data-ms-content="!members" class="flex">
           <a href="#/ms/signup" data-ms-modal="signup" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black text-black bg-transparent hover:bg-black hover:text-white transition-all whitespace-nowrap no-underline h-[38px]">Sign In / Join</a>
         </span>
@@ -176,17 +234,42 @@
       x-transition:leave-end="opacity-0 -translate-y-2"
       class="w-full md:hidden flex flex-col border-t border-[#d8d6d0] pt-2"
     >
+      
       <a href="/sections/politics/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">POLITICS</a>
+      
+        
+        <a href="/pages/the-hello-world" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">THE HELLO WORLD</a>
+        
+      
+      
       <a href="/sections/culture-media/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CULTURE &amp; MEDIA</a>
+      
+      
       <a href="/sections/society-economy/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">SOCIETY &amp; ECONOMY</a>
+      
+      
       <a href="/sections/filmrem/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">FILMREM</a>
+      
+      
       <a href="/sections/the-counterline-standard/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CL STANDARD</a>
+      
+      
       <a href="/archive/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ARCHIVE</a>
+      
+      
       <a href="/about/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ABOUT</a>
+      
+        
+        <a href="/about/#mission-values" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">MISSION &amp; VALUES</a>
+        
+        <a href="/about/#how-we-report" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">HOW WE REPORT</a>
+        
+      
+      
       <div class="flex flex-col gap-2 py-3 border-b border-[#d8d6d0]">
         <a href="/subscribe/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-black text-white px-4 py-3 text-center transition-colors">SUBSCRIBE</a>
         <a href="/donate/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-[#822626] text-white px-4 py-3 text-center transition-colors">DONATE</a>
-        
+
         <span data-ms-content="!members" class="w-full">
           <a href="#/ms/signup" data-ms-modal="signup" x-on:click="mobileOpen = false" class="w-full font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase border border-black text-black bg-transparent px-4 py-3 text-center transition-all block no-underline">SIGN IN / JOIN</a>
         </span>
@@ -248,10 +331,16 @@
   
   
 
+  
+  
+
+  
+  
+
 
 <div class="bg-white text-black font-montserrat antialiased" x-data="{ 
   activeCategory: 'All', 
-  articles: [{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Media does not reflect reality; it constructs a usable version of reality. To read media well is to read it as a mechanism — a system that produces the world the reader is then asked to react to.&#34;,&#34;readTime&#34;:15,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Media Is Not a Mirror. It Is a Mechanism.&#34;,&#34;url&#34;:&#34;/articles/cl-standard-1-media-is-not-a-mirror/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;A society can be saturated with information and still misread the world. Understanding requires knowing not only what happened, but why the system made it happen — and who benefits when the explanation stops at the event.&#34;,&#34;readTime&#34;:14,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;The Difference Between Information and Understanding&#34;,&#34;url&#34;:&#34;/articles/cl-standard-2-information-vs-understanding/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Ideology is not a set of beliefs people consciously hold; it is the background of assumptions that makes some claims feel obvious and others feel ridiculous before any argument is made. Its defining feature is that it disappears as ideology.&#34;,&#34;readTime&#34;:13,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Why Ideology Feels Like Common Sense&#34;,&#34;url&#34;:&#34;/articles/cl-standard-3-ideology-as-common-sense/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Media language systematically grants agency to the wealthy and withholds it from the poor and marginalized. The grammar itself decides who appears as a thinking subject and who appears as a condition. Once named, this asymmetry cannot be unseen.&#34;,&#34;readTime&#34;:15,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;How Media Assigns Agency Upward and Blame Downward&#34;,&#34;url&#34;:&#34;/articles/cl-standard-4-agency-upward-blame-downward/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;CRIBSRAC traces how perception becomes politics across eight interconnected components: Cognitive Bias, Rhetoric, Ideology, Belief, Social Reproduction, Reflexivity, Agency, and Collective Action.&#34;,&#34;readTime&#34;:13,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;The CRIBSRAC Framework: How Media, Meaning, and Power Connect&#34;,&#34;url&#34;:&#34;/articles/cl-standard-5-cribsrac-framework/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;The CounterLine method has one operating principle: no critique without replacement. Every framing exposed must be answered with the structural account that replaces it — the named mechanism, the identified beneficiaries, and the supplied record.&#34;,&#34;readTime&#34;:14,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Structure Over Spectacle: The CounterLine Method&#34;,&#34;url&#34;:&#34;/articles/cl-standard-6-structure-over-spectacle/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Headlines do not summarize reality; they compress it. A headline is a bundle — topic, vibe, and velocity packaged into a single legible object. The compression feels like clarity, but it is lossy.&#34;,&#34;readTime&#34;:13,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Why Headlines Compress Reality: The Bundle, the Playbook, and the Lossy Frame&#34;,&#34;url&#34;:&#34;/articles/cl-standard-7-headlines-compress-reality/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Outrage is not a side effect of the modern media environment. It is the product. Attention is the resource being harvested, and outrage is the most reliable form of attention the current system has found.&#34;,&#34;readTime&#34;:15,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;The Political Economy of Outrage&#34;,&#34;url&#34;:&#34;/articles/cl-standard-8-political-economy-of-outrage/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Axios wants the reader to register the shock before noticing the structure.&#34;,&#34;readTime&#34;:7,&#34;section&#34;:&#34;Politics&#34;,&#34;title&#34;:&#34;Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story&#34;,&#34;url&#34;:&#34;/articles/axios-ceasefire-power-struggle/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off.&#34;,&#34;readTime&#34;:8,&#34;section&#34;:&#34;Society Economy&#34;,&#34;title&#34;:&#34;Have You Tried Turning God On and Off Again?&#34;,&#34;url&#34;:&#34;/articles/have-you-tried-turning-god-on-and-off-again/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;The Price Hike, Now Presented as Weather&#34;,&#34;readTime&#34;:10,&#34;section&#34;:&#34;Society Economy&#34;,&#34;title&#34;:&#34;Inflation, Apparently, Has Occurred&#34;,&#34;url&#34;:&#34;/articles/inflation-apparently-has-occurred/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;\&#34;War Live Updates\&#34; turns an unfolding geopolitical crisis into a rolling content format first, and a structure of violence second.&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Politics&#34;,&#34;title&#34;:&#34;Iran War Live Updates: Tehran and Trump Send Mixed Signals&#34;,&#34;url&#34;:&#34;/articles/iran-war-live-updates-mixed-signals/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;A Republican-led House broke with Trump and voted to protect Haitian immigrants. That is true. It is still not the real account.&#34;,&#34;readTime&#34;:12,&#34;section&#34;:&#34;Politics&#34;,&#34;title&#34;:&#34;The Vote on Haitian TPS Revealed How Immigration Rule Actually Works&#34;,&#34;url&#34;:&#34;/articles/vote-haitian-tps-immigration-rule/&#34;},{&#34;date&#34;:&#34;January 1, 0001&#34;,&#34;description&#34;:&#34;&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Uncategorized&#34;,&#34;title&#34;:&#34;&#34;,&#34;url&#34;:&#34;/articles/climate-justice-now/&#34;},{&#34;date&#34;:&#34;January 1, 0001&#34;,&#34;description&#34;:&#34;&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Uncategorized&#34;,&#34;title&#34;:&#34;&#34;,&#34;url&#34;:&#34;/articles/globalist-agenda-exposed/&#34;}], 
+  articles: [{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Media does not reflect reality; it constructs a usable version of reality. To read media well is to read it as a mechanism — a system that produces the world the reader is then asked to react to.&#34;,&#34;readTime&#34;:15,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Media Is Not a Mirror. It Is a Mechanism.&#34;,&#34;url&#34;:&#34;/articles/cl-standard-1-media-is-not-a-mirror/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;A society can be saturated with information and still misread the world. Understanding requires knowing not only what happened, but why the system made it happen — and who benefits when the explanation stops at the event.&#34;,&#34;readTime&#34;:14,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;The Difference Between Information and Understanding&#34;,&#34;url&#34;:&#34;/articles/cl-standard-2-information-vs-understanding/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Ideology is not a set of beliefs people consciously hold; it is the background of assumptions that makes some claims feel obvious and others feel ridiculous before any argument is made. Its defining feature is that it disappears as ideology.&#34;,&#34;readTime&#34;:13,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Why Ideology Feels Like Common Sense&#34;,&#34;url&#34;:&#34;/articles/cl-standard-3-ideology-as-common-sense/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Media language systematically grants agency to the wealthy and withholds it from the poor and marginalized. The grammar itself decides who appears as a thinking subject and who appears as a condition. Once named, this asymmetry cannot be unseen.&#34;,&#34;readTime&#34;:15,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;How Media Assigns Agency Upward and Blame Downward&#34;,&#34;url&#34;:&#34;/articles/cl-standard-4-agency-upward-blame-downward/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;CRIBSRAC traces how perception becomes politics across eight interconnected components: Cognitive Bias, Rhetoric, Ideology, Belief, Social Reproduction, Reflexivity, Agency, and Collective Action.&#34;,&#34;readTime&#34;:13,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;The CRIBSRAC Framework: How Media, Meaning, and Power Connect&#34;,&#34;url&#34;:&#34;/articles/cl-standard-5-cribsrac-framework/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;The CounterLine method has one operating principle: no critique without replacement. Every framing exposed must be answered with the structural account that replaces it — the named mechanism, the identified beneficiaries, and the supplied record.&#34;,&#34;readTime&#34;:14,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Structure Over Spectacle: The CounterLine Method&#34;,&#34;url&#34;:&#34;/articles/cl-standard-6-structure-over-spectacle/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Headlines do not summarize reality; they compress it. A headline is a bundle — topic, vibe, and velocity packaged into a single legible object. The compression feels like clarity, but it is lossy.&#34;,&#34;readTime&#34;:13,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;Why Headlines Compress Reality: The Bundle, the Playbook, and the Lossy Frame&#34;,&#34;url&#34;:&#34;/articles/cl-standard-7-headlines-compress-reality/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Outrage is not a side effect of the modern media environment. It is the product. Attention is the resource being harvested, and outrage is the most reliable form of attention the current system has found.&#34;,&#34;readTime&#34;:15,&#34;section&#34;:&#34;The Counterline Standard&#34;,&#34;title&#34;:&#34;The Political Economy of Outrage&#34;,&#34;url&#34;:&#34;/articles/cl-standard-8-political-economy-of-outrage/&#34;},{&#34;date&#34;:&#34;May 14, 2026&#34;,&#34;description&#34;:&#34;&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Uncategorized&#34;,&#34;title&#34;:&#34;TEST&#34;,&#34;url&#34;:&#34;/articles/test-1/&#34;},{&#34;date&#34;:&#34;May 12, 2026&#34;,&#34;description&#34;:&#34;Lorem Ipsum&#34;,&#34;readTime&#34;:0,&#34;section&#34;:&#34;Culture Media&#34;,&#34;title&#34;:&#34;Lorem Ipsum&#34;,&#34;url&#34;:&#34;/articles/lorem-ipsum/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;Axios wants the reader to register the shock before noticing the structure.&#34;,&#34;readTime&#34;:7,&#34;section&#34;:&#34;Politics&#34;,&#34;title&#34;:&#34;Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story&#34;,&#34;url&#34;:&#34;/articles/axios-ceasefire-power-struggle/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off.&#34;,&#34;readTime&#34;:8,&#34;section&#34;:&#34;Society Economy&#34;,&#34;title&#34;:&#34;Have You Tried Turning God On and Off Again?&#34;,&#34;url&#34;:&#34;/articles/have-you-tried-turning-god-on-and-off-again/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;The Price Hike, Now Presented as Weather&#34;,&#34;readTime&#34;:10,&#34;section&#34;:&#34;Society Economy&#34;,&#34;title&#34;:&#34;Inflation, Apparently, Has Occurred&#34;,&#34;url&#34;:&#34;/articles/inflation-apparently-has-occurred/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;\&#34;War Live Updates\&#34; turns an unfolding geopolitical crisis into a rolling content format first, and a structure of violence second.&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Politics&#34;,&#34;title&#34;:&#34;Iran War Live Updates: Tehran and Trump Send Mixed Signals&#34;,&#34;url&#34;:&#34;/articles/iran-war-live-updates-mixed-signals/&#34;},{&#34;date&#34;:&#34;April 28, 2026&#34;,&#34;description&#34;:&#34;A Republican-led House broke with Trump and voted to protect Haitian immigrants. That is true. It is still not the real account.&#34;,&#34;readTime&#34;:12,&#34;section&#34;:&#34;Politics&#34;,&#34;title&#34;:&#34;The Vote on Haitian TPS Revealed How Immigration Rule Actually Works&#34;,&#34;url&#34;:&#34;/articles/vote-haitian-tps-immigration-rule/&#34;},{&#34;date&#34;:&#34;January 1, 0001&#34;,&#34;description&#34;:&#34;&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Uncategorized&#34;,&#34;title&#34;:&#34;&#34;,&#34;url&#34;:&#34;/articles/climate-justice-now/&#34;},{&#34;date&#34;:&#34;January 1, 0001&#34;,&#34;description&#34;:&#34;&#34;,&#34;readTime&#34;:5,&#34;section&#34;:&#34;Uncategorized&#34;,&#34;title&#34;:&#34;&#34;,&#34;url&#34;:&#34;/articles/globalist-agenda-exposed/&#34;}], 
   get filteredArticles() { 
     return this.activeCategory === 'All' ? this.articles : this.articles.filter(a => a.section === this.activeCategory) 
   } 
@@ -303,6 +392,16 @@
     
       
     
+      
+    
+      
+    
+    
+    <button
+      class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black transition-all"
+      :class="activeCategory === 'Culture Media' ? 'bg-black text-white' : 'bg-transparent text-black hover:bg-black hover:text-white'"
+      @click="activeCategory = 'Culture Media'"
+    >Culture Media</button>
     
     <button
       class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black transition-all"
@@ -347,7 +446,7 @@
               <div class="flex items-center gap-1.5 mb-2 font-montserrat text-[9px] font-bold tracking-[1.5px] uppercase text-[#822626]">
                 <span x-text="article.section"></span>
                 <span class="text-[#d8d6d0]">•</span>
-                <span class="text-[#5a5a5a]" x-text="article.readTime + ' MIN BRIEF'"></span>
+                <span class="text-[#5a5a5a]" x-text="article.readTime ? '~' + article.readTime + ' MIN BRIEF' : ''"></span>
               </div>
               <a :href="article.url" class="font-montserrat font-bold text-[18px] block leading-tight mb-2 text-black hover:text-brand-red transition-colors" x-text="article.title"></a>
               <p class="font-lora text-[14px] italic text-[#5a5a5a] leading-[1.6] line-clamp-2" x-text="article.description"></p>
@@ -448,11 +547,11 @@
    
   .footer-grid {
     display: grid;
-    grid-template-columns: 220px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 220px 1fr 1fr 1fr;
     gap: 0;
     border-bottom: 1px solid #2a2a2a;
   }
-  @media (max-width: 1200px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px)  { .footer-grid { grid-template-columns: 1fr; } }
 
   .footer-col { padding: 32px; border-right: 1px solid #2a2a2a; }
@@ -581,13 +680,19 @@
     letter-spacing: .08em;
     color: #888;
   }
-  .footer-bottom-right {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 11px;
-    font-style: italic;
-    color: #888;
-    letter-spacing: .02em;
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #555;
   }
+  .footer-legal a { color: #888; transition: color .15s; }
+  .footer-legal a:hover { color: #fff; }
+  .footer-legal-sep { color: #333; }
 </style>
 
 <footer class="footer">
@@ -596,7 +701,7 @@
   <div class="member-banner">
     <div class="member-left">
       <div class="member-eyebrow">Become a CounterLine Member</div>
-      <div class="member-title">Join the Publication</div>
+      <div class="member-title">Join Our Publication</div>
       <p class="member-desc">Members can post comments and participate in the CounterLine community. Free for everyone.</p>
     </div>
     <div class="member-tiers">
@@ -665,26 +770,17 @@
 
     
     <div class="footer-col">
-      <div class="footer-col-head">Newsletter</div>
-      <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;margin-bottom:14px;">Get mechanism-first analysis delivered directly to your inbox.</p>
-      <div class="beehiiv-footer-form">
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5c156d16-3db3-4be1-8ab4-5fd7932cf6c3"></script>
-      </div>
-    </div>
-
-    
-    <div class="footer-col">
-      <div class="footer-col-head">The CRIBSRAC Framework</div>
+      <div class="footer-col-head">The CRIBSRAC&trade; Framework</div>
       <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
       <div class="crib-mini">
         <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social Reproduction</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Reflexivity</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">A</span><span class="crib-mini-word">Agency</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective Action</span></div>
       </div>
       <a href="/about/#cribsrac" style="display:block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#822626;">Learn the Framework →</a>
     </div>
@@ -694,7 +790,11 @@
   
   <div class="footer-bottom">
     <div class="footer-bottom-left">&copy; 2026 The Counterline &middot; Independent Publication &middot; All rights reserved</div>
-    
+    <div class="footer-legal">
+      <a href="/pages/privacy-policy/">Privacy Policy</a>
+      <span class="footer-legal-sep">&middot;</span>
+      <a href="/pages/terms-of-service/">Terms of Service</a>
+    </div>
   </div>
 
 </footer>

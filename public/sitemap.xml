@@ -149,9 +149,117 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:1313/pages/</loc>
     
-    <lastmod>2026-05-10T22:57:20-07:00</lastmod>
+    <lastmod>2026-05-18T16:13:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/pages/the-hello-world/</loc>
+    
+    <lastmod>2026-05-18T16:13:00-07:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-18T16:13:00-07:00</news:publication_date>
+      <news:title>The Hello World</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/articles/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/culture-media/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/desks/economic-synthesis/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/ipsum/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/lorem/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/articles/lorem-ipsum/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-12T22:45:00-07:00</news:publication_date>
+      <news:title>Lorem Ipsum</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/sections/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    
+    <lastmod>2026-05-12T22:45:00-07:00</lastmod>
     
     
     
@@ -159,15 +267,6 @@
   
   <url>
     <loc>http://localhost:1313/archive/</loc>
-    
-    <lastmod>2026-05-10T22:57:20-07:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/articles/</loc>
     
     <lastmod>2026-05-10T22:57:20-07:00</lastmod>
     
@@ -185,25 +284,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/filmrem/</loc>
-    
-    <lastmod>2026-05-10T22:57:20-07:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/subscribe/</loc>
-    
-    <lastmod>2026-05-10T22:57:20-07:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/the-counterline-standard/</loc>
     
     <lastmod>2026-05-10T22:57:20-07:00</lastmod>
     
@@ -253,15 +334,6 @@
   
   <url>
     <loc>http://localhost:1313/sections/the-counterline-standard/</loc>
-    
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/desks/</loc>
     
     <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     
@@ -363,15 +435,6 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/sections/</loc>
-    
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
-    
-    
-    
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/sections/society-economy/</loc>
     
     <lastmod>2026-04-28T00:00:00+00:00</lastmod>
@@ -421,6 +484,42 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/pages/privacy-policy/</loc>
+    
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2024-01-01T00:00:00&#43;00:00</news:publication_date>
+      <news:title>Privacy Policy</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/pages/terms-of-service/</loc>
+    
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    
+    
+    
+    <news:news>
+      <news:publication>
+        <news:name>The Counterline</news:name>
+        <news:language>en-US</news:language>
+      </news:publication>
+      <news:publication_date>2024-01-01T00:00:00&#43;00:00</news:publication_date>
+      <news:title>Terms of Service</news:title>
+    </news:news>
+    
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/</loc>
     
     <lastmod>2023-01-01T08:00:00-07:00</lastmod>
@@ -430,46 +529,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/climate-justice-now/</loc>
-    
-    
-    
-    <news:news>
-      <news:publication>
-        <news:name>The Counterline</news:name>
-        <news:language>en-US</news:language>
-      </news:publication>
-      <news:publication_date>0001-01-01T00:00:00&#43;00:00</news:publication_date>
-      <news:title></news:title>
-    </news:news>
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/articles/globalist-agenda-exposed/</loc>
-    
-    
-    
-    <news:news>
-      <news:publication>
-        <news:name>The Counterline</news:name>
-        <news:language>en-US</news:language>
-      </news:publication>
-      <news:publication_date>0001-01-01T00:00:00&#43;00:00</news:publication_date>
-      <news:title></news:title>
-    </news:news>
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/authors/buck-patriot/</loc>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/authors/luna-rainbow/</loc>
+    <loc>http://localhost:1313/about/</loc>
     
     
     
@@ -490,21 +550,21 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/sections/culture-media/</loc>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/desks/economic-synthesis/</loc>
-    
-    
-    
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/sections/filmrem/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/glossary/</loc>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/media-mechanisms/</loc>
     
     
     
@@ -526,13 +586,6 @@
   
   <url>
     <loc>http://localhost:1313/search/</loc>
-    
-    
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     
     
     

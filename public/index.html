@@ -3,20 +3,13 @@
 <head>
 	<meta name="generator" content="Hugo 0.151.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVNBBQSD1K"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-KVNBBQSD1K');
-        }
-      </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVNBBQSD1K"></script>
+    <script>
+      window.dataLayer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? [] : window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KVNBBQSD1K');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Counterline</title>
@@ -29,12 +22,12 @@
     <meta property="og:title" content="The Counterline">
     <meta property="og:description" content="The Counterline">
     <meta property="og:url" content="http://localhost:1313/">
-    
+    <meta property="og:image" content="http://localhost:1313/images/og-default.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Counterline">
     <meta name="twitter:description" content="The Counterline">
-    
+    <meta name="twitter:image" content="http://localhost:1313/images/og-default.jpg">
 
     
 
@@ -46,6 +39,20 @@
 
     
     <script data-memberstack-app="app_cmp39e3b200010twu79tf3pzg" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
+
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </head>
 <body class="bg-white">
     <header class="w-full bg-white" x-data="{ mobileOpen: false }">
@@ -69,35 +76,86 @@
 
     
     <nav class="hidden md:flex flex-wrap items-center justify-center gap-5 w-full">
-      <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
-      <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
-      <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
-      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
-      <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
-      <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
-      <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
       
-      <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-        <div class="flex items-center gap-1">
-          <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
-          <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
-            <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
-          </button>
+        
+        
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            
+            <a href="/pages/the-hello-world" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">The Hello World</a>
+            
+          </div>
         </div>
-        <div
-          x-show="open"
-          x-transition:enter="transition ease-out duration-100"
-          x-transition:enter-start="opacity-0 -translate-y-1"
-          x-transition:enter-end="opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-75"
-          x-transition:leave-start="opacity-100 translate-y-0"
-          x-transition:leave-end="opacity-0 -translate-y-1"
-          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
-        >
-          <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
-          <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
+        
+      
+        
+        
+        <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
+        
+      
+        
+        
+        <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
+        
+      
+        
+        
+        <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
+        
+      
+        
+        
+        <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
+        
+      
+        
+        
+        <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
+        
+      
+        
+        
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            
+            <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
+            
+            <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
+            
+          </div>
         </div>
-      </div>
+        
+      
 
       <span class="block w-px h-[17.5px] bg-[#222221]"></span>
 
@@ -105,9 +163,9 @@
       <div class="flex items-stretch gap-3">
         <a href="/subscribe/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-black text-white border border-black hover:bg-brand-red transition-all whitespace-nowrap h-[38px]">Subscribe</a>
         <a href="/donate/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-[#822626] text-white border border-[#822626] hover:bg-black transition-all whitespace-nowrap h-[38px]">Donate</a>
-        
+
         <span class="flex items-center"><span class="block w-px h-[17.5px] bg-[#222221] mx-1"></span></span>
-        
+
         <span data-ms-content="!members" class="flex">
           <a href="#/ms/signup" data-ms-modal="signup" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black text-black bg-transparent hover:bg-black hover:text-white transition-all whitespace-nowrap no-underline h-[38px]">Sign In / Join</a>
         </span>
@@ -177,17 +235,42 @@
       x-transition:leave-end="opacity-0 -translate-y-2"
       class="w-full md:hidden flex flex-col border-t border-[#d8d6d0] pt-2"
     >
+      
       <a href="/sections/politics/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">POLITICS</a>
+      
+        
+        <a href="/pages/the-hello-world" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">THE HELLO WORLD</a>
+        
+      
+      
       <a href="/sections/culture-media/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CULTURE &amp; MEDIA</a>
+      
+      
       <a href="/sections/society-economy/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">SOCIETY &amp; ECONOMY</a>
+      
+      
       <a href="/sections/filmrem/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">FILMREM</a>
+      
+      
       <a href="/sections/the-counterline-standard/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CL STANDARD</a>
+      
+      
       <a href="/archive/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ARCHIVE</a>
+      
+      
       <a href="/about/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ABOUT</a>
+      
+        
+        <a href="/about/#mission-values" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">MISSION &amp; VALUES</a>
+        
+        <a href="/about/#how-we-report" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">HOW WE REPORT</a>
+        
+      
+      
       <div class="flex flex-col gap-2 py-3 border-b border-[#d8d6d0]">
         <a href="/subscribe/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-black text-white px-4 py-3 text-center transition-colors">SUBSCRIBE</a>
         <a href="/donate/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-[#822626] text-white px-4 py-3 text-center transition-colors">DONATE</a>
-        
+
         <span data-ms-content="!members" class="w-full">
           <a href="#/ms/signup" data-ms-modal="signup" x-on:click="mobileOpen = false" class="w-full font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase border border-black text-black bg-transparent px-4 py-3 text-center transition-all block no-underline">SIGN IN / JOIN</a>
         </span>
@@ -206,17 +289,17 @@
 
 
 
-<div class="bg-black border-t-2 border-b border-[#333] flex flex-wrap items-center justify-between gap-y-1 px-5 py-[10px] w-full">
-  <div class="flex flex-wrap gap-x-4 gap-y-1 items-center">
+<div class="relative bg-black border-t-2 border-b border-[#333] flex items-center justify-between px-5 py-[10px] w-full">
+  <div class="flex gap-x-4 items-center min-w-0 shrink mr-4">
     <div class="bg-[#822626] px-[9px] py-[3px] shrink-0">
       <span class="font-montserrat font-bold text-[10px] text-white tracking-[1.4px] uppercase whitespace-nowrap">EMERGING NEWS</span>
     </div>
     
-    <a href="http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/" class="font-montserrat font-medium text-[13px] text-white hover:text-white/75 transition-colors no-underline">Have You Tried Turning God On and Off Again?</a>
+    <a href="http://localhost:1313/articles/lorem-ipsum/" class="font-montserrat font-medium text-[13px] text-white hover:text-white/75 transition-colors no-underline truncate">Lorem Ipsum</a>
     
   </div>
-  <span class="font-lora italic text-[13px] text-white/75">"Exposing the frame.. Publishing the record"</span>
-  <span class="font-montserrat text-[12px] text-white/75">Tuesday, May 12, 2026</span>
+  <span class="absolute left-1/2 -translate-x-1/2 font-lora italic text-[13px] text-white/75 whitespace-nowrap hidden lg:block pointer-events-none">"Hello World!"</span>
+  <time id="ticker-date" class="font-montserrat text-[12px] text-white/75 shrink-0 ml-4" datetime="2026-05-18">Monday, May 18, 2026</time>
 </div>
 
 
@@ -231,31 +314,29 @@
           <span class="font-montserrat font-bold text-[10px] tracking-[2px] uppercase text-[#822626]">Featured Article</span>
           <span class="w-1 h-1 bg-[#d8d6d0]"></span>
           
-          <span class="font-montserrat font-semibold text-[10px] tracking-[1.5px] uppercase text-[#5a5a5a]">society economy</span>
+          <span class="font-montserrat font-semibold text-[10px] tracking-[1.5px] uppercase text-[#5a5a5a]">culture media</span>
         </div>
         
-        <a href="http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/" class="no-underline group mb-6">
+        <a href="http://localhost:1313/articles/lorem-ipsum/" class="no-underline group mb-6">
           <h2 class="font-inter font-bold text-[28px] md:text-[38px] lg:text-[46px] leading-[1.05] text-black uppercase tracking-tight group-hover:text-[#822626] transition-colors">
-            Have You Tried Turning God On and Off Again?
+            Lorem Ipsum
           </h2>
         </a>
         
         <p class="font-lora text-[18px] md:text-[20px] leading-[1.6] text-[#444] italic mb-8 max-w-[40ch]">
-          White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off.
+          Lorem Ipsum
         </p>
         
         <div class="grid grid-cols-2 gap-6 mb-8 pt-6 border-t border-[#ebebeb]">
           <div class="flex flex-col">
             <span class="font-montserrat font-bold text-[9px] tracking-widest text-[#999] uppercase mb-1">Written By</span>
-            <span class="font-montserrat font-bold text-[13px] text-black uppercase">Nadège Ngomsi</span>
+            <span class="font-montserrat font-bold text-[13px] text-black uppercase">Lorem Ipsum</span>
           </div>
-          <div class="flex flex-col">
-            <span class="font-montserrat font-bold text-[9px] tracking-widest text-[#999] uppercase mb-1">Read Time</span>
-            <span class="font-montserrat font-bold text-[13px] text-black uppercase">8 MIN</span>
-          </div>
+          
+          
         </div>
 
-        <a href="http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/" class="inline-flex items-center justify-center bg-black text-white font-montserrat font-bold text-[12px] tracking-[2px] uppercase px-8 py-4 hover:bg-[#822626] transition-all shadow-md">
+        <a href="http://localhost:1313/articles/lorem-ipsum/" class="inline-flex items-center justify-center bg-black text-white font-montserrat font-bold text-[12px] tracking-[2px] uppercase px-8 py-4 hover:bg-[#822626] transition-all shadow-md">
           Read the Full Brief →
         </a>
       </div>
@@ -265,9 +346,13 @@
         <div class="w-full h-full relative overflow-hidden bg-white shadow-sm border border-[#d8d6d0]">
           
           
+            
+          
 
           
-          <img src="https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original" alt="Have You Tried Turning God On and Off Again?" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="font-montserrat font-black text-[#d8d6d0] text-[40px] tracking-widest opacity-20 uppercase">The Counterline</span>
+          </div>
           
         </div>
       </div>
@@ -304,7 +389,7 @@
         <a href="http://localhost:1313/articles/cl-standard-1-media-is-not-a-mirror/" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">Media Is Not a Mirror. It Is a Mechanism.</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="2026-04-28">Apr 28, 2026</time>
       </div>
     </div>
     
@@ -325,7 +410,7 @@
         <a href="http://localhost:1313/articles/cl-standard-2-information-vs-understanding/" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">The Difference Between Information and Understanding</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="2026-04-28">Apr 28, 2026</time>
       </div>
     </div>
     
@@ -346,7 +431,7 @@
         <a href="http://localhost:1313/articles/cl-standard-3-ideology-as-common-sense/" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">Why Ideology Feels Like Common Sense</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="2026-04-28">Apr 28, 2026</time>
       </div>
     </div>
     
@@ -367,7 +452,7 @@
         <a href="http://localhost:1313/articles/cl-standard-4-agency-upward-blame-downward/" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">How Media Assigns Agency Upward and Blame Downward</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="2026-04-28">Apr 28, 2026</time>
       </div>
     </div>
     
@@ -388,7 +473,7 @@
         <a href="http://localhost:1313/articles/cl-standard-5-cribsrac-framework/" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">The CRIBSRAC Framework: How Media, Meaning, and Power Connect</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="2026-04-28">Apr 28, 2026</time>
       </div>
     </div>
     
@@ -409,7 +494,7 @@
         <a href="http://localhost:1313/articles/cl-standard-6-structure-over-spectacle/" class="no-underline">
           <p class="font-montserrat font-bold text-[12px] text-black leading-tight">Structure Over Spectacle: The CounterLine Method</p>
         </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
+        <time class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" data-locale-date="2026-04-28">Apr 28, 2026</time>
       </div>
     </div>
     
@@ -419,6 +504,7 @@
   <div class="flex-1 min-w-0 bg-white border-r border-[#d8d6d0] p-5">
 
     
+
     
     
     
@@ -433,44 +519,48 @@
       </a>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         
-        <a href="http://localhost:1313/articles/vote-haitian-tps-immigration-rule/" class="flex flex-col no-underline group">
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/vote-haitian-tps-immigration-rule/" class="flex flex-col no-underline group">
+    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+
+      
+      <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&amp;q=80" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+      
+    </div>
+
+    
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+        
+        
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">Politics</p>
+        
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        The Vote on Haitian TPS Revealed How Immigration Rule Actually Works
+      </p>
+
+      
+      <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">A Republican-led House broke with Trump and voted to protect Haitian immigrants. That is true. It is still not the real account.</p>
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
+    </div>
+  </a>
+
   
-  <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
-    
-    
-
-    
-    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&amp;q=80" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
-    
-  </div>
-
   
-  <div class="pt-4 flex flex-col gap-2">
-    
-    
-      
-      <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">politics</p>
-      
-    
-
-    
-    <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
-      
-      The Vote on Haitian TPS Revealed How Immigration Rule Actually Works
-    </p>
-    
-    
-    <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">A Republican-led House broke with Trump and voted to protect Haitian immigrants. That is true. It is still not the real account.</p>
-    
-    
-    <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
-  </div>
-</a>
+</div>
 
         
       </div>
     </div>
-    
     
     
     
@@ -486,44 +576,95 @@
       </a>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         
-        <a href="http://localhost:1313/articles/axios-ceasefire-power-struggle/" class="flex flex-col no-underline group">
-  
-  <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/test-1/" class="flex flex-col no-underline group">
     
-    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+        
+      
+
+      
+      <div class="w-full h-full flex items-center justify-center">
+        <span class="font-montserrat font-bold text-[#d8d6d0] text-[14px] uppercase tracking-widest">The Counterline</span>
+      </div>
+      
+    </div>
 
     
-    <img src="https://images.axios.com/UnrWlREFz5gCJZnY1Qx2lksOw0o=/0x83:4000x2333/1920x1080/2026/04/17/1776455189439.jpeg?w=1200" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        TEST
+      </p>
+
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">May 14, 2026</p>
+    </div>
+  </a>
+
+  
+  
+  <div class="flex flex-wrap gap-1 mt-2">
+    
+    <a href="/tags/lorem/"
+       class="font-montserrat font-semibold text-[8px] tracking-[1px] uppercase text-[#5a5a5a] hover:text-[#822626] hover:border-[#822626] border border-[#d8d6d0] px-2 py-0.5 transition-colors no-underline">lorem</a>
+    
+    <a href="/tags/ipsum/"
+       class="font-montserrat font-semibold text-[8px] tracking-[1px] uppercase text-[#5a5a5a] hover:text-[#822626] hover:border-[#822626] border border-[#d8d6d0] px-2 py-0.5 transition-colors no-underline">ipsum</a>
     
   </div>
+  
+</div>
+
+        
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/axios-ceasefire-power-struggle/" class="flex flex-col no-underline group">
+    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+
+      
+      <img src="https://images.axios.com/UnrWlREFz5gCJZnY1Qx2lksOw0o=/0x83:4000x2333/1920x1080/2026/04/17/1776455189439.jpeg?w=1200" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+      
+    </div>
+
+    
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+        
+        
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">Politics</p>
+        
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story
+      </p>
+
+      
+      <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">Axios wants the reader to register the shock before noticing the structure.</p>
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
+    </div>
+  </a>
 
   
-  <div class="pt-4 flex flex-col gap-2">
-    
-    
-      
-      <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">politics</p>
-      
-    
-
-    
-    <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
-      
-      Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story
-    </p>
-    
-    
-    <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">Axios wants the reader to register the shock before noticing the structure.</p>
-    
-    
-    <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
-  </div>
-</a>
+  
+</div>
 
         
       </div>
     </div>
-    
     
     
     
@@ -539,80 +680,109 @@
       </a>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         
-        <a href="http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/" class="flex flex-col no-underline group">
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/" class="flex flex-col no-underline group">
+    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+
+      
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+      
+    </div>
+
+    
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+        
+        
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">Society &amp; Economy</p>
+        
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        Have You Tried Turning God On and Off Again?
+      </p>
+
+      
+      <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off.</p>
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
+    </div>
+  </a>
+
   
-  <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
-    
-    
-
-    
-    <img src="https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
-    
-  </div>
-
   
-  <div class="pt-4 flex flex-col gap-2">
-    
-    
-      
-      <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">society economy</p>
-      
-    
-
-    
-    <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
-      
-      Have You Tried Turning God On and Off Again?
-    </p>
-    
-    
-    <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">White Christian nationalism has found an elegant solution to its public-image problem: when it wants to sound righteous, God is on; when it wants to sound persecuted, God is off.</p>
-    
-    
-    <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
-  </div>
-</a>
+</div>
 
         
-        <a href="http://localhost:1313/articles/inflation-apparently-has-occurred/" class="flex flex-col no-underline group">
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/inflation-apparently-has-occurred/" class="flex flex-col no-underline group">
+    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+
+      
+      <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&amp;q=80" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+      
+    </div>
+
+    
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+        
+        
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">Society &amp; Economy</p>
+        
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        Inflation, Apparently, Has Occurred
+      </p>
+
+      
+      <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">The Price Hike, Now Presented as Weather</p>
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
+    </div>
+  </a>
+
   
-  <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
-    
-    
-
-    
-    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&amp;q=80" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
-    
-  </div>
-
   
-  <div class="pt-4 flex flex-col gap-2">
-    
-    
-      
-      <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">society economy</p>
-      
-    
-
-    
-    <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
-      
-      Inflation, Apparently, Has Occurred
-    </p>
-    
-    
-    <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">The Price Hike, Now Presented as Weather</p>
-    
-    
-    <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
-  </div>
-</a>
+</div>
 
         
       </div>
     </div>
     
     
+
+    
+
+
+<div class="my-8 flex flex-col items-center">
+  <p class="font-montserrat text-[8px] tracking-[1.54px] uppercase text-[#b0aea8] mb-2">Advertisement</p>
+  <a href="https://example.com" target="_blank" rel="noopener sponsored" class="block">
+    <img
+      src="/images/ads/mid-1.svg"
+      alt="Advertisement"
+      width="300"
+      height="250"
+      class="w-[300px] h-[250px] object-cover"
+    >
+  </a>
+</div>
+
+
+
     
     
     
@@ -627,44 +797,48 @@
       </a>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         
-        <a href="http://localhost:1313/articles/iran-war-live-updates-mixed-signals/" class="flex flex-col no-underline group">
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/iran-war-live-updates-mixed-signals/" class="flex flex-col no-underline group">
+    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+
+      
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&amp;q=80" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+      
+    </div>
+
+    
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+        
+        
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">Politics</p>
+        
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        Iran War Live Updates: Tehran and Trump Send Mixed Signals
+      </p>
+
+      
+      <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">&#34;War Live Updates&#34; turns an unfolding geopolitical crisis into a rolling content format first, and a structure of violence second.</p>
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
+    </div>
+  </a>
+
   
-  <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
-    
-    
-
-    
-    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&amp;q=80" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
-    
-  </div>
-
   
-  <div class="pt-4 flex flex-col gap-2">
-    
-    
-      
-      <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">politics</p>
-      
-    
-
-    
-    <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
-      
-      Iran War Live Updates: Tehran and Trump Send Mixed Signals
-    </p>
-    
-    
-    <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">&#34;War Live Updates&#34; turns an unfolding geopolitical crisis into a rolling content format first, and a structure of violence second.</p>
-    
-    
-    <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">April 28, 2026</p>
-  </div>
-</a>
+</div>
 
         
       </div>
     </div>
-    
     
     
     
@@ -680,11 +854,62 @@
       </a>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         
-        <p class="font-montserrat text-[#d8d6d0] text-[11px] tracking-[1.4px] uppercase col-span-full py-4 text-center">No articles yet</p>
+        <div class="flex flex-col">
+  <a href="http://localhost:1313/articles/lorem-ipsum/" class="flex flex-col no-underline group">
+    
+    <div class="bg-[#f2f0eb] w-full aspect-video overflow-hidden border border-[#d8d6d0]">
+      
+      
+        
+      
+
+      
+      <div class="w-full h-full flex items-center justify-center">
+        <span class="font-montserrat font-bold text-[#d8d6d0] text-[14px] uppercase tracking-widest">The Counterline</span>
+      </div>
+      
+    </div>
+
+    
+    <div class="pt-4 flex flex-col gap-2">
+      
+      
+        
+        
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.5px] uppercase text-[#822626]">Culture &amp; Media</p>
+        
+      
+
+      
+      <p class="font-montserrat font-bold text-[15px] text-black leading-snug group-hover:text-[#822626] transition-colors line-clamp-2 uppercase">
+        Lorem Ipsum
+      </p>
+
+      
+      <p class="font-lora italic text-[#5a5a5a] text-[12px] leading-relaxed line-clamp-2">Lorem Ipsum</p>
+      
+
+      <p class="font-montserrat font-semibold text-[#999] text-[9px] tracking-[0.8px] uppercase mt-1">May 12, 2026</p>
+    </div>
+  </a>
+
+  
+  
+  <div class="flex flex-wrap gap-1 mt-2">
+    
+    <a href="/tags/lorem/"
+       class="font-montserrat font-semibold text-[8px] tracking-[1px] uppercase text-[#5a5a5a] hover:text-[#822626] hover:border-[#822626] border border-[#d8d6d0] px-2 py-0.5 transition-colors no-underline">lorem</a>
+    
+    <a href="/tags/ipsum/"
+       class="font-montserrat font-semibold text-[8px] tracking-[1px] uppercase text-[#5a5a5a] hover:text-[#822626] hover:border-[#822626] border border-[#d8d6d0] px-2 py-0.5 transition-colors no-underline">ipsum</a>
+    
+  </div>
+  
+</div>
+
         
       </div>
     </div>
-    
     
     
     
@@ -707,123 +932,126 @@
     
     
 
+    
+
+
+<div class="my-8 flex flex-col items-center">
+  <p class="font-montserrat text-[8px] tracking-[1.54px] uppercase text-[#b0aea8] mb-2">Advertisement</p>
+  <a href="https://example.com" target="_blank" rel="noopener sponsored" class="block">
+    <img
+      src="/images/ads/mid-2.svg"
+      alt="Advertisement"
+      width="300"
+      height="250"
+      class="w-[300px] h-[250px] object-cover"
+    >
+  </a>
+</div>
+
+
+
   </div>
 
   
-  <div class="hidden lg:flex bg-white border-l border-[#d8d6d0] flex-col gap-2 p-5 shrink-0 w-64">
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  <div class="hidden lg:flex bg-white border-l border-[#d8d6d0] flex-col gap-2 p-5 shrink-0 w-64" x-data="{
+    popular: [{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Media Is Not a Mirror. It Is a Mechanism.&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-1-media-is-not-a-mirror/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;The Difference Between Information and Understanding&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-2-information-vs-understanding/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Why Ideology Feels Like Common Sense&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-3-ideology-as-common-sense/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;How Media Assigns Agency Upward and Blame Downward&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-4-agency-upward-blame-downward/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;The CRIBSRAC Framework: How Media, Meaning, and Power Connect&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-5-cribsrac-framework/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Structure Over Spectacle: The CounterLine Method&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-6-structure-over-spectacle/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Why Headlines Compress Reality: The Bundle, the Playbook, and the Lossy Frame&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-7-headlines-compress-reality/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;The Political Economy of Outrage&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/cl-standard-8-political-economy-of-outrage/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-05-14&#34;,&#34;title&#34;:&#34;TEST&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/test-1/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;2026-05-12&#34;,&#34;title&#34;:&#34;Lorem Ipsum&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/lorem-ipsum/&#34;},{&#34;image&#34;:&#34;https://images.axios.com/UnrWlREFz5gCJZnY1Qx2lksOw0o=/0x83:4000x2333/1920x1080/2026/04/17/1776455189439.jpeg?w=1200&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/axios-ceasefire-power-struggle/&#34;},{&#34;image&#34;:&#34;https://media.cnn.com/api/v1/images/stellar/prod/220721161535-01-white-christian-nationalism-insurrection.jpg?c=original&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Have You Tried Turning God On and Off Again?&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/have-you-tried-turning-god-on-and-off-again/&#34;},{&#34;image&#34;:&#34;https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200\u0026q=80&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Inflation, Apparently, Has Occurred&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/inflation-apparently-has-occurred/&#34;},{&#34;image&#34;:&#34;https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200\u0026q=80&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;Iran War Live Updates: Tehran and Trump Send Mixed Signals&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/iran-war-live-updates-mixed-signals/&#34;},{&#34;image&#34;:&#34;https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200\u0026q=80&#34;,&#34;isoDate&#34;:&#34;2026-04-28&#34;,&#34;title&#34;:&#34;The Vote on Haitian TPS Revealed How Immigration Rule Actually Works&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/vote-haitian-tps-immigration-rule/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;0001-01-01&#34;,&#34;title&#34;:&#34;&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/climate-justice-now/&#34;},{&#34;image&#34;:&#34;/images/CL_standard.jpg&#34;,&#34;isoDate&#34;:&#34;0001-01-01&#34;,&#34;title&#34;:&#34;&#34;,&#34;url&#34;:&#34;http://localhost:1313/articles/globalist-agenda-exposed/&#34;}],
+    init() {
+      // Logic to shuffle or re-sort popular items so they look different from Latest
+      this.popular = this.popular.sort(() => Math.random() - 0.5).slice(0, 5);
+    }
+  }">
+    
+
+
+<div class="flex flex-col items-center">
+  <p class="font-montserrat text-[8px] tracking-[1.54px] uppercase text-[#b0aea8] mb-2">Advertisement</p>
+  <a href="https://example.com" target="_blank" rel="noopener sponsored" class="block">
+    <img
+      src="/images/ads/right-rail.svg"
+      alt="Advertisement"
+      width="300"
+      height="250"
+      class="w-full max-w-[300px] h-auto object-cover"
+    >
+  </a>
+</div>
+
+
     <div class="border-b border-black pb-1 mb-1 w-full text-center">
       <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase">POPULAR</p>
     </div>
     
-    <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
-      <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
-        
-        
-          
-            
-          
-        
-
-        
-        <img src="/images/CL_standard.jpg" alt="" class="w-full h-full object-cover">
-        
+    <template x-for="p in popular" :key="p.url">
+      <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
+        <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
+          <img :src="p.image" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="flex flex-col gap-1 flex-1 min-w-0">
+          <a :href="p.url" class="no-underline group">
+            <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors" x-text="p.title"></p>
+          </a>
+          <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase" x-text="new Intl.DateTimeFormat(navigator.language,{year:'numeric',month:'short',day:'numeric'}).format(new Date(p.isoDate+'T12:00:00'))"></p>
+        </div>
       </div>
-      <div class="flex flex-col gap-1 flex-1 min-w-0">
-        <a href="http://localhost:1313/articles/cl-standard-1-media-is-not-a-mirror/" class="no-underline group">
-          <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors">Media Is Not a Mirror. It Is a Mechanism.</p>
-        </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
-      </div>
-    </div>
-    
-    <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
-      <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
-        
-        
-          
-            
-          
-        
-
-        
-        <img src="/images/CL_standard.jpg" alt="" class="w-full h-full object-cover">
-        
-      </div>
-      <div class="flex flex-col gap-1 flex-1 min-w-0">
-        <a href="http://localhost:1313/articles/cl-standard-2-information-vs-understanding/" class="no-underline group">
-          <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors">The Difference Between Information and Understanding</p>
-        </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
-      </div>
-    </div>
-    
-    <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
-      <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
-        
-        
-          
-            
-          
-        
-
-        
-        <img src="/images/CL_standard.jpg" alt="" class="w-full h-full object-cover">
-        
-      </div>
-      <div class="flex flex-col gap-1 flex-1 min-w-0">
-        <a href="http://localhost:1313/articles/cl-standard-3-ideology-as-common-sense/" class="no-underline group">
-          <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors">Why Ideology Feels Like Common Sense</p>
-        </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
-      </div>
-    </div>
-    
-    <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
-      <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
-        
-        
-          
-            
-          
-        
-
-        
-        <img src="/images/CL_standard.jpg" alt="" class="w-full h-full object-cover">
-        
-      </div>
-      <div class="flex flex-col gap-1 flex-1 min-w-0">
-        <a href="http://localhost:1313/articles/cl-standard-4-agency-upward-blame-downward/" class="no-underline group">
-          <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors">How Media Assigns Agency Upward and Blame Downward</p>
-        </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
-      </div>
-    </div>
-    
-    <div class="border-b border-[#ebebeb] flex gap-3 items-start py-3 w-full">
-      <div class="bg-[#f2f0eb] border border-[#d8d6d0] shrink-0 size-[60px] overflow-hidden flex items-center justify-center">
-        
-        
-          
-            
-          
-        
-
-        
-        <img src="/images/CL_standard.jpg" alt="" class="w-full h-full object-cover">
-        
-      </div>
-      <div class="flex flex-col gap-1 flex-1 min-w-0">
-        <a href="http://localhost:1313/articles/cl-standard-5-cribsrac-framework/" class="no-underline group">
-          <p class="font-montserrat font-bold text-[12px] text-black leading-tight group-hover:text-[#822626] transition-colors">The CRIBSRAC Framework: How Media, Meaning, and Power Connect</p>
-        </a>
-        <p class="font-montserrat font-semibold text-[#5a5a5a] text-[10px] tracking-[0.8px] uppercase">Apr 28, 2026</p>
-      </div>
-    </div>
-    
+    </template>
 
     <div class="flex flex-col gap-2 items-center pt-4 w-full">
       <p class="font-montserrat font-bold text-[#5a5a5a] text-[10px] tracking-[1.8px] uppercase">Mechanism First</p>
-      <p class="font-lora text-[13px] text-black text-center">The <span class="font-bold text-[#822626]">CRIBSRAC</span> Framework</p>
+      <p class="font-lora text-[13px] text-black text-center">The <span class="font-bold text-[#822626]">CRIBSRAC&trade;</span> Framework</p>
       <div class="flex flex-col items-center">
         
         
@@ -871,6 +1099,23 @@
 
 </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var ticker = document.getElementById('ticker-date');
+  if (ticker) {
+    ticker.textContent = new Intl.DateTimeFormat(navigator.language, {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    }).format(new Date());
+  }
+  document.querySelectorAll('[data-locale-date]').forEach(function(el) {
+    var d = new Date(el.getAttribute('data-locale-date') + 'T12:00:00');
+    el.textContent = new Intl.DateTimeFormat(navigator.language, {
+      year: 'numeric', month: 'short', day: 'numeric'
+    }).format(d);
+  });
+});
+</script>
 
     <style>
   .footer { background: #000; color: #fff; font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
@@ -930,11 +1175,11 @@
    
   .footer-grid {
     display: grid;
-    grid-template-columns: 220px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 220px 1fr 1fr 1fr;
     gap: 0;
     border-bottom: 1px solid #2a2a2a;
   }
-  @media (max-width: 1200px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px)  { .footer-grid { grid-template-columns: 1fr; } }
 
   .footer-col { padding: 32px; border-right: 1px solid #2a2a2a; }
@@ -1063,13 +1308,19 @@
     letter-spacing: .08em;
     color: #888;
   }
-  .footer-bottom-right {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 11px;
-    font-style: italic;
-    color: #888;
-    letter-spacing: .02em;
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #555;
   }
+  .footer-legal a { color: #888; transition: color .15s; }
+  .footer-legal a:hover { color: #fff; }
+  .footer-legal-sep { color: #333; }
 </style>
 
 <footer class="footer">
@@ -1078,7 +1329,7 @@
   <div class="member-banner">
     <div class="member-left">
       <div class="member-eyebrow">Become a CounterLine Member</div>
-      <div class="member-title">Join the Publication</div>
+      <div class="member-title">Join Our Publication</div>
       <p class="member-desc">Members can post comments and participate in the CounterLine community. Free for everyone.</p>
     </div>
     <div class="member-tiers">
@@ -1147,26 +1398,17 @@
 
     
     <div class="footer-col">
-      <div class="footer-col-head">Newsletter</div>
-      <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;margin-bottom:14px;">Get mechanism-first analysis delivered directly to your inbox.</p>
-      <div class="beehiiv-footer-form">
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5c156d16-3db3-4be1-8ab4-5fd7932cf6c3"></script>
-      </div>
-    </div>
-
-    
-    <div class="footer-col">
-      <div class="footer-col-head">The CRIBSRAC Framework</div>
+      <div class="footer-col-head">The CRIBSRAC&trade; Framework</div>
       <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
       <div class="crib-mini">
         <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social Reproduction</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Reflexivity</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">A</span><span class="crib-mini-word">Agency</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective Action</span></div>
       </div>
       <a href="/about/#cribsrac" style="display:block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#822626;">Learn the Framework →</a>
     </div>
@@ -1176,7 +1418,11 @@
   
   <div class="footer-bottom">
     <div class="footer-bottom-left">&copy; 2026 The Counterline &middot; Independent Publication &middot; All rights reserved</div>
-    
+    <div class="footer-legal">
+      <a href="/pages/privacy-policy/">Privacy Policy</a>
+      <span class="footer-legal-sep">&middot;</span>
+      <a href="/pages/terms-of-service/">Terms of Service</a>
+    </div>
   </div>
 
 </footer>

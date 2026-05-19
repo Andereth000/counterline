@@ -72,6 +72,15 @@
     "content": "The first question worth asking about the modern outrage environment is not why people are so angry. They have plenty to be angry about. The first question is why the anger recycles so predictably — why the same kind of story produces the same kind of reaction at the same kind of volume, week after week, and why after years of this pattern, almost nothing changes about the conditions that produced …"
   },
   {
+    "title": "Lorem Ipsum",
+    "url": "http://localhost:1313/articles/lorem-ipsum/",
+    "description": "Lorem Ipsum",
+    "author": "Lorem Ipsum",
+    "date": "May 12, 2026",
+    "desks": ["economic-synthesis"],
+    "content": "Lorem Ipsum\nhttp://localhost:1313/pages/the-hello-world/\n"
+  },
+  {
     "title": "Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story",
     "url": "http://localhost:1313/articles/axios-ceasefire-power-struggle/",
     "description": "Axios wants the reader to register the shock before noticing the structure.",

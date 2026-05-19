@@ -1,0 +1,20 @@
+{{/*
+  RIGHT RAIL AD SLOT — data-driven via data/ads/right-rail.yml
+  To update: edit data/ads/right-rail.yml in Decap CMS (Ads collection)
+  Toggle active: true/false to show/hide the slot.
+*/}}
+{{ $ad := index $.Site.Data.ads "right-rail" }}
+{{ if and $ad $ad.active }}
+<div class="flex flex-col items-center">
+  <p class="font-montserrat text-[8px] tracking-[1.54px] uppercase text-[#b0aea8] mb-2">Advertisement</p>
+  <a href="{{ $ad.url }}" target="_blank" rel="noopener sponsored" class="block">
+    <img
+      src="{{ $ad.image }}"
+      alt="{{ $ad.alt }}"
+      width="300"
+      height="250"
+      class="w-full max-w-[300px] h-auto object-cover"
+    >
+  </a>
+</div>
+{{ end }}

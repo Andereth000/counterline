@@ -3,7 +3,7 @@
 {{ $articleData := slice }}
 {{ range $articles }}
   {{ $section := index .Params.sections 0 | default "Uncategorized" }}
-  {{ $articleData = $articleData | append (dict "title" .Title "url" .RelPermalink "section" ($section | title | replaceRE "-" " ") "date" (.Date.Format "January 2, 2006") "description" .Description "readTime" (.Params.read_time | default 5)) }}
+  {{ $articleData = $articleData | append (dict "title" .Title "url" .RelPermalink "section" ($section | title | replaceRE "-" " ") "date" (.Date.Format "January 2, 2006") "description" .Description "readTime" (cond (not (isset .Params "read_time")) 5 .Params.read_time)) }}
 {{ end }}
 
 <div class="bg-white text-black font-montserrat antialiased" x-data="{ 
@@ -60,7 +60,7 @@
               <div class="flex items-center gap-1.5 mb-2 font-montserrat text-[9px] font-bold tracking-[1.5px] uppercase text-[#822626]">
                 <span x-text="article.section"></span>
                 <span class="text-[#d8d6d0]">•</span>
-                <span class="text-[#5a5a5a]" x-text="article.readTime + ' MIN BRIEF'"></span>
+                <span class="text-[#5a5a5a]" x-text="article.readTime ? '~' + article.readTime + ' MIN BRIEF' : ''"></span>
               </div>
               <a :href="article.url" class="font-montserrat font-bold text-[18px] block leading-tight mb-2 text-black hover:text-brand-red transition-colors" x-text="article.title"></a>
               <p class="font-lora text-[14px] italic text-[#5a5a5a] leading-[1.6] line-clamp-2" x-text="article.description"></p>

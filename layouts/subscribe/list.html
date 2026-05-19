@@ -4,7 +4,7 @@
   <div class="mb-10">
     <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-3">The CounterLine Brief</p>
     <h1 class="font-inter font-bold text-[40px] tracking-[-1px] leading-[1.1] text-black mb-4">Subscribe</h1>
-    <p class="font-lora italic text-[18px] text-[#5a5a5a] leading-relaxed">Join readers who want the mechanism, not the panic. Published when the record warrants it.</p>
+    {{ with .Description }}<p class="font-lora italic text-[18px] text-[#5a5a5a] leading-relaxed">{{ . }}</p>{{ end }}
   </div>
 
   <div class="border-t border-[#d8d6d0] pt-8 mb-10">
@@ -13,23 +13,83 @@
     </div>
   </div>
 
-  <div class="border-t border-[#d8d6d0] pt-8">
-    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-black mb-4">What you get</p>
-    <div class="flex flex-col gap-3">
-      <div class="flex items-start gap-3">
-        <span class="font-montserrat font-bold text-[#822626] text-[12px] mt-0.5">→</span>
-        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">The CounterLine Brief — analysis of dominant framing when it matters</p>
+  {{/* Membership tier cards */}}
+  <div class="border-t border-[#d8d6d0] pt-8 mb-10">
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-black mb-6">Membership</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+      {{/* Free tier */}}
+      <div class="border border-[#d8d6d0] p-6 flex flex-col">
+        <div class="flex items-baseline justify-between mb-1">
+          <p class="font-montserrat font-bold text-[12px] tracking-[1.2px] uppercase text-black">Reader</p>
+          <p class="font-montserrat font-bold text-[22px] leading-none text-black">Free</p>
+        </div>
+        <p class="font-lora italic text-[13px] text-[#5a5a5a] mb-5">Full access. No credit card required.</p>
+        <ul class="flex flex-col gap-2 mb-6 flex-1">
+          <li class="flex items-start gap-2">
+            <span class="font-montserrat font-bold text-[#822626] text-[11px] mt-0.5">→</span>
+            <p class="font-lora text-[13px] text-[#222221] leading-relaxed">Full access to all published articles</p>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-montserrat font-bold text-[#822626] text-[11px] mt-0.5">→</span>
+            <p class="font-lora text-[13px] text-[#222221] leading-relaxed">The CounterLine Brief newsletter</p>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-montserrat font-bold text-[#822626] text-[11px] mt-0.5">→</span>
+            <p class="font-lora text-[13px] text-[#222221] leading-relaxed">Community comments</p>
+          </li>
+        </ul>
+        <button
+          onclick="if(window.$memberstackDom){window.$memberstackDom.openModal('SIGNUP',{planId:'pln_free_REPLACE_ME'})}"
+          class="w-full font-montserrat font-bold text-[10px] tracking-[1.4px] uppercase border border-black py-3 text-black hover:bg-black hover:text-white transition-colors cursor-pointer bg-transparent">
+          Join Free →
+        </button>
       </div>
-      <div class="flex items-start gap-3">
-        <span class="font-montserrat font-bold text-[#822626] text-[12px] mt-0.5">→</span>
-        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">New articles from every desk delivered directly</p>
+
+      {{/* Paid tier */}}
+      <div class="border border-[#d8d6d0] flex flex-col relative overflow-hidden">
+        <div class="bg-[#822626] py-1.5 px-4 text-center shrink-0">
+          <p class="font-montserrat font-bold text-[8px] tracking-[1.4px] uppercase text-white">Support Independent Media</p>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-baseline justify-between mb-1">
+            <p class="font-montserrat font-bold text-[12px] tracking-[1.2px] uppercase text-black">Supporter</p>
+            <p class="font-montserrat font-bold text-[22px] leading-none text-black">$8<span class="text-[13px] text-[#5a5a5a] font-medium">/mo</span></p>
+          </div>
+          <p class="font-lora italic text-[13px] text-[#5a5a5a] mb-5">Everything in Reader, plus you keep us independent.</p>
+          <ul class="flex flex-col gap-2 mb-6 flex-1">
+            <li class="flex items-start gap-2">
+              <span class="font-montserrat font-bold text-[#822626] text-[11px] mt-0.5">→</span>
+              <p class="font-lora text-[13px] text-[#222221] leading-relaxed">Everything in the free tier</p>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-montserrat font-bold text-[#822626] text-[11px] mt-0.5">→</span>
+              <p class="font-lora text-[13px] text-[#222221] leading-relaxed">Supporter badge on your comments</p>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-montserrat font-bold text-[#822626] text-[11px] mt-0.5">→</span>
+              <p class="font-lora text-[13px] text-[#222221] leading-relaxed">Direct support for independent journalism</p>
+            </li>
+          </ul>
+          <button
+            onclick="if(window.$memberstackDom){window.$memberstackDom.openModal('SIGNUP',{planId:'pln_paid_REPLACE_ME'})}"
+            class="w-full font-montserrat font-bold text-[10px] tracking-[1.4px] uppercase bg-[#822626] py-3 text-white hover:bg-[#5e1b1b] transition-colors cursor-pointer border-none">
+            Become a Supporter →
+          </button>
+        </div>
       </div>
-      <div class="flex items-start gap-3">
-        <span class="font-montserrat font-bold text-[#822626] text-[12px] mt-0.5">→</span>
-        <p class="font-lora text-[15px] text-[#222221] leading-relaxed">No ads. No panic loops. No both-sides fog.</p>
-      </div>
+
     </div>
+
+    <p class="font-lora italic text-[12px] text-[#5a5a5a] mt-4">Already a member? <a href="#" onclick="event.preventDefault();if(window.$memberstackDom){window.$memberstackDom.openModal('LOGIN')}" class="underline hover:text-black cursor-pointer">Sign in here.</a></p>
   </div>
+
+  {{ with .Content }}
+  <div class="border-t border-[#d8d6d0] pt-8 markdown-content">
+    {{ . }}
+  </div>
+  {{ end }}
 
 </div>
 {{ end }}

@@ -8,6 +8,7 @@ googleAnalytics = 'G-KVNBBQSD1K'
   description = "The Counterline"
   author = "The Counterline"
   beehiivPubId = "8b80fd66-7356-458f-87f0-1c85248dd41c"
+  ogImage = "/images/og-default.jpg"
 
 [taxonomies]
   desk = "desks"

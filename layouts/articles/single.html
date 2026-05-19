@@ -1,13 +1,14 @@
 {{ define "main" }}
 <div class="bg-white text-black font-montserrat antialiased">
-<article class="max-w-4xl mx-auto px-4 py-12">
+<div class="max-w-3xl mx-auto px-4 py-12">
+  <article>
 
   <header class="mb-8">
 
     {{/* Desk + Subdesk Pills */}}
     <div class="flex flex-wrap gap-2 mb-5">
       {{ if in .Params.sections "the-counterline-standard" }}
-        <span class="bg-[#822626] px-4 py-2 font-montserrat font-bold text-[11px] text-white tracking-[1.98px] uppercase">Standard No. {{ .Params.weight }}</span>
+        <span class="bg-[#822626] px-4 py-2 font-montserrat font-bold text-[11px] text-white tracking-[1.98px] uppercase">The CounterLine Standard</span>
       {{ else }}
         {{ with .Params.desks }}
           {{ range first 1 . }}
@@ -64,6 +65,9 @@
   <div class="markdown-content bg-white shadow-md p-8 mb-8 font-lora">
     {{ .Content }}
   </div>
+
+  {{/* Share links */}}
+  {{ partial "share.html" . }}
 
   {{/* CounterLine Analysis — only shown when optional fields are present */}}
   {{ $hasAnalysis := or .Params.counterline_1 .Params.counterline_2 .Params.counterline_3 .Params.assumption .Params.record .Params.omission .Params.counterline_correction .Params.counterline_rewrite .Params.original_headline }}
@@ -132,7 +136,7 @@
       {{/* CRIBSRAC Scan */}}
       {{ with .Params.cribsrac_scan }}
       <div class="pt-10 mt-10 border-t border-black/5">
-        <p class="font-montserrat font-bold text-[10px] tracking-[2px] uppercase text-black mb-6">CRIBSRAC Scan</p>
+        <p class="font-montserrat font-bold text-[10px] tracking-[2px] uppercase text-black mb-6">CRIBSRAC&trade; Scan</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {{ range . }}
           <div class="flex gap-4">
@@ -147,6 +151,19 @@
       </div>
       {{ end }}
 
+    </div>
+  </div>
+  {{ end }}
+
+  {{/* Tags */}}
+  {{ with .Params.tags }}
+  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-8">
+    <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#5a5a5a] shrink-0">Tags</p>
+    <div class="flex flex-wrap gap-1.5">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/"
+         class="font-montserrat font-semibold text-[9px] tracking-[1.2px] uppercase text-[#5a5a5a] hover:text-black border border-[#d8d6d0] hover:border-black px-4 py-1 transition-colors no-underline">{{ . }}</a>
+      {{ end }}
     </div>
   </div>
   {{ end }}
@@ -169,7 +186,7 @@
     </script>    <script async src="https://talk.hyvor.com/web-api/embed.js"></script>
   </div>
 
-</article>
+  </article>
 </div>
 
 <script>

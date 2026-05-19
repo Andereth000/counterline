@@ -6,20 +6,27 @@
     <description>Recent content in Desks on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 08:22:00 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/desks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Press Check</title>
+      <link>http://localhost:1313/desks/press-check/</link>
+      <pubDate>Thu, 14 May 2026 08:22:00 -0500</pubDate>
+      <guid>http://localhost:1313/desks/press-check/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Economic Synthesis</title>
+      <link>http://localhost:1313/desks/economic-synthesis/</link>
+      <pubDate>Tue, 12 May 2026 22:45:00 -0700</pubDate>
+      <guid>http://localhost:1313/desks/economic-synthesis/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Headline Autopsy</title>
       <link>http://localhost:1313/desks/headline-autopsy/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/desks/headline-autopsy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Press Check</title>
-      <link>http://localhost:1313/desks/press-check/</link>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/desks/press-check/</guid>
       <description></description>
     </item>
     <item>
@@ -34,13 +41,6 @@
       <link>http://localhost:1313/desks/the-record/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/desks/the-record/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Economic Synthesis</title>
-      <link>http://localhost:1313/desks/economic-synthesis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/desks/economic-synthesis/</guid>
       <description></description>
     </item>
     <item>

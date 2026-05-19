@@ -6,7 +6,7 @@
     <description>Recent content in Home on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 16:13:00 -0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Media Is Not a Mirror. It Is a Mechanism.</title>
@@ -65,6 +65,27 @@
       <description>&lt;p&gt;The first question worth asking about the modern outrage environment is not why people are so angry. They have plenty to be angry about. The first question is why the anger recycles so predictably — why the same kind of story produces the same kind of reaction at the same kind of volume, week after week, and why after years of this pattern, almost nothing changes about the conditions that produced the anger in the first place.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>The Hello World</title>
+      <link>http://localhost:1313/pages/the-hello-world/</link>
+      <pubDate>Mon, 18 May 2026 16:13:00 -0700</pubDate>
+      <guid>http://localhost:1313/pages/the-hello-world/</guid>
+      <description>&lt;p&gt;Hello world&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/articles/vote-haitian-tps-immigration-rule/&#34;&gt;http://localhost:1313/articles/vote-haitian-tps-immigration-rule/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TEST</title>
+      <link>http://localhost:1313/articles/test-1/</link>
+      <pubDate>Thu, 14 May 2026 08:22:00 -0500</pubDate>
+      <guid>http://localhost:1313/articles/test-1/</guid>
+      <description>&lt;p&gt;jhgjg&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/pages/the-hello-world/&#34;&gt;http://localhost:1313/pages/the-hello-world/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lorem Ipsum</title>
+      <link>http://localhost:1313/articles/lorem-ipsum/</link>
+      <pubDate>Tue, 12 May 2026 22:45:00 -0700</pubDate>
+      <guid>http://localhost:1313/articles/lorem-ipsum/</guid>
+      <description>&lt;p&gt;Lorem Ipsum&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/pages/the-hello-world/&#34;&gt;http://localhost:1313/pages/the-hello-world/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story</title>
       <link>http://localhost:1313/articles/axios-ceasefire-power-struggle/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
@@ -98,6 +119,20 @@
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/articles/vote-haitian-tps-immigration-rule/</guid>
       <description>&lt;h2 id=&#34;a-rebuke-and-something-more&#34;&gt;A Rebuke, and Something More&lt;/h2&gt;&#xA;&lt;p&gt;The easiest way to describe the House vote is also the least sufficient one. A Republican-led House broke with Donald Trump and voted to protect Haitian immigrants. That is true. The House passed a bipartisan bill, 224–204, to restore Temporary Protected Status for Haitians for three years, with 11 Republicans joining Democrats after the Trump administration moved to strip those protections. The bill now moves into an uncertain Senate and toward the possibility of a veto.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Privacy Policy</title>
+      <link>http://localhost:1313/pages/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pages/privacy-policy/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Last updated: May 2026&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-we-collect&#34;&gt;What We Collect&lt;/h2&gt;&#xA;&lt;p&gt;The Counterline collects data necessary to operate the publication and improve your reading experience:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Account data&lt;/strong&gt; (if you register): name and email address, managed through Memberstack&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Newsletter data&lt;/strong&gt;: email address, managed through Beehiiv&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Comments&lt;/strong&gt;: content you submit through our comments system, managed through Hyvor Talk&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Usage data&lt;/strong&gt;: pages visited, time on site, and general location, collected through Google Analytics&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Technical data&lt;/strong&gt;: IP address, browser type, and device type, collected by Netlify (our hosting provider)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;third-party-services&#34;&gt;Third-Party Services&lt;/h2&gt;&#xA;&lt;p&gt;We use the following third-party services, each governed by their own privacy policy:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terms of Service</title>
+      <link>http://localhost:1313/pages/terms-of-service/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pages/terms-of-service/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Last updated: May 2026&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;acceptance-of-terms&#34;&gt;Acceptance of Terms&lt;/h2&gt;&#xA;&lt;p&gt;By accessing or using The Counterline, you agree to these Terms of Service. If you disagree with any part of these terms, please discontinue use of the site.&lt;/p&gt;&#xA;&lt;h2 id=&#34;content-and-intellectual-property&#34;&gt;Content and Intellectual Property&lt;/h2&gt;&#xA;&lt;p&gt;All articles, analysis, and editorial content published on The Counterline are the intellectual property of The Counterline or its contributors. You may share and quote content with proper attribution and a link to the original. Reproduction for commercial purposes requires prior written consent.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

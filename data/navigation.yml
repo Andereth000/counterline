@@ -1,0 +1,23 @@
+items:
+  - label: Politics
+    url: /sections/politics/
+    children:
+      - label: The Hello World
+        url: /pages/the-hello-world
+  - label: Culture & Media
+    url: /sections/culture-media/
+  - label: Society & Economy
+    url: /sections/society-economy/
+  - label: Filmrem
+    url: /sections/filmrem/
+  - label: CL Standard
+    url: /sections/the-counterline-standard/
+  - label: Archive
+    url: /archive/
+  - label: About
+    url: /about/
+    children:
+      - label: Mission & Values
+        url: /about/#mission-values
+      - label: How We Report
+        url: /about/#how-we-report

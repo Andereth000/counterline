@@ -1,0 +1,64 @@
+{{ define "main" }}
+<div class="bg-white text-black font-montserrat antialiased">
+<div class="max-w-4xl mx-auto px-4 py-12">
+
+  {{/* Definition card block */}}
+  <div class="border border-[#d8d6d0] bg-[#f2f0eb] p-8 mb-10">
+
+    {{ with .Params.mechanism_type }}
+    <span class="inline-block bg-black text-white font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase px-3 py-1.5 mb-5">{{ . }}</span>
+    {{ end }}
+
+    <h1 class="font-inter font-bold text-[32px] md:text-[42px] tracking-[-1px] leading-[1.1] text-black uppercase mb-5">{{ .Title }}</h1>
+
+    {{ with .Params.definition }}
+    <p class="font-lora italic text-[18px] text-black/70 leading-[1.6] mb-6">{{ . }}</p>
+    {{ end }}
+
+    <div class="flex flex-wrap gap-8 pt-6 border-t border-[#d8d6d0]">
+      {{ with .Params.also_known_as }}
+      <div>
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#5a5a5a] mb-2">Also known as</p>
+        <div class="flex flex-wrap gap-2">
+          {{ range . }}
+          <span class="font-lora italic text-[13px] text-[#5a5a5a] border border-[#d8d6d0] px-2 py-0.5">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      {{ with .Params.examples }}
+      <div>
+        <p class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#5a5a5a] mb-2">Examples</p>
+        <ul class="flex flex-col gap-1">
+          {{ range . }}
+          <li class="font-lora text-[13px] text-[#1a1a1a] leading-relaxed flex gap-2"><span class="text-[#822626] shrink-0">—</span>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with .Params.tags }}
+    <div class="flex flex-wrap gap-2 mt-6 pt-6 border-t border-[#d8d6d0]">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="font-montserrat font-bold text-[9px] tracking-[1.54px] uppercase text-[#822626] hover:underline">#{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
+
+  {{/* Article body */}}
+  {{ if .Content }}
+  <div class="markdown-content bg-white shadow-md p-8 mb-8 font-lora">
+    {{ .Content }}
+  </div>
+  {{ end }}
+
+  {{/* Back link */}}
+  <a href="/media-mechanisms/" class="font-montserrat font-bold text-[10px] tracking-[1.54px] uppercase text-[#5a5a5a] hover:text-black transition-colors">← All Media Mechanisms</a>
+
+</div>
+</div>
+{{ end }}

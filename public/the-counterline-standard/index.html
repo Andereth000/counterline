@@ -2,20 +2,13 @@
 <html lang="en-US">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVNBBQSD1K"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-KVNBBQSD1K');
-        }
-      </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVNBBQSD1K"></script>
+    <script>
+      window.dataLayer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? [] : window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KVNBBQSD1K');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Counterline Standard | The Counterline</title>
@@ -28,12 +21,12 @@
     <meta property="og:title" content="The Counterline Standard | The Counterline">
     <meta property="og:description" content="The Counterline">
     <meta property="og:url" content="http://localhost:1313/the-counterline-standard/">
-    
+    <meta property="og:image" content="http://localhost:1313/images/og-default.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Counterline Standard | The Counterline">
     <meta name="twitter:description" content="The Counterline">
-    
+    <meta name="twitter:image" content="http://localhost:1313/images/og-default.jpg">
 
     
 
@@ -45,6 +38,20 @@
 
     
     <script data-memberstack-app="app_cmp39e3b200010twu79tf3pzg" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
+
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </head>
 <body class="bg-white">
     <header class="w-full bg-white" x-data="{ mobileOpen: false }">
@@ -68,35 +75,86 @@
 
     
     <nav class="hidden md:flex flex-wrap items-center justify-center gap-5 w-full">
-      <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
-      <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
-      <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
-      <span class="block w-px h-[17.5px] bg-[#222221]"></span>
-      <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
-      <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
-      <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
       
-      <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-        <div class="flex items-center gap-1">
-          <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
-          <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
-            <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
-          </button>
+        
+        
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="/sections/politics/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Politics</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            
+            <a href="/pages/the-hello-world" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">The Hello World</a>
+            
+          </div>
         </div>
-        <div
-          x-show="open"
-          x-transition:enter="transition ease-out duration-100"
-          x-transition:enter-start="opacity-0 -translate-y-1"
-          x-transition:enter-end="opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-75"
-          x-transition:leave-start="opacity-100 translate-y-0"
-          x-transition:leave-end="opacity-0 -translate-y-1"
-          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
-        >
-          <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
-          <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
+        
+      
+        
+        
+        <a href="/sections/culture-media/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Culture &amp; Media</a>
+        
+      
+        
+        
+        <a href="/sections/society-economy/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Society &amp; Economy</a>
+        
+      
+        
+        
+        <a href="/sections/filmrem/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Filmrem</a>
+        
+      
+        
+        
+        <a href="/sections/the-counterline-standard/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">CL Standard</a>
+        
+      
+        
+        
+        <a href="/archive/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Archive</a>
+        
+      
+        
+        
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <div class="flex items-center gap-1">
+            <a href="/about/" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] no-underline hover:text-[#822626] transition-colors whitespace-nowrap uppercase">About</a>
+            <button @click="open = !open" class="font-montserrat font-bold text-[14px] leading-[1.2] text-[#222221] hover:text-[#822626] transition-colors whitespace-nowrap bg-transparent border-0 p-0 cursor-pointer flex items-center">
+              <span class="text-[10px]" x-text="open ? '▴' : '▾'"></span>
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-[#d8d6d0] shadow-md py-1 min-w-[180px] z-50"
+          >
+            
+            <a href="/about/#mission-values" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">Mission &amp; Values</a>
+            
+            <a href="/about/#how-we-report" @click="open = false" class="block px-4 py-[10px] font-montserrat font-bold text-[12px] tracking-[0.8px] text-[#222221] no-underline hover:bg-[#f2f0eb] hover:text-[#822626] transition-colors whitespace-nowrap uppercase">How We Report</a>
+            
+          </div>
         </div>
-      </div>
+        
+      
 
       <span class="block w-px h-[17.5px] bg-[#222221]"></span>
 
@@ -104,9 +162,9 @@
       <div class="flex items-stretch gap-3">
         <a href="/subscribe/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-black text-white border border-black hover:bg-brand-red transition-all whitespace-nowrap h-[38px]">Subscribe</a>
         <a href="/donate/" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 bg-[#822626] text-white border border-[#822626] hover:bg-black transition-all whitespace-nowrap h-[38px]">Donate</a>
-        
+
         <span class="flex items-center"><span class="block w-px h-[17.5px] bg-[#222221] mx-1"></span></span>
-        
+
         <span data-ms-content="!members" class="flex">
           <a href="#/ms/signup" data-ms-modal="signup" class="flex items-center justify-center font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase px-4 py-2 border border-black text-black bg-transparent hover:bg-black hover:text-white transition-all whitespace-nowrap no-underline h-[38px]">Sign In / Join</a>
         </span>
@@ -176,17 +234,42 @@
       x-transition:leave-end="opacity-0 -translate-y-2"
       class="w-full md:hidden flex flex-col border-t border-[#d8d6d0] pt-2"
     >
+      
       <a href="/sections/politics/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">POLITICS</a>
+      
+        
+        <a href="/pages/the-hello-world" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">THE HELLO WORLD</a>
+        
+      
+      
       <a href="/sections/culture-media/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CULTURE &amp; MEDIA</a>
+      
+      
       <a href="/sections/society-economy/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">SOCIETY &amp; ECONOMY</a>
+      
+      
       <a href="/sections/filmrem/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">FILMREM</a>
+      
+      
       <a href="/sections/the-counterline-standard/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">CL STANDARD</a>
+      
+      
       <a href="/archive/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ARCHIVE</a>
+      
+      
       <a href="/about/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase text-[#222221] no-underline py-3 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">ABOUT</a>
+      
+        
+        <a href="/about/#mission-values" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">MISSION &amp; VALUES</a>
+        
+        <a href="/about/#how-we-report" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[11px] tracking-[1.2px] uppercase text-[#5a5a5a] no-underline py-2 pl-4 border-b border-[#d8d6d0] hover:text-[#822626] transition-colors">HOW WE REPORT</a>
+        
+      
+      
       <div class="flex flex-col gap-2 py-3 border-b border-[#d8d6d0]">
         <a href="/subscribe/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-black text-white px-4 py-3 text-center transition-colors">SUBSCRIBE</a>
         <a href="/donate/" x-on:click="mobileOpen = false" class="font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase bg-[#822626] text-white px-4 py-3 text-center transition-colors">DONATE</a>
-        
+
         <span data-ms-content="!members" class="w-full">
           <a href="#/ms/signup" data-ms-modal="signup" x-on:click="mobileOpen = false" class="w-full font-montserrat font-bold text-[13px] tracking-[1.2px] uppercase border border-black text-black bg-transparent px-4 py-3 text-center transition-all block no-underline">SIGN IN / JOIN</a>
         </span>
@@ -285,11 +368,11 @@
    
   .footer-grid {
     display: grid;
-    grid-template-columns: 220px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 220px 1fr 1fr 1fr;
     gap: 0;
     border-bottom: 1px solid #2a2a2a;
   }
-  @media (max-width: 1200px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px)  { .footer-grid { grid-template-columns: 1fr; } }
 
   .footer-col { padding: 32px; border-right: 1px solid #2a2a2a; }
@@ -418,13 +501,19 @@
     letter-spacing: .08em;
     color: #888;
   }
-  .footer-bottom-right {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 11px;
-    font-style: italic;
-    color: #888;
-    letter-spacing: .02em;
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #555;
   }
+  .footer-legal a { color: #888; transition: color .15s; }
+  .footer-legal a:hover { color: #fff; }
+  .footer-legal-sep { color: #333; }
 </style>
 
 <footer class="footer">
@@ -433,7 +522,7 @@
   <div class="member-banner">
     <div class="member-left">
       <div class="member-eyebrow">Become a CounterLine Member</div>
-      <div class="member-title">Join the Publication</div>
+      <div class="member-title">Join Our Publication</div>
       <p class="member-desc">Members can post comments and participate in the CounterLine community. Free for everyone.</p>
     </div>
     <div class="member-tiers">
@@ -502,26 +591,17 @@
 
     
     <div class="footer-col">
-      <div class="footer-col-head">Newsletter</div>
-      <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;margin-bottom:14px;">Get mechanism-first analysis delivered directly to your inbox.</p>
-      <div class="beehiiv-footer-form">
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5c156d16-3db3-4be1-8ab4-5fd7932cf6c3"></script>
-      </div>
-    </div>
-
-    
-    <div class="footer-col">
-      <div class="footer-col-head">The CRIBSRAC Framework</div>
+      <div class="footer-col-head">The CRIBSRAC&trade; Framework</div>
       <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
       <div class="crib-mini">
         <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">S</span><span class="crib-mini-word">Social Reproduction</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Reflexivity</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">A</span><span class="crib-mini-word">Agency</span></div>
-        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Collective Action</span></div>
       </div>
       <a href="/about/#cribsrac" style="display:block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#822626;">Learn the Framework →</a>
     </div>
@@ -531,7 +611,11 @@
   
   <div class="footer-bottom">
     <div class="footer-bottom-left">&copy; 2026 The Counterline &middot; Independent Publication &middot; All rights reserved</div>
-    
+    <div class="footer-legal">
+      <a href="/pages/privacy-policy/">Privacy Policy</a>
+      <span class="footer-legal-sep">&middot;</span>
+      <a href="/pages/terms-of-service/">Terms of Service</a>
+    </div>
   </div>
 
 </footer>
