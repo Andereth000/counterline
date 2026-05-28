@@ -285,6 +285,18 @@ collections:
         fields:
           - { label: "Ticker Quote", name: ticker_quote, widget: string, hint: "The italicized quote shown in the homepage ticker bar" }
 
+      - name: social
+        label: Social Media Links
+        file: data/social.yml
+        fields:
+          - label: Social Links
+            name: items
+            widget: list
+            fields:
+              - { label: Platform, name: label, widget: string, hint: "e.g. Twitter / X" }
+              - { label: Icon, name: icon, widget: string, hint: "Single character or symbol shown in the icon box" }
+              - { label: URL, name: url, widget: string, required: false, hint: "Full URL including https://. Leave blank to hide this link." }
+
   # ── NAVIGATION ────────────────────────────────────────────────────────────
   - name: navigation
     label: Navigation

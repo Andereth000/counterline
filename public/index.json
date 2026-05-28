@@ -72,15 +72,6 @@
     "content": "The first question worth asking about the modern outrage environment is not why people are so angry. They have plenty to be angry about. The first question is why the anger recycles so predictably — why the same kind of story produces the same kind of reaction at the same kind of volume, week after week, and why after years of this pattern, almost nothing changes about the conditions that produced …"
   },
   {
-    "title": "Lorem Ipsum",
-    "url": "http://localhost:1313/articles/lorem-ipsum/",
-    "description": "Lorem Ipsum",
-    "author": "Lorem Ipsum",
-    "date": "May 12, 2026",
-    "desks": ["economic-synthesis"],
-    "content": "Lorem Ipsum\nhttp://localhost:1313/pages/the-hello-world/\n"
-  },
-  {
     "title": "Axios Turns a Ceasefire Power Struggle Into an Insider Shock Story",
     "url": "http://localhost:1313/articles/axios-ceasefire-power-struggle/",
     "description": "Axios wants the reader to register the shock before noticing the structure.",
@@ -124,5 +115,23 @@
     "date": "Apr 28, 2026",
     "desks": ["the-record"],
     "content": "A Rebuke, and Something More The easiest way to describe the House vote is also the least sufficient one. A Republican-led House broke with Donald Trump and voted to protect Haitian immigrants. That is true. The House passed a bipartisan bill, 224–204, to restore Temporary Protected Status for Haitians for three years, with 11 Republicans joining Democrats after the Trump administration moved to …"
+  },
+  {
+    "title": "Direct Action Halts Fossil Fuel Pipeline as Indigenous Leaders Demand Climate Justice",
+    "url": "http://localhost:1313/articles/climate-justice-now/",
+    "description": "",
+    "author": "Luna Rainbow",
+    "date": "Jan 11, 2024",
+    "desks": null,
+    "content": "In a powerful display of intersectional resistance, over 200 water protectors and climate justice activists successfully blocked construction of the Colonial Pipeline Corporation\u0026amp;rsquo;s latest ecological assault on unceded indigenous territories. This direct action represents a crucial convergence of decolonial struggle and climate justice organizing.\nCapitalism\u0026amp;rsquo;s Climate Catastrophe The …"
+  },
+  {
+    "title": "EXPOSED: Global Elites Push Digital Currency to Control American Freedom",
+    "url": "http://localhost:1313/articles/globalist-agenda-exposed/",
+    "description": "",
+    "author": "Buck Patriot",
+    "date": "Jan 11, 2024",
+    "desks": null,
+    "content": "In a shocking development that the mainstream media won\u0026amp;rsquo;t tell you about, global banking elites are accelerating their plan to eliminate physical currency and force Americans into a dystopian digital money system. My sources inside the Treasury Department have confirmed what patriots have long suspected - this isn\u0026amp;rsquo;t about convenience, it\u0026amp;rsquo;s about CONTROL.\nThe Globalist Playbook …"
   }
 ]

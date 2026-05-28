@@ -1,41 +1,31 @@
 {{ define "main" }}
-<div class="bg-[#fafaf8] min-h-screen font-montserrat antialiased">
-  
-  {{/* Standard Page Header */}}
-  <div class="w-full bg-white border-b border-[#d8d6d0]">
-    <div class="max-w-[1360px] mx-auto px-[50px] py-10 text-center">
-      <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">Support</p>
-      <h1 class="font-inter font-bold text-[28px] md:text-[36px] tracking-[-0.6px] leading-[1.1] text-black uppercase">Donate to The Counterline</h1>
-    </div>
+<div class="bg-white text-black font-montserrat antialiased">
+
+  <div class="max-w-[1360px] mx-auto px-[50px] py-10 border-b border-[#d8d6d0] text-center">
+    <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">Support</p>
+    <h1 class="font-montserrat font-bold text-[28px] md:text-[36px] tracking-[-0.6px] leading-[1.1] text-black uppercase">Donate to The Counterline</h1>
+    {{ with .Description }}<p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2 max-w-[800px] mx-auto">{{ . }}</p>{{ end }}
   </div>
 
   <div class="max-w-[800px] mx-auto px-6 py-16">
-    <div class="bg-white border border-[#d8d6d0] shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-10 md:p-16 text-center">
-      
-      {{ with .Description }}
-      <div class="mb-10">
-        <h2 class="font-inter font-bold text-[22px] text-black uppercase mb-4">{{ . }}</h2>
-      </div>
-      {{ end }}
 
-      {{/* Placeholder Embed Area */}}
-      <div class="border-2 border-dashed border-[#d8d6d0] bg-[#fafaf8] py-20 px-10">
-        <p class="font-montserrat font-bold text-[11px] tracking-[2px] uppercase text-[#999] mb-4 text-center">Payment Integration Placeholder</p>
-        <div class="flex justify-center gap-4">
-          <div class="w-12 h-8 bg-[#ebebeb]"></div>
-          <div class="w-12 h-8 bg-[#ebebeb]"></div>
-          <div class="w-12 h-8 bg-[#ebebeb]"></div>
-        </div>
-        <p class="mt-8 font-lora italic text-[14px] text-[#999]">Future Stripe / PayPal / Crypto Integration</p>
+    {{/* Placeholder Embed Area */}}
+    <div class="border-2 border-dashed border-[#d8d6d0] bg-[#fafaf8] py-20 px-10 text-center">
+      <p class="font-montserrat font-bold text-[11px] tracking-[2px] uppercase text-[#999] mb-4">Payment Integration Placeholder</p>
+      <div class="flex justify-center gap-4">
+        <div class="w-12 h-8 bg-[#ebebeb]"></div>
+        <div class="w-12 h-8 bg-[#ebebeb]"></div>
+        <div class="w-12 h-8 bg-[#ebebeb]"></div>
       </div>
-
-      {{ with .Content }}
-      <div class="mt-12 text-left markdown-content">
-        {{ . }}
-      </div>
-      {{ end }}
-
+      <p class="mt-8 font-lora italic text-[14px] text-[#999]">Future Stripe / PayPal / Crypto Integration</p>
     </div>
+
+    {{ with .Content }}
+    <div class="mt-12 markdown-content">
+      {{ . }}
+    </div>
+    {{ end }}
+
   </div>
 
 </div>

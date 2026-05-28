@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Desks on The Counterline</title>
-    <link>http://localhost:1313/desks/</link>
+    <link>https://dancing-lily-98f91e.netlify.app/desks/</link>
     <description>Recent content in Desks on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 14 May 2026 08:22:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/desks/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Press Check</title>
-      <link>http://localhost:1313/desks/press-check/</link>
-      <pubDate>Thu, 14 May 2026 08:22:00 -0500</pubDate>
-      <guid>http://localhost:1313/desks/press-check/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Tue, 12 May 2026 22:45:00 -0700</lastBuildDate>
+    <atom:link href="https://dancing-lily-98f91e.netlify.app/desks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Economic Synthesis</title>
-      <link>http://localhost:1313/desks/economic-synthesis/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/desks/economic-synthesis/</link>
       <pubDate>Tue, 12 May 2026 22:45:00 -0700</pubDate>
-      <guid>http://localhost:1313/desks/economic-synthesis/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/desks/economic-synthesis/</guid>
       <description></description>
     </item>
     <item>
       <title>Headline Autopsy</title>
-      <link>http://localhost:1313/desks/headline-autopsy/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/desks/headline-autopsy/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/desks/headline-autopsy/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/desks/headline-autopsy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Press Check</title>
+      <link>https://dancing-lily-98f91e.netlify.app/desks/press-check/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/desks/press-check/</guid>
       <description></description>
     </item>
     <item>
       <title>Spectacle Desk</title>
-      <link>http://localhost:1313/desks/spectacle-desk/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/desks/spectacle-desk/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/desks/spectacle-desk/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/desks/spectacle-desk/</guid>
       <description></description>
     </item>
     <item>
       <title>The Record</title>
-      <link>http://localhost:1313/desks/the-record/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/desks/the-record/</link>
       <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/desks/the-record/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/desks/the-record/</guid>
       <description></description>
     </item>
     <item>
       <title>Old News</title>
-      <link>http://localhost:1313/desks/old-news/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/desks/old-news/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/desks/old-news/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/desks/old-news/</guid>
       <description></description>
     </item>
   </channel>

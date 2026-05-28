@@ -6,7 +6,7 @@
 {{/* Ticker */}}
 <div class="relative bg-black border-t-2 border-b border-[#333] flex items-center justify-between px-5 py-[10px] w-full">
   <div class="flex gap-x-4 items-center min-w-0 shrink mr-4">
-    <div class="bg-[#822626] px-[9px] py-[3px] shrink-0">
+    <div class="bg-[#822626] px-[9px] py-[3px] shrink-0 flex items-center justify-center">
       <span class="font-montserrat font-bold text-[10px] text-white tracking-[1.4px] uppercase whitespace-nowrap">EMERGING NEWS</span>
     </div>
     {{ if $featured }}
@@ -31,11 +31,13 @@
           <span class="font-montserrat font-bold text-[10px] tracking-[2px] uppercase text-[#822626]">Featured Article</span>
           <span class="w-1 h-1 bg-[#d8d6d0]"></span>
           {{ $section := index $featured.Params.sections 0 | default "Uncategorized" }}
-          <span class="font-montserrat font-semibold text-[10px] tracking-[1.5px] uppercase text-[#5a5a5a]">{{ $section | replaceRE "-" " " }}</span>
+          {{ $sectionLabels := dict "society-economy" "Society & Economy" "culture-media" "Culture & Media" "the-counterline-standard" "The Counterline Standard" "filmrem" "Film & Review" }}
+          {{ $sectionLabel := index $sectionLabels $section | default ($section | replaceRE "-" " ") }}
+          <span class="font-montserrat font-semibold text-[10px] tracking-[1.5px] uppercase text-[#5a5a5a]">{{ $sectionLabel }}</span>
         </div>
         
         <a href="{{ $featured.Permalink }}" class="no-underline group mb-6">
-          <h2 class="font-inter font-bold text-[28px] md:text-[38px] lg:text-[46px] leading-[1.05] text-black uppercase tracking-tight group-hover:text-[#822626] transition-colors">
+          <h2 class="font-montserrat font-bold text-[28px] md:text-[38px] lg:text-[46px] leading-[1.05] text-black uppercase tracking-tight group-hover:text-[#822626] transition-colors">
             {{ $featured.Title }}
           </h2>
         </a>
@@ -200,7 +202,6 @@
       this.popular = this.popular.sort(() => Math.random() - 0.5).slice(0, 5);
     }
   }">
-    {{ partial "ads/right-rail.html" . }}
     <div class="border-b border-black pb-1 mb-1 w-full text-center">
       <p class="font-montserrat font-bold text-[11px] text-black tracking-[1.98px] uppercase">POPULAR</p>
     </div>
@@ -219,6 +220,7 @@
       </div>
     </template>
 
+    {{ partial "ads/right-rail.html" . }}
     <div class="flex flex-col gap-2 items-center pt-4 w-full">
       <p class="font-montserrat font-bold text-[#5a5a5a] text-[10px] tracking-[1.8px] uppercase">Mechanism First</p>
       <p class="font-lora text-[13px] text-black text-center">The <span class="font-bold text-[#822626]">CRIBSRAC&trade;</span> Framework</p>

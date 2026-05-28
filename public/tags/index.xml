@@ -2,24 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on The Counterline</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://dancing-lily-98f91e.netlify.app/tags/</link>
     <description>Recent content in Tags on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 12 May 2026 22:45:00 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dancing-lily-98f91e.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ipsum</title>
-      <link>http://localhost:1313/tags/ipsum/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/ipsum/</link>
       <pubDate>Tue, 12 May 2026 22:45:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/ipsum/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/ipsum/</guid>
       <description></description>
     </item>
     <item>
       <title>Lorem</title>
-      <link>http://localhost:1313/tags/lorem/</link>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/lorem/</link>
       <pubDate>Tue, 12 May 2026 22:45:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/lorem/</guid>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/lorem/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Climate Crisis</title>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/climate-crisis/</link>
+      <pubDate>Thu, 11 Jan 2024 16:00:00 -0500</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/climate-crisis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Decolonial Struggle</title>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/decolonial-struggle/</link>
+      <pubDate>Thu, 11 Jan 2024 16:00:00 -0500</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/decolonial-struggle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Financial Freedom</title>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/financial-freedom/</link>
+      <pubDate>Thu, 11 Jan 2024 16:00:00 -0500</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/financial-freedom/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Globalist Agenda</title>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/globalist-agenda/</link>
+      <pubDate>Thu, 11 Jan 2024 16:00:00 -0500</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/globalist-agenda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resistance</title>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/resistance/</link>
+      <pubDate>Thu, 11 Jan 2024 16:00:00 -0500</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/resistance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sovereignty</title>
+      <link>https://dancing-lily-98f91e.netlify.app/tags/sovereignty/</link>
+      <pubDate>Thu, 11 Jan 2024 16:00:00 -0500</pubDate>
+      <guid>https://dancing-lily-98f91e.netlify.app/tags/sovereignty/</guid>
       <description></description>
     </item>
   </channel>

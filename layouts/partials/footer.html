@@ -223,28 +223,16 @@
 
     {{/* Brand + social */}}
     <div class="footer-col">
-      <div class="footer-brand-name">The Counterline</div>
-      <div class="footer-brand-tag">Structure without spectacle.</div>
-      {{/*<p class="footer-mission">We track dominant framing and publish the mechanism beneath it. No panic loops. No both-sides fog. Just structure.</p>*/}}
+      <div class="footer-brand-name">{{ site.Title }}</div>
+      <div class="footer-brand-tag">{{ site.Params.tagline }}</div>
       <div class="social-links">
-        <a class="social-link" href="#">
-          <span class="social-icon">𝕏</span>Twitter / X
+        {{ range site.Data.social.items }}
+        {{ if .url }}
+        <a class="social-link" href="{{ .url }}">
+          <span class="social-icon">{{ .icon }}</span>{{ .label }}
         </a>
-        <a class="social-link" href="#">
-          <span class="social-icon">in</span>LinkedIn
-        </a>
-        <a class="social-link" href="#">
-          <span class="social-icon">f</span>Facebook
-        </a>
-        <a class="social-link" href="#">
-          <span class="social-icon">☁</span>Bluesky
-        </a>
-        <a class="social-link" href="#">
-          <span class="social-icon">IG</span>Instagram
-        </a>
-        <a class="social-link" href="#">
-          <span class="social-icon">▶</span>YouTube
-        </a>
+        {{ end }}
+        {{ end }}
       </div>
     </div>
 
@@ -282,7 +270,7 @@
       <div class="footer-col-head">The CRIBSRAC&trade; Framework</div>
       <p style="font-family:'Lora',Georgia,serif;font-size:13px;font-style:italic;color:#888;line-height:1.65;">Our analytical lens for tracing how a headline becomes a public reality. Eight lenses. One framework. Every brief.</p>
       <div class="crib-mini">
-        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive</span></div>
+        <div class="crib-mini-item"><span class="crib-mini-l">C</span><span class="crib-mini-word">Cognitive Bias</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">R</span><span class="crib-mini-word">Rhetoric</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">I</span><span class="crib-mini-word">Ideology</span></div>
         <div class="crib-mini-item"><span class="crib-mini-l">B</span><span class="crib-mini-word">Belief</span></div>
@@ -298,7 +286,7 @@
 
   {{/* Bottom bar */}}
   <div class="footer-bottom">
-    <div class="footer-bottom-left">&copy; {{ now.Format "2006" }} The Counterline &middot; Independent Publication &middot; All rights reserved</div>
+    <div class="footer-bottom-left">&copy; {{ now.Format "2006" }} {{ site.Title }} &middot; {{ site.Params.copyrightSuffix }} &middot; All rights reserved</div>
     <div class="footer-legal">
       <a href="/pages/privacy-policy/">Privacy Policy</a>
       <span class="footer-legal-sep">&middot;</span>

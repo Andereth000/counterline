@@ -10,7 +10,7 @@
       {{ end }}
 
       {{ with $image }}
-      <img src="{{ . }}" alt="" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-full object-cover group-hover:opacity-90 transition-opacity">
       {{ else }}
       <div class="w-full h-full flex items-center justify-center">
         <span class="font-montserrat font-bold text-[#d8d6d0] text-[14px] uppercase tracking-widest">The Counterline</span>

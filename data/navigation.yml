@@ -1,9 +1,7 @@
 items:
   - label: Politics
     url: /sections/politics/
-    children:
-      - label: The Hello World
-        url: /pages/the-hello-world
+    children: []
   - label: Culture & Media
     url: /sections/culture-media/
   - label: Society & Economy

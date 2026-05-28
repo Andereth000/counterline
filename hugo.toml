@@ -5,7 +5,9 @@ theme = 'hugo-news'
 googleAnalytics = 'G-KVNBBQSD1K'
 
 [params]
-  description = "The Counterline"
+  description = "Structure without spectacle."
+  tagline = "Structure without spectacle."
+  copyrightSuffix = "Independent Publication"
   author = "The Counterline"
   beehiivPubId = "8b80fd66-7356-458f-87f0-1c85248dd41c"
   ogImage = "/images/og-default.jpg"

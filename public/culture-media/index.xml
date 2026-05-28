@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Culture &amp; Media on The Counterline</title>
-    <link>http://localhost:1313/culture-media/</link>
+    <link>https://dancing-lily-98f91e.netlify.app/culture-media/</link>
     <description>Recent content in Culture &amp; Media on The Counterline</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/culture-media/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dancing-lily-98f91e.netlify.app/culture-media/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

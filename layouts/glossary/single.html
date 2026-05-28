@@ -8,7 +8,7 @@
   {{/* Term heading */}}
   <div class="border-t-4 border-black pt-6 mb-8">
     <p class="font-montserrat font-bold text-[9px] tracking-[1.98px] uppercase text-[#822626] mb-3">Term</p>
-    <h1 class="font-inter font-bold text-[36px] md:text-[48px] tracking-[-1px] leading-[1.05] text-black uppercase mb-6">{{ .Title }}</h1>
+    <h1 class="font-montserrat font-bold text-[36px] md:text-[48px] tracking-[-1px] leading-[1.05] text-black uppercase mb-6">{{ .Title }}</h1>
     {{ with .Params.definition }}
     <div class="font-lora text-[17px] leading-[1.75] text-[#1a1a1a] border-l-[3px] border-[#822626] pl-5">
       {{ . | markdownify }}

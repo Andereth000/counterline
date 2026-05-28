@@ -6,7 +6,7 @@
     {{ if .Data.Singular }}
     <p class="font-montserrat font-bold text-[10px] tracking-[1.98px] uppercase text-[#822626] mb-2">{{ .Data.Plural | title }}</p>
     {{ end }}
-    <h1 class="font-inter font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black uppercase">{{ .Title }}</h1>
+    <h1 class="font-montserrat font-bold text-[36px] tracking-[-0.9px] leading-[1.1] text-black uppercase">{{ .Title }}</h1>
     {{ with .Description }}
     <p class="font-lora italic text-[#5a5a5a] text-[16px] mt-2 max-w-[800px] mx-auto">{{ . }}</p>
     {{ end }}
